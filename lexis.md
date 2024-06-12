@@ -9,10 +9,8 @@ Java programs are composed of characters from the Unicode character set.
 
 # Comments
 
-Comments are used by humans to clarify source code. There are three types of
-comments in Java.
-
-Here is the markdown table created from the lines you provided:
+Comments are used by humans to clarify source code. There are three types of  
+comments in Java:  
 
 | Comment type | Meaning |
 | --- | --- |
@@ -216,8 +214,8 @@ This is a partial list of Java operators.
 
 ## Separators 
 
-A separator is a sequence of one or more characters used to specify the boundary
-between separate, independent regions in plain text or other data stream.  
+A separator is a sequence of one or more characters used to specify the boundary  
+between separate, independent regions in plain text or other data stream.    
 
 ```
 [ ]   ( )   { }   ,   ;   .   "
@@ -234,11 +232,11 @@ semicolon ; character is used to end each Java statement.
 System.out.println("Java language");
 ```
 
-Parentheses (round brackets) always follow a method name. Between the
-parentheses we declare the input parameters. The parentheses are present even if
-the method does not take any parameters. The `System.out.println` method takes one
-parameter, a string value. The dot character separates the class name (System)
-from the member (`out`) and the member from the method name (`println`).
+Parentheses (round brackets) always follow a method name. Between the  
+parentheses we declare the input parameters. The parentheses are present even if  
+the method does not take any parameters. The `System.out.println` method takes one  
+parameter, a string value. The dot character separates the class name (`System`)  
+from the member (`out`) and the member from the method name (`println`).  
 
 ```java
 int[] array = new int[5] { 1, 2, 3, 4, 5 };
