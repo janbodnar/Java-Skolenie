@@ -415,7 +415,7 @@ expression is evaluated to false.
 i++;
 ```
 
-The last phase of the `while` loop is the updating. We increment the counter.
+The last phase of the `while` loop is the updating. We increment the counter.  
 Note that improper handling of the `while` loops may lead to endless cycles.  
 
 There is a modified version of the while statement. It is the do while  
