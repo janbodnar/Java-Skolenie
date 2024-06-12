@@ -2,4 +2,4 @@
 Java skolenie
 
 
-(java.jpg "Java language")
+(./java.jpg "Java language")
