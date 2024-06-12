@@ -48,9 +48,9 @@ unrestricted access to this class. The above code is a class definition. The
 definition has a body that starts with a left curly brace `{` and ends with a  
 right curly brace `}`. Only one class can be declared public in a source file.  
 
-Also note the name of the class. Its name must match the file name. The source
-file is called Simple.java and the class Simple. It is a convention that the
-names of classes start with an uppercase letter.
+Also note the name of the class. Its name must match the file name. The source  
+file is called `Simple.java` and the class `Simple`. It is a convention that the  
+names of classes start with an uppercase letter.  
 
 ```java
 public static void main(String[] args) {
@@ -441,7 +441,7 @@ Here we have two variables, one integer and one string.
 String output = String.format("%s is %d years old.", name, age);
 ```
 
-We use the `format` method of the built-in `String` class. The `%s` and `%d` are
-control characters which are later evaluated. The `%s` accepts string values,
+We use the `format` method of the built-in `String` class. The `%s` and `%d` are  
+control characters which are later evaluated. The `%s` accepts string values,  
 the `%d` integer values.
 
