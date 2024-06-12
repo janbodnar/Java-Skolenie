@@ -94,7 +94,7 @@ void main() {
 }
 ```
 
-Either the block following the if keyword or the block following the else
+Either the block following the if keyword or the block following the else  
 keyword is executed.
 
 ```java
@@ -108,7 +108,7 @@ if (num > 0) {
 }
 ```
 
-The `else` keyword follows the right curly bracket of the `if` block. It has its
+The `else` keyword follows the right curly bracket of the `if` block. It has its  
 own block enclosed by a pair of curly brackets.
 
 ## Multiple branches with if else
@@ -145,7 +145,7 @@ void main() {
 }
 ```
 
-We receive a value from the user test it if it is a negative number or positive,
+We receive a value from the user test it if it is a negative number or positive,  
 or if it equals to zero.
 
 ```java
@@ -186,7 +186,7 @@ else block is always executed if the previous conditions were not met.
 ## The switch statement
 
 The `switch` statement is a selection control flow statement. It allows the  
-value of a variable or expression to control the flow of a program execution via
+value of a variable or expression to control the flow of a program execution via  
 a multi-way branch. It creates multiple branches in a simpler way than using the  
 combination of if and else if statements. Each branch is ended with the break  
 keyword.  
@@ -287,13 +287,13 @@ default:
     break;
 ```
 
-The default keyword is optional. If none of the case options is evaluated, then
-the default section is executed.
+The default keyword is optional. If none of the case options is evaluated, then  
+the default section is executed.  
 
 
 ## The switch expression
 
-Java switch expression simplifies the original switch statement. It allows using
+Java switch expression simplifies the original switch statement. It allows using  
 multiple case labels called arms.
 
 ```java
@@ -320,13 +320,13 @@ void main() {
 }
 ```
 
-The previous `switch` statement example is rewritten using switch expression.
+The previous `switch` statement example is rewritten using switch expression.  
 
 ```java
 case "us" -> System.out.println("United States");
 ```
 
-The switch expression the `->` to separate label from the statement. The break
+The switch expression the `->` to separate label from the statement. The break  
 statement is not needed, once an option is matched, other options are not  
 evaluated.  
 
@@ -358,13 +358,13 @@ void main() {
 }
 ```
 
-This is a modified version of the previous example. The arms now return a string
-value, which is printed later.
+This is a modified version of the previous example. The arms now return a string  
+value, which is printed later.  
 
 ##  The while statement
 
-The while statement is a control flow statement that allows code to be executed
-repeatedly based on a given boolean condition.
+The while statement is a control flow statement that allows code to be executed  
+repeatedly based on a given boolean condition.  
 
 ```
 while (expression) {
@@ -415,8 +415,8 @@ expression is evaluated to false.
 i++;
 ```
 
-The last phase of the `while` loop is the updating. We increment the counter. Note
-that improper handling of the `while` loops may lead to endless cycles.
+The last phase of the `while` loop is the updating. We increment the counter.
+Note that improper handling of the `while` loops may lead to endless cycles.  
 
 There is a modified version of the while statement. It is the do while  
 statement. It is guaranteed that the statements inside the block are run at  
@@ -492,8 +492,8 @@ void main() {
 }
 ```
 
-We have an array holding the names of planets in our Solar System. Using two for
-loops, we print the values in ascending and descending orders.
+We have an array holding the names of planets in our Solar System. Using two for  
+loops, we print the values in ascending and descending orders.  
 
 ```java
 for (int i = 0; i < planets.length; i++) {
@@ -520,7 +520,7 @@ has index array `size-1`. The condition ensures that the counter is greater or
 equal to zero. (Array indexes cannot be negative). In the third step, the `i`  
 counter is decremented by one.  
 
-More expressions can be placed in the initialization and iteration phase of the
+More expressions can be placed in the initialization and iteration phase of the  
 for loop.
 
 ```java
@@ -546,7 +546,7 @@ void main() {
 }
 ```
 
-In our example, we create an array of ten random numbers. A sum of the numbers
+In our example, we create an array of ten random numbers. A sum of the numbers  
 is calculated.
 
 ```java
@@ -583,7 +583,7 @@ void main() {
 }
 ```
 
-In this example, we use the enhanced for statement to go through an array of
+In this example, we use the enhanced for statement to go through an array of  
 planets.
 
 ```java
@@ -593,16 +593,16 @@ for (String planet : planets) {
 }
 ```
 
-The usage of the for statement is straightforward. The planets is the array that
-we iterate through. A `planet` is the temporary variable that has the current
-value from the array. The for statement goes through all the `planets` and
-prints them to the console.
+The usage of the for statement is straightforward. The planets is the array that  
+we iterate through. A `planet` is the temporary variable that has the current  
+value from the array. The for statement goes through all the `planets` and  
+prints them to the console.  
 
 
 ## The break statement
 
-The `break` statement can be used to terminate a block defined by `while`,
-`for`, or `switch` statements.
+The `break` statement can be used to terminate a block defined by `while`,  
+`for`, or `switch` statements.  
 
 ```java
 import java.util.Random;
@@ -657,7 +657,7 @@ The `continue` statement is used to skip a part of the loop and continue with
 the next iteration of the loop. It can be used in combination with for and `while`  
 statements.  
 
-In the following example, we print a list of numbers that cannot be divided by 2
+In the following example, we print a list of numbers that cannot be divided by 2  
 without a remainder.
 
 ```java
