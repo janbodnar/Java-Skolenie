@@ -40,3 +40,24 @@ debuggers for developing Java applications.
 JDK (Java Development Kit) is a superset of the JRE. It contains JRE and tools  
 such as the compilers and debuggers necessary for developing Java applications.  
 We need to install JDK to build and run our Java programs.  
+
+## GraalVM
+
+GraalVM is a high-performance JDK distribution designed to accelerate the  
+execution of applications written in Java and other JVM languages⁵. It provides  
+significant improvements in application performance and efficiency, making it  
+ideal for microservices. 
+
+Key features of GraalVM include:
+
+- An alternative just-in-time (JIT) compiler that can speed up the performance of  
+  Java and JVM-based applications.  
+- A native image utility that compiles Java bytecode ahead-of-time (AOT) and generates  
+  native executables for some applications. These executables start up almost  
+  instantaneously and use very little memory resources.  
+- Support for JavaScript, Ruby, Python, and a number of other popular languages.    
+- Multilanguage interoperability through the Truffle language implementation framework.   
+
+GraalVM started in 2011 as a research project at Oracle Labs to create a runtime platform  
+that can run multiple programming languages with high performance.  
+
