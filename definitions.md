@@ -16,6 +16,8 @@ developed by Oracle corporation.
 Java excels in creating portable mobile applications, programming various  
 appliances and in creating enterprise applications.  
 
+![Java](imamges/java2.jpg)
+
 ## JVM
 
 Java virtual machine (JVM) executes Java bytecode. The JVM is included in the  
