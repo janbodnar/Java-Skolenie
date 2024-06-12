@@ -1,5 +1,5 @@
 # Java-Skolenie
 Java skolenie
 
-![](images java.jpg)
+[Java](images java.jpg)
 
