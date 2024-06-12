@@ -124,21 +124,21 @@ terminal and the value is read and printed back to the terminal.
 import java.util.Scanner;
 ```
 
-The Java standard library has a huge collection of classes available for
-programmers. They are organized inside packages. The Scanner class is one of
-them. When we import a class with the `import` keyword, we can refer later to the
-class without the full package name. Otherwise, we must use the fully qualified
-name. The `import` allows a shorthand referring for classes. This is different
-from some other languages. For instance in Python, the `import` keyword imports
-objects into the namespace of a script. In Java, the `import` keyword only saves
-typing by allowing to refer to types without specifying the full name.
+The Java standard library has a huge collection of classes available for  
+programmers. They are organized inside packages. The Scanner class is one of  
+them. When we import a class with the `import` keyword, we can refer later to the  
+class without the full package name. Otherwise, we must use the fully qualified  
+name. The `import` allows a shorthand referring for classes. This is different  
+from some other languages. For instance in Python, the `import` keyword imports  
+objects into the namespace of a script. In Java, the `import` keyword only saves  
+typing by allowing to refer to types without specifying the full name.  
 
 ```java
 System.out.print("Write your name:");
 ```
 
-We print a message to the user. We use the `print` method which does not start a
-new line. The user then types his response next to the message.
+We print a message to the user. We use the `print` method which does not start a  
+new line. The user then types his response next to the message.  
 
 ```java
 Scanner sc = new Scanner(System.in);
@@ -177,8 +177,8 @@ This is a sample execution of the second program.
 
 ## Command line arguments
 
-Java programs can receive command line arguments. They follow the name of the
-program when we run it.
+Java programs can receive command line arguments. They follow the name of the  
+program when we run it.  
 
 ```java
 package com.zetcode;
@@ -214,14 +214,14 @@ for (String arg : args) {
 }
 ```
 
-We go through the array of these arguments with a for loop and print them to the
-console. The for loop consists of cycles. In this case, the number of cycles
-equals to the number of parameters in the array. In each cycle, a new element is
-passed to the arg variable from the `args` array. The loop ends when all
-elements of the array were passed. The for statement has a body enclosed by
-curly brackets `{}`. In this body, we place statements that we want to be
-executed in each cycle. In our case, we simply print the value of the `arg`
-variable to the terminal. Loops and arrays will be described in more detail
+We go through the array of these arguments with a for loop and print them to the  
+console. The for loop consists of cycles. In this case, the number of cycles  
+equals to the number of parameters in the array. In each cycle, a new element is  
+passed to the arg variable from the `args` array. The loop ends when all  
+elements of the array were passed. The for statement has a body enclosed by  
+curly brackets `{}`. In this body, we place statements that we want to be  
+executed in each cycle. In our case, we simply print the value of the `arg`  
+variable to the terminal. Loops and arrays will be described in more detail  
 later.
 
 ```java
