@@ -138,12 +138,7 @@ public class CaseSensitiveIdentifiers {
 Name and name are two different identifiers. In Visual Basic, this would not be  
 possible. In this language, variable names are not case sensitive.  
 
-```
-$ java com.zetcode.CaseSensitiveIdentifiers 
-Robert
-Julia
-Java literals
-```
+---
 
 A literal is a textual representation of a particular value of a type. Literal  
 types include boolean, integer, floating point, string, null, or character.  
