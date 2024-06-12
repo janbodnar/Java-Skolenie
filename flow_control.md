@@ -115,10 +115,10 @@ own block enclosed by a pair of curly brackets.
 
 We can create multiple branches using the `else if` keyword. The `else if`  
 keyword tests for another condition if and only if the previous condition was  
-not met. Note that we can use multiple `else if` keywords in our tests.  
+not met. Note that we can use multiple `else if` keywords in our tests.   
 
-The previous program had a slight issue. Zero was given to negative values. The  
-following program will fix this.  
+The previous program had a slight issue. Zero was given to negative values. The   
+following program will fix this.   
 
 ```java
 import java.util.Scanner;
