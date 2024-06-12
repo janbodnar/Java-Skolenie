@@ -2,7 +2,7 @@
 
 
 
-Java simple example
+## First example
 
 We start with a very simple code example. The following code is placed into the  
 Simple.java file. The naming is important here. A public class of a Java program  
