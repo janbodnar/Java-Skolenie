@@ -76,9 +76,9 @@ restrictions. These topics will be later explained in more detail.
 System.out.println("This is Java");
 ```
 
-In the main method, we put one statement. The statement prints the 
-`"This is Java"`, which is a string literal, to the console. Each statement must  
-be finished with a semicolon ; character. This statement is a method call. We call  
+In the main method, we put one statement. The statement prints the  
+`"This is Java"`, which is a string literal, to the console. Each statement must   
+be finished with a semicolon `;` character. This statement is a method call. We call  
 the println method of the System class. The class represents the standard input,  
 output, and error streams for console applications. We specify the fully   
 qualified name of the `println` method.  
