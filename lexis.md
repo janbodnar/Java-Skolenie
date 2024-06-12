@@ -188,15 +188,6 @@ In the above example, we have several literal values. 23 is an integer literal.
 literal that represents a missing value. 68.5 is a floating point literal. 'J'  
 is a character literal.  
 
-```
-$ java com.zetcode.Literals 
-His name is James
-His is 23 years old
-He is single
-His job is null
-He weighs 68.500000 kilograms
-His name begins with J
-```
 
 ## Operators
 
