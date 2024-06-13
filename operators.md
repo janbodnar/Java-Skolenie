@@ -25,16 +25,11 @@ There are two sign operators: `+` and `-`. They are used to indicate or change
 the sign of a value.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class SignOperators {
-
-    public static void main(String[] args) {
-
-        System.out.println(2);
-        System.out.println(+2);
-        System.out.println(-2);
-    }
+    System.out.println(2);
+    System.out.println(+2);
+    System.out.println(-2);
 }
 ```
 
@@ -43,17 +38,12 @@ signal that we have a positive number. It can be omitted and it is mostly done
 so.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class MinusSign {
+    int a = 1;
 
-    public static void main(String[] args) {
-
-        int a = 1;
-
-        System.out.println(-a);
-        System.out.println(-(-a));
-    }
+    System.out.println(-a);
+    System.out.println(-(-a));
 }
 ```
 
@@ -92,15 +82,10 @@ This code line results in syntax error. We cannot assign a value to a literal.
 In Java the `+` operator is also used to concatenate strings.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class ConcatenateStrings {
-
-    public static void main(String[] args) {
-
-        System.out.println("Return " + "of " + "the king.");
-        System.out.println("Return".concat(" of").concat(" the king."));
-    }
+    System.out.println("Return " + "of " + "the king.");
+    System.out.println("Return".concat(" of").concat(" the king."));
 }
 ```
 
@@ -117,6 +102,7 @@ System.out.println("Return".concat(" of").concat(" the king."));
 ```
 
 An alternative method for concatenating strings is the concat method.
+
 
 ## Increment and decrement operators
 
@@ -135,22 +121,17 @@ y = y - 1;
 The above two pairs of expressions do the same.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class IncDec {
+    int x = 6;
 
-    public static void main(String[] args) {
+    x++;
+    x++;
 
-        int x = 6;
+    System.out.println(x);
 
-        x++;
-        x++;
-
-        System.out.println(x);
-
-        x--;
-        System.out.println(x);
-    }
+    x--;
+    System.out.println(x);
 }
 ```
 
@@ -172,6 +153,7 @@ x--;
 
 We use the decrement operator. Now the variable equals to 7.
 
+
 ## Arithmetic operators
 
 The following is a table of arithmetic operators in Java.
@@ -191,28 +173,23 @@ Here is the data you provided in a markdown table format:
 The following example shows arithmetic operations.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Arithmetic {
+    int a = 10;
+    int b = 11;
+    int c = 12;
 
-    public static void main(String[] args) {
+    int add = a + b + c;
+    int sb = c - a;
+    int mult = a * b;
+    int div = c / 3;
+    int rem = c % a;
 
-        int a = 10;
-        int b = 11;
-        int c = 12;
-
-        int add = a + b + c;
-        int sb = c - a;
-        int mult = a * b;
-        int div = c / 3;
-        int rem = c % a;
-
-        System.out.println(add);
-        System.out.println(sb);
-        System.out.println(mult);
-        System.out.println(div);
-        System.out.println(rem);
-    }
+    System.out.println(add);
+    System.out.println(sb);
+    System.out.println(mult);
+    System.out.println(div);
+    System.out.println(rem);
 }
 ```
 
@@ -230,18 +207,13 @@ is 1, because 4 goes into 9 twice with a remainder of 1.
 Next we show the distinction between integer and floating point division.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Division {
+    int c = 5 / 2;
+    System.out.println(c);
 
-    public static void main(String[] args) {
-
-        int c = 5 / 2;
-        System.out.println(c);
-
-        double d = 5 / 2.0;
-        System.out.println(d);
-    }
+    double d = 5 / 2.0;
+    System.out.println(d);
 }
 ```
 
@@ -279,22 +251,17 @@ Here is the data you provided in a markdown table format:
 Boolean operators are also called logical.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class BooleanOperators {
+    int x = 3;
+    int y = 8;
 
-    public static void main(String[] args) {
+    System.out.println(x == y);
+    System.out.println(y > x);
 
-        int x = 3;
-        int y = 8;
+    if (y > x) {
 
-        System.out.println(x == y);
-        System.out.println(y > x);
-
-        if (y > x) {
-
-            System.out.println("y is greater than x");
-        }
+        System.out.println("y is greater than x");
     }
 }
 ```
@@ -324,22 +291,17 @@ is printed to the terminal.
 The `true` and `false` keywords represent boolean literals in Java.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class AndOperator {
+    boolean a = true && true;
+    boolean b = true && false;
+    boolean c = false && true;
+    boolean d = false && false;
 
-    public static void main(String[] args) {
-
-        boolean a = true && true;
-        boolean b = true && false;
-        boolean c = false && true;
-        boolean d = false && false;
-
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-    }
+    System.out.println(a);
+    System.out.println(b);
+    System.out.println(c);
+    System.out.println(d);
 }
 ```
 
@@ -351,22 +313,17 @@ The logical or `||` operator evaluates to `true` if either of the operands is
 `true`.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class OrOperator {
+    boolean a = true || true;
+    boolean b = true || false;
+    boolean c = false || true;
+    boolean d = false || false;
 
-    public static void main(String[] args) {
-
-        boolean a = true || true;
-        boolean b = true || false;
-        boolean c = false || true;
-        boolean d = false || false;
-
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-    }
+    System.out.println(a);
+    System.out.println(b);
+    System.out.println(c);
+    System.out.println(d);
 }
 ```
 
@@ -378,16 +335,11 @@ If one of the sides of the operator is `true`, the outcome of the operation is
 The negation operator `!` makes `true` `false` and false `true`.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Negation {
-
-    public static void main(String[] args) {
-
-        System.out.println(! true);
-        System.out.println(! false);
-        System.out.println(! (4 < 3));
-    }
+    System.out.println(! true);
+    System.out.println(! false);
+    System.out.println(! (4 < 3));
 }
 ```
 
@@ -489,17 +441,12 @@ Here is the data you provided in a markdown table format:
 Relational operators are also called comparison operators.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Relational {
-
-    public static void main(String[] args) {
-
-        System.out.println(3 < 4);
-        System.out.println(3 == 4);
-        System.out.println(4 >= 3);
-        System.out.println(4 != 3);
-    }
+    System.out.println(3 < 4);
+    System.out.println(3 == 4);
+    System.out.println(4 >= 3);
+    System.out.println(4 != 3);
 }
 ```
 
@@ -609,23 +556,18 @@ Other compound operators are:
 The following example uses two compound operators.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class CompoundOperators {
+    int a = 1;
+    a = a + 1;
 
-    public static void main(String[] args) {
+    System.out.println(a);
 
-        int a = 1;
-        a = a + 1;
+    a += 5;
+    System.out.println(a);
 
-        System.out.println(a);
-
-        a += 5;
-        System.out.println(a);
-
-        a *= 3;
-        System.out.println(a);
-    }
+    a *= 3;
+    System.out.println(a);
 }
 ```
 
@@ -652,6 +594,7 @@ a *= 3;
 
 Using the `*=` operator, the a is multiplied by 3. The statement is equal to  
 `a = a * 3;`.
+
 
 ## The instanceof operator
 
@@ -721,20 +664,15 @@ expression to return a value; curly braces are required to indicate that the
 expression returns a value.  
 
 ```java
-package com.zetcode;
-
 import java.util.Arrays;
 
-public class LambdaExpression {
+void main() {
 
-    public static void main(String[] args) {
+    String[] words = { "kind", "massive", "atom", "car", "blue" };
 
-        String[] words = { "kind", "massive", "atom", "car", "blue" };
+    Arrays.sort(words, (String s1, String s2) -> (s1.compareTo(s2)));
 
-        Arrays.sort(words, (String s1, String s2) -> (s1.compareTo(s2)));
-
-        System.out.println(Arrays.toString(words));
-    }
+    System.out.println(Arrays.toString(words));
 }
 ```
 
@@ -799,17 +737,12 @@ There are some common functional interfaces, such as `Function`, `Consumer`, or
 `Supplier`.
 
 ```java
-package com.zetcode;
-
 import java.util.function.Function;
 
-public class LambdaExpression3 {
+void main() {
 
-    public static void main(String[] args) {
-
-        Function<Integer, Integer> square = (Integer x) -> x * x;
-        System.out.println(square.apply(5));
-    }
+    Function<Integer, Integer> square = (Integer x) -> x * x;
+    System.out.println(square.apply(5));
 }
 ```
 
@@ -932,18 +865,13 @@ Operators on the same row of the table have the same precedence. If we use
 operators with the same precedence, then the associativity rule is applied.  
  
 ```java
-package com.zetcode;
+void main() {
 
-public class Precedence {
+    System.out.println(3 + 5 * 5);
+    System.out.println((3 + 5) * 5);
 
-    public static void main(String[] args) {
-
-        System.out.println(3 + 5 * 5);
-        System.out.println((3 + 5) * 5);
-
-        System.out.println(! true | true);
-        System.out.println(! (true | true));
-    }
+    System.out.println(! true | true);
+    System.out.println(! (true | true));
 }
 ```
 
@@ -987,22 +915,17 @@ unary plus and minus, negation, bitwise NOT, type cast, object creation
 operators are right to left associated.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Associativity {
+    int a, b, c, d;
+    a = b = c = d = 0;
 
-    public static void main(String[] args) {
+    String str = String.format("%d %d %d %d", a, b, c, d);
+    System.out.println(str);
 
-        int a, b, c, d;
-        a = b = c = d = 0;
-
-        String str = String.format("%d %d %d %d", a, b, c, d);
-        System.out.println(str);
-
-        int j = 0;
-        j *= 3 + 1;
-        System.out.println(j);
-    }
+    int j = 0;
+    j *= 3 + 1;
+    System.out.println(j);
 }
 ```
 
@@ -1041,18 +964,13 @@ If cond-exp is `true`, exp1 is evaluated and the result is returned. If the
 cond-exp is `false`, exp2 is evaluated and its result is returned.
 
 ```java
-package com.zetcode;
+void main() {
 
-public class TernaryOperator {
+    int age = 31;
 
-    public static void main(String[] args) {
+    boolean adult = age >= 18 ? true : false;
 
-        int age = 31;
-
-        boolean adult = age >= 18 ? true : false;
-
-        System.out.println(String.format("Adult: %s", adult));
-    }
+    System.out.println(String.format("Adult: %s", adult));
 }
 ```
 
@@ -1075,52 +993,48 @@ value is then assigned to the adult variable.
 In the following example, we are going to calculate prime numbers.
 
 ```java
-package com.zetcode;
 
-public class PrimeNumbers {
+void main() {
 
-    public static void main(String[] args) {
-
-        int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7, 8,
+    int[] nums = {0, 1, 2, 3, 4, 5, 6, 7, 8,
             9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
-            19, 20, 21, 22, 23, 24, 25, 26, 27, 28 };
+            19, 20, 21, 22, 23, 24, 25, 26, 27, 28};
 
-        System.out.print("Prime numbers: ");
+    System.out.print("Prime numbers: ");
 
-        for (int num : nums) {
+    for (int num : nums) {
 
-            if (num == 0 || num == 1) {
-                continue;
-            }
-
-            if (num == 2 || num == 3) {
-
-                System.out.print(num + " ");
-                continue;
-            }
-
-            int i = (int) Math.sqrt(num);
-
-            boolean isPrime = true;
-
-            while (i > 1) {
-
-                if (num % i == 0) {
-
-                    isPrime = false;
-                }
-
-                i--;
-            }
-
-            if (isPrime) {
-
-                System.out.print(num + " ");
-            }
+        if (num == 0 || num == 1) {
+            continue;
         }
 
-        System.out.print('\n');
+        if (num == 2 || num == 3) {
+
+            System.out.print(num + " ");
+            continue;
+        }
+
+        int i = (int) Math.sqrt(num);
+
+        boolean isPrime = true;
+
+        while (i > 1) {
+
+            if (num % i == 0) {
+
+                isPrime = false;
+            }
+
+            i--;
+        }
+
+        if (isPrime) {
+
+            System.out.print(num + " ");
+        }
     }
+
+    System.out.print('\n');
 }
 ```
  
