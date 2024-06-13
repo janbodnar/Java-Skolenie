@@ -307,7 +307,7 @@ The `setCharAt` method of a StringBuilder will replace a character at the given
 index with a new character. The original string is modified.
 
 
-## String isBlank
+## The isBlank method
 
 The `isBlank` method returns true if the string is empty or contains only white
 space.
@@ -385,7 +385,7 @@ sb.append("the king.");
 A mutable object of the `StringBuilder` type is created by calling the `append`
 method three times.
 
-## String using quotes
+## Using quotes
 
 In certain cases, such as using direct speech, the inner quotes must be escaped.
 
@@ -694,7 +694,7 @@ void main(String[] args) {
 In the example, we print all words that end either with n or y.  
 
 
-## String toUpperCase/toLowerCase
+## The toUpperCase/toLowerCase methods
 
 The `toUpperCase` method converts all of the characters of the string to upper  
 case. The toLowerCase method converts all of the characters of the string to  
