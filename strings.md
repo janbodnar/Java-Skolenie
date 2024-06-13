@@ -95,8 +95,8 @@ We create an empty `StringBuilder` object. We append three strings into the obje
 ## A string is an object
 
 Strings are objects; they are not primitive data types. Strings are instances of  
-the String or StringBuilder class. Since they are objects, they have multiple  
-methods available for doing various work.  
+the `String` or `StringBuilder` class. Since they are objects, they have  
+multiple methods available for doing various work.  
 
 ```java
 void main() {
@@ -122,8 +122,8 @@ void main() {
 }
 ```
 
-In this program, we demonstrate that strings are objects. Objects must have a
-class name, a parent class, and they must also have some methods that we can
+In this program, we demonstrate that strings are objects. Objects must have a  
+class name, a parent class, and they must also have some methods that we can  
 call.
 
 ```java
@@ -155,8 +155,8 @@ if (lang.isEmpty()) {
 }
 ```
 
-Objects have various methods. One of the useful string methods is the `isEmpty`
-method, which determines whether the string is empty.
+Objects have various methods. One of the useful string methods is the `isEmpty`  
+method, which determines whether the string is empty.  
 
 ```java
 int l = lang.length();
@@ -982,9 +982,9 @@ void main() {
     String joined = String.join(" ", "Today", "is", "Sunday");
     System.out.println(joined);
 }
+```
 
-
-In the example, we joing three strings into one final string.
+In the example, we joing three strings into one final string.  
 
 ```java
 String joined = String.join(" ", "Today", "is", "Sunday");
@@ -996,9 +996,9 @@ joined.
 
 ## Comparing strings
 
-There are two basic methods for comparing strings. The `equals` method compares
-the contents of two strings and returns a boolean value indicating, whether the
-strings are equal or not. The `equalsIgnoreCase` does the same thing, except
+There are two basic methods for comparing strings. The `equals` method compares  
+the contents of two strings and returns a boolean value indicating, whether the  
+strings are equal or not. The `equalsIgnoreCase` does the same thing, except  
 that it ignores the case.
 
 ```java
@@ -1025,13 +1025,13 @@ We define two strings that we compare.
 System.out.println(a.equals(b));
 ```
 
-The equals method returns `false`. The two strings differ in the first character.
+The equals method returns `false`. The two strings differ in the first character.  
 
 ```java
 System.out.println(a.equalsIgnoreCase(b));
 ```
 
-When we ignore the case, the strings are equal: the `equalsIgnoreCase` method
+When we ignore the case, the strings are equal: the `equalsIgnoreCase` method  
 returns `true`.
 
 If we are comparing a variable to a string, it is important to remember that the  
