@@ -118,23 +118,18 @@ The following program demonstrates that the variable names are case sensitive.
 Event though the language permits this, it is not a recommended practice to do.  
 
 ```java
-package com.zetcode;
-
-public class CaseSensitiveIdentifiers {
-
-    public static void main(String[] args) {
+void main() {
         
-        String name = "Robert";
-        String Name = "Julia";
+    String name = "Robert";
+    String Name = "Julia";
 
-        System.out.println(name);
-        System.out.println(Name);
-    }
+    System.out.println(name);
+    System.out.println(Name);
 }
 ```
 
-Name and name are two different identifiers. In Visual Basic, this would not be  
-possible. In this language, variable names are not case sensitive.  
+`Name` and `name` are two different identifiers. In Visual Basic, this would not  
+be possible. In this language, variable names are not case sensitive.  
 
 ---
 
@@ -152,34 +147,29 @@ Here we assign two literals to variables. Number 29 and string "Hungarian" are
 literals.  
 
 ```java
-package com.zetcode;
+void main() {
 
-public class Literals {
+    int age = 23;
+    String name = "James";
+    boolean sng = true;
+    String job = null;
+    double weight = 68.5;
+    char c = 'J';
 
-    public static void main(String[] args) {
+    System.out.format("His name is %s%n", name);
+    System.out.format("His is %d years old%n", age);
 
-        int age = 23;
-        String name = "James";
-        boolean sng = true;
-        String job = null;
-        double weight = 68.5;
-        char c = 'J';
-
-        System.out.format("His name is %s%n", name);
-        System.out.format("His is %d years old%n", age);
-
-        if (sng) {
-            
-            System.out.println("He is single");
-        } else {
-            
-            System.out.println("He is in a relationship");
-        }
-
-        System.out.format("His job is %s%n", job);
-        System.out.format("He weighs %f kilograms%n", weight);
-        System.out.format("His name begins with %c%n", c);
+    if (sng) {
+        
+        System.out.println("He is single");
+    } else {
+        
+        System.out.println("He is in a relationship");
     }
+
+    System.out.format("His job is %s%n", job);
+    System.out.format("He weighs %f kilograms%n", weight);
+    System.out.format("His name begins with %c%n", c);
 }
 ```
 
