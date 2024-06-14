@@ -460,9 +460,9 @@ void main() {
 
 ## Searching arrays
 
-The `Arrays` class has a simple method for searching elements in an array. It is
-called the `binarySearch`. The method searches for elements using a binary
-search algorithm. The `binarySearch` method only works on sorted arrays.
+The `Arrays` class has a simple method for searching elements in an array. It is  
+called the `binarySearch`. The method searches for elements using a binary  
+search algorithm. The `binarySearch` method only works on sorted arrays.  
 
 ```java
 import java.util.Arrays;
