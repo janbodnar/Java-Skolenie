@@ -128,7 +128,7 @@ long e = 320000L;
 ```
 
 We have five assignments. Values 34, 120, 32000, and 45000 are integer literals  
-of type `int`. There are no integer literals for `byte` and `short` types. If
+of type `int`. There are no integer literals for `byte` and `short` types. If  
 the values fit into the destination type, the compiler does not complain and  
 performs a conversion automatically. For long numbers smaller than  
 `Integer.MAX_VALUE`, the `L` suffix is optional.  
@@ -138,10 +138,10 @@ long x = 2147483648L;
 long y = 2147483649L;
 ```
 
-For long numbers larger than `Integer.MAX_VALUE`, we must add the `L` suffix.
+For long numbers larger than `Integer.MAX_VALUE`, we must add the `L` suffix.  
 
-When we work with integers, we deal with discrete items. For instance, we can
-use integers to count apples.
+When we work with integers, we deal with discrete items. For instance, we can  
+use integers to count apples.  
 
 ```java
 void main() {
@@ -298,10 +298,10 @@ types have fixed precision and cannot represent exactly all real numbers. In
 situations where we have to work with precise numbers, we can use the  
 `BigDecimal` class.  
 
-Floating point numbers with an `F/f` suffix are of type `float`, do`uble numbers  
-have `D/d` suffix. The suffix for double numbers is optional.  
+Floating point numbers with an `F/f` suffix are of type `float`, `double`  
+numbers have `D/d` suffix. The suffix for `double` numbers is optional.  
 
-Let's say a sprinter for 100m ran 9.87s. What is his speed in km/h?
+Let's say a sprinter for 100m ran 9.87s. What is his speed in km/h?  
 
 ```java
 void main() {
@@ -400,30 +400,29 @@ void main() {
 ```
 
 
-Java supports the scientific syntax of the floating point values. Also known as
-exponential notation, it is a way of writing numbers too large or small to be
-conveniently written in standard decimal notation.
+Java supports the scientific syntax of the floating point values. Also known as  
+exponential notation, it is a way of writing numbers too large or small to be  
+conveniently written in standard decimal notation.  
 
+```java
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-```java
-    void main() {
+void main() {
 
-        double n = 1.235E10;
-        DecimalFormat dec = new DecimalFormat("#.00");
+    double n = 1.235E10;
+    DecimalFormat dec = new DecimalFormat("#.00");
 
-        System.out.println(dec.format(n));
+    System.out.println(dec.format(n));
 
-        BigDecimal bd = new BigDecimal("1.212e-19");
+    BigDecimal bd = new BigDecimal("1.212e-19");
 
-        System.out.println(bd.toEngineeringString());
-        System.out.println(bd.toPlainString());
-    }
+    System.out.println(bd.toEngineeringString());
+    System.out.println(bd.toPlainString());
 }
 ```
 
-We define two floating point values using the scientific notation.
+We define two floating point values using the scientific notation.  
 
 ## Enumerations
 
@@ -656,7 +655,7 @@ void main() {
 }
 ```
 
-In the code example, we box a long value into a Long object and vice versa.
+In the code example, we box a long value into a Long object and vice versa.  
 
 ```java
 Long b = new Long(a);
@@ -695,8 +694,8 @@ if (i < 100) {
 }
 ```
 
-Inside the square brackets of the if expression, an `Integer` is compared with
-an `int`. The `Integer` object is transformed into the primitive `int` type and
+Inside the square brackets of the if expression, an `Integer` is compared with  
+an `int`. The `Integer` object is transformed into the primitive `int` type and  
 compared with the 100 value. Automatic unboxing is done.  
 
 ```java
@@ -724,25 +723,25 @@ Automatic boxing and automatic unboxing is demonstrated in this code example.
 Integer i = 10;
 ```
 
-The Java compiler performs automatic boxing in this code line. An `int` value is
-boxed into the `Integer` type.
+The Java compiler performs automatic boxing in this code line. An `int` value is  
+boxed into the `Integer` type.  
 
 ```java
 int j = i;
 ```
 
-Here an automatic unboxing takes place.
+Here an automatic unboxing takes place.  
 
 ```java
 Integer a = cube(i);
 ```
 
-When we pass an `Integer` to the cube method, automatic unboxing is done. When
-we return the computed value, automatic boxing is performed, because an `int` is
-transformed back to the `Integer`.
+When we pass an `Integer` to the cube method, automatic unboxing is done. When  
+we return the computed value, automatic boxing is performed, because an `int` is  
+transformed back to the `Integer`.  
 
-Java language does not support operator overloading. When we apply arithmetic
-operations on wrapper classes, automatic boxing is done by the compiler.
+Java language does not support operator overloading. When we apply arithmetic  
+operations on wrapper classes, automatic boxing is done by the compiler.  
 
 ```java
 void main() {
@@ -1055,10 +1054,10 @@ byte a = 120;
 a = (byte) (a + 1);
 ```
 
-This code does compile. Note the usage of round brackets for the `a + 1`
-expression. The (byte) casting operator has a higher precedence than the
-addition operator. If we want to apply the casting on the whole expression, we
-have to use round brackets.
+This code does compile. Note the usage of round brackets for the `a + 1`  
+expression. The (byte) casting operator has a higher precedence than the  
+addition operator. If we want to apply the casting on the whole expression, we  
+have to use round brackets.  
 
 ```java
 byte a = 120;
@@ -1209,15 +1208,15 @@ Animal animal = new Dog();
 System.out.println(animal);
 ```
 
-We cast from a child type `Dog` to a parent type `Animal`. This is upcasting and
-it is always safe.
+We cast from a child type `Dog` to a parent type `Animal`. This is upcasting and  
+it is always safe.  
 
 ```java
 // ClassCastException
 // Mammal mammal = (Mammal) new Animal();
 ```
 
-Downcasting from an `Animal` to a `Mammal` leads to a `ClassCastException`.
+Downcasting from an `Animal` to a `Mammal` leads to a `ClassCastException`.  
 
 ```java
 var returned = getRandomAnimal();
@@ -1241,8 +1240,8 @@ if (returned instanceof Cat) {
 }
 ```
 
-In order to perform legal downcasting, we need to check the type of the object
-with the instanceof operator first.
+In order to perform legal downcasting, we need to check the type of the object  
+with the instanceof operator first.  
 
 ```java
 Animal getRandomAnimal() {
@@ -1261,17 +1260,16 @@ Animal getRandomAnimal() {
 }
 ```
 
-The `getRandomAnimal` returns a random animal using Java's swith expression.
+The `getRandomAnimal` returns a random animal using Java's swith expression.  
 
 ## String conversions
 
 Performing string conversions between numbers and strings is very common in  
 programming. The casting operation is not allowed because the strings and  
 primitive types are fundamentally different types. There are several methods for  
-doing string conversions. There is also an automatic string conversion for the
+doing string conversions. There is also an automatic string conversion for the  
 `+` operator.  
   
-More about string conversions will be covered in the Strings chapter of this tutorial.
 
 ```java
 String s = (String) 15; // compilation error
