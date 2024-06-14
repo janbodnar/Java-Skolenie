@@ -52,11 +52,11 @@ This Ruby script prints four times "Ruby" string to the console. We call a times
 method on the 4 number. This number is an object in Ruby.  
 
 Java has a different approach. It has primitive data types and wrapper classes.  
-Wrapper classes transform primitive types into objects.
+Wrapper classes transform primitive types into objects.  
 
 ## Boolean values
 
-In Java the boolean data type is a primitive data type having one of two values:
+In Java the boolean data type is a primitive data type having one of two values:  
 `true` or `false`.
 
 ```java
@@ -786,7 +786,7 @@ Objects obtained from literals, autoboxing and `Integer.valueOf` are interned
 objects while those constructed with new operator are always distinct objects.  
 
 The object intering has some important consequences when comparing wrapper  
-classes. The `==` operator compares reference identity of objects while the
+classes. The `==` operator compares reference identity of objects while the  
 equals method compares values.  
 
 ```java
@@ -823,17 +823,17 @@ System.out.println(a.equals(b));
 System.out.println(a.compareTo(b));
 ```
 
-Three different ways are used to compare the values. The `==` operator compares
-the reference identity of two boxed types. Because of the object interning, the
-operation results in true. If we used the new operator, two distinct objects
-would be created and the `==` operator would return false. The `equals` method
-compares the two `Integer` objects numerically. It returns a boolean `true` or
-`false` (a `true` in our case.)
+Three different ways are used to compare the values. The `==` operator compares  
+the reference identity of two boxed types. Because of the object interning, the  
+operation results in true. If we used the new operator, two distinct objects  
+would be created and the `==` operator would return false. The `equals` method  
+compares the two `Integer` objects numerically. It returns a boolean `true` or  
+`false` (a `true` in our case.)  
 
 Finally, the `compareTo` method also compares the two objects numerically. It  
 returns the value 0 if this `Integer` is equal to the argument `Integer`; a  
 value less than 0 if this `Integer` is numerically less than the argument  
-`Integer`; and a value greater than 0 if this `Integer` is numerically greater
+`Integer`; and a value greater than 0 if this `Integer` is numerically greater  
 than the argument `Integer`.  
 
 ```java
@@ -841,9 +841,9 @@ Integer c = 155;
 Integer d = 155;
 ```
 
-We have another two boxed types. However, these values are greater than the
-maximum value interned (127); therefore, two distinct objects are created. This
-time the `==` operator yields false.
+We have another two boxed types. However, these values are greater than the  
+maximum value interned (127); therefore, two distinct objects are created. This  
+time the `==` operator yields false.  
 
 
 ## The null type
@@ -854,8 +854,8 @@ type. The `null` represents a `null` reference, one that does not refer to any
 object. The `null` is the default value of reference-type variables. Primitive  
 types cannot be assigned a `null` literal.  
 
-In different contexts, the `null` means an absence of an object, an unknown
-value, or an uninitialized state.
+In different contexts, the `null` means an absence of an object, an unknown  
+value, or an uninitialized state.  
 
 ```java
 import java.util.Random;
@@ -895,9 +895,9 @@ We work with the `null` value in the program.
 Uninitialized fields are given default values by the compiler. Final fields and  
 local variables must be initialized by developers.  
 
-The following table shows the default values for different types.
+The following table shows the default values for different types.  
 
-Here is the data you provided in a markdown table format:
+Here is the data you provided in a markdown table format:  
 
 | Data type | Default value |
 |-----------|---------------|
@@ -911,7 +911,7 @@ Here is the data you provided in a markdown table format:
 | Object    | null          |
 | boolean   | false         |
 
-Table: Default values for uninitialized instance variables
+Table: Default values for uninitialized instance variables  
 
 The next example will print the default values of the uninitialized instance  
 variables. An instance variable is a variable defined in a class for which each  
@@ -958,7 +958,8 @@ compiler. In explicit conversion the programmer directly specifies the
 converting type inside a pair of round brackets. Explicit conversion is called  
 type casting.  
 
-Conversions happen in different contexts: assignments, expressions, or method invocations.
+Conversions happen in different contexts: assignments, expressions, or   
+method invocations.
 
 ```java
 int x = 456;
@@ -967,8 +968,8 @@ float z = 3.455f;
 double w = 6354.3425d;
 ```
 
-In these four assignments, no conversion takes place. Each of the variables is
-assigned a literal of the expected type.
+In these four assignments, no conversion takes place. Each of the variables is  
+assigned a literal of the expected type.  
 
 ```java
 int x = 345;
