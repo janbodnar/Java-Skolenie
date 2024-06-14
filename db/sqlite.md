@@ -80,3 +80,85 @@ void main() {
     }
 }
 ```
+
+## Retrieve data
+
+```java
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+void main() {
+
+    String query = "SELECT * FROM cars";
+
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db");
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery()) {
+
+        while (rs.next()) {
+
+            System.out.printf("%d %s %d%n", rs.getInt(1),
+                    rs.getString(2), rs.getInt(3));
+        }
+
+    } catch (SQLException ex) {
+
+        Logger lgr = Logger.getLogger(getClass().getName());
+        lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    }
+}
+```
+
+## Prepared statements 
+
+When we write prepared statements, we use placeholders instead of directly writing the  
+values into the statements. Prepared statements increase security and performance.  
+
+A `PreparedStatement` is an object which represents a precompiled SQL statement.  
+
+```java
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+void main() {
+
+    int carPrice = 23999;
+    String carName = "Oldsmobile";
+
+    String sql = "INSERT INTO cars(name, price) VALUES(?, ?)";
+
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db")) {
+
+        try (PreparedStatement pst = con.prepareStatement(sql)) {
+
+            pst.setString(1, carName);
+            pst.setInt(2, carPrice);
+            pst.executeUpdate();
+
+            System.out.println("A new car has been inserted");
+        }
+
+    } catch (SQLException ex) {
+
+        Logger lgr = Logger.getLogger(getClass().getName());
+        lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    }
+}
+```
+
+When we write prepared statements, we use placeholders instead of directly writing the values  
+into the statements. Prepared statements are faster and guard against SQL injection attacks.  
+The `?` is a placeholder which is going to be filled later.  
+
+
