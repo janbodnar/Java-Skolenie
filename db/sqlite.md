@@ -1,6 +1,9 @@
 # SQLite 
 
-
+SQLite is a **serverless**, **self-contained**, and **embedded** database engine. It's a library  
+integrated within applications, allowing them to interact directly with database files. SQLite supports  
+**ACID-compliant transactions** and uses **dynamic types** for tables. It's widely used in various systems,  
+including web browsers, operating systems, and mobile phones.  
 
 ```
 java --enable-preview --source 22 -cp lib\sqlite-jdbc-3.46.0.1-20240611.065717-6.jar;lib\slf4j-api-1.7.36.jar Main.java
