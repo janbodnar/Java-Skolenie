@@ -11,9 +11,6 @@ equivalent similar of `StringBuilder`.
 `StringBuilder` has methods such as `append`, `insert`, or `replace` that allow  
 to modify strings.  
 
-# Constructors
-
-
 ## StringBuilder is mutable
 
 Java `String` is immutable while `StringBuilder` is mutable.
