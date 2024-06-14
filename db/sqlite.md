@@ -6,6 +6,9 @@
 java --enable-preview --source 22 -cp lib\sqlite-jdbc-3.46.0.1-20240611.065717-6.jar;lib\slf4j-api-1.7.36.jar Main.java
 ```
 
+Driver: https://github.com/xerial/sqlite-jdbc  
+
+
 ## Select version 
 
 ```java
