@@ -163,8 +163,10 @@ The `?` is a placeholder which is going to be filled later.
 
 ## Metadata 
 
-```java
+The following example shows how to print column headers with the data from the database table.   
+We refer to column names as MetaData. MetaData is data about the core data in the database.  
 
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
