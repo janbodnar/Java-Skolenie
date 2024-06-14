@@ -51,6 +51,8 @@ When we need to update data with multiple statements, we can use batch updates. 
 for `INSERT`, `UPDATE`, `DELETE`, statements as well as for `CREATE TABLE` and `DROP TABLE` statements.  
 
 
+Batch processing groups multiple queries into one unit and passes it in a single network trip to a database.  
+
 ```java
 import java.sql.Connection;
 import java.sql.DriverManager;
