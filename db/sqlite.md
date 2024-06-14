@@ -161,4 +161,46 @@ When we write prepared statements, we use placeholders instead of directly writi
 into the statements. Prepared statements are faster and guard against SQL injection attacks.  
 The `?` is a placeholder which is going to be filled later.  
 
+## Metadata 
 
+```java
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+void main() {
+
+    String query = "SELECT * FROM cars";
+
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db");
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery()) {
+
+        ResultSetMetaData meta = rs.getMetaData();
+
+        String colName1 = meta.getColumnName(1);
+        String colName2 = meta.getColumnName(2);
+        String colName3 = meta.getColumnName(3);
+
+        String header = String.format("%-8s %-21s %-15s%n", colName1, colName2, colName3);
+        System.out.println(header);
+
+        while (rs.next()) {
+
+            System.out.printf("%-8s %-21s %-15d%n", rs.getInt(1),
+                    rs.getString(2), rs.getInt(3));
+        }
+
+    } catch (SQLException ex) {
+
+        Logger lgr = Logger.getLogger(getClass().getName());
+        lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    }
+}
+```
