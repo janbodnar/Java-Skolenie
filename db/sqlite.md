@@ -41,6 +41,10 @@ void main() {
 
 ## Create table
 
+When we need to update data with multiple statements, we can use batch updates. Batch updates are available   
+for `INSERT`, `UPDATE`, `DELETE`, statements as well as for `CREATE TABLE` and `DROP TABLE` statements.  
+
+
 ```java
 import java.sql.Connection;
 import java.sql.DriverManager;
