@@ -50,8 +50,13 @@ void main() {
 When we need to update data with multiple statements, we can use batch updates. Batch updates are available   
 for `INSERT`, `UPDATE`, `DELETE`, statements as well as for `CREATE TABLE` and `DROP TABLE` statements.  
 
-
 Batch processing groups multiple queries into one unit and passes it in a single network trip to a database.  
+
+JDBC does not start a transaction by default when you use `addBatch`. The `addBatch` method simply adds SQL  
+statements to the batch, but it doesn’t start a transaction.  
+
+The transaction begins when you set autoCommit to false. If autoCommit is `true` (which is the default setting),  
+then each SQL statement is executed as an individual transaction.  
 
 ```java
 import java.sql.Connection;
