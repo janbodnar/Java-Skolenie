@@ -3,6 +3,8 @@
 
 ## First example
 
+The `main` function is the starting point of a Java application.  
+
 ```java
 void main() {
 
