@@ -149,7 +149,7 @@ region with `setRegion`.
 
 ## Locale constructor
 
-There are three constructors for creating a Locale object.
+There are three constructors for creating a `Locale` object.
 
 ```java
 Locale(String language)
@@ -305,9 +305,9 @@ void getWord(Locale curLoc, String key) {
 }
 ```
 
-In the code example, we print all the words used in three resource bundles.  
+In the code example, we print all the words used in three resource bundles.
 
-```
+```java
 ResourceBundle words = ResourceBundle.getBundle("resources/words", curLoc);
 ```
 
