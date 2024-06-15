@@ -234,9 +234,9 @@ We have a couple of currency symbols in the text.
 String regex = "\\p{Sc}";
 ```
 
-We define the regular expression for the currency symbols.
+We define the regular expression for the currency symbols.  
 
-```
+```java
 while (matcher.find())
 {
     System.out.printf("%s at %d%n", matcher.group(), matcher.start());
