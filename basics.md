@@ -4,6 +4,7 @@
 ## First example
 
 The `main` function is the starting point of a Java application.  
+A function has a body defined within a pair of curly brackets: `{}`.  
 
 ```java
 void main() {
@@ -11,6 +12,10 @@ void main() {
    System.out.println("hello there!");
 }
 ```
+
+Within the body, we define statements. Each statement in Java is terminated  
+with a semicolon character (;).  
+
 
 ## Variables
 
