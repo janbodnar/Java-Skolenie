@@ -67,8 +67,8 @@ The following is a partial list of core packages in Java:
 - java.awt — basic hierarchy of packages for native GUI components  
 - javax.swing — hierarchy of packages for platform-independent rich GUI components  
 - java.beans — Contains classes related to developing beans --  
-   components based on the JavaBean architecture.
-- java.text — Provides classes and interfaces for handling text, dates, 
+   components based on the JavaBean architecture.  
+- java.text — Provides classes and interfaces for handling text, dates,  
    numbers, and messages in a manner independent of natural languages.  
 - java.rmi — Java API for remote method invocations.  
 - java.time — The main API for dates, times, instants, and durations.  
