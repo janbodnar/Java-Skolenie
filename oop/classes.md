@@ -757,10 +757,10 @@ class can be much longer than the execution of the method in which the class is
 defined. To solve this, the local variables are copied into the local class. To  
 ensure that they are later not changed, they have to be declared final.  
 
-Local classes cannot be `public`, `private`, `protected`, or `static`. They are
-not allowed for local variable declarations or local class declarations. Except
-for constants that are declared `static` and `final`, local classes cannot
-contain `static` fields, methods, or classes.  
+Local classes cannot be `public`, `private`, `protected`, or `static`. They are  
+not allowed for local variable declarations or local class declarations. Except  
+for constants that are declared `static` and `final`, local classes cannot  
+contain `static` fields, methods, or classes.   
 
 ```java
 package com.zetcode;
