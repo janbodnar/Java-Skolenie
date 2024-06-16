@@ -47,9 +47,9 @@ not include the return type.
 
 ## Method names
 
-Method names can be composed of any combination of letters, numbers, underscores
-(_), and dollar signs ($), but they must not begin with a number. Additionally,
-method names are case-sensitive and should follow the `camelCase` convention for
+Method names can be composed of any combination of letters, numbers, underscores  
+(_), and dollar signs ($), but they must not begin with a number. Additionally,  
+method names are case-sensitive and should follow the `camelCase` convention for  
 readability.   
 
 The method names are verbs or verbs followed by adjectives or nouns. Each  
@@ -182,7 +182,7 @@ public int addThreeValues(int x, int y, int z) {
 }
 ```
 
-The `addThreeValues` is similar to the previous method, but it takes three
+The `addThreeValues` is similar to the previous method, but it takes three  
 parameters.
 
 ```java
@@ -237,7 +237,7 @@ int s2 = sum(1, 2, 3, 4, 5);
 int s3 = sum(1, 2, 3, 4, 5, 6, 7);
 ```
 
-We call the sum method three times. In each case, we pass different number of
+We call the sum method three times. In each case, we pass different number of  
 parameters to the method.
 
 ```java
@@ -625,18 +625,18 @@ public class Shadowing {
 }
 ```
 
-We declare an instance variable `x`. We declare another `x` variable inside the
-`exec` method. Both variables have the same name, but they are not in conflict
-because they reside in different scopes.
+We declare an instance variable `x`. We declare another `x` variable inside the  
+`exec` method. Both variables have the same name, but they are not in conflict  
+because they reside in different scopes.  
 
 ```java
 System.out.println(this.x);
 System.out.println(x);
 ```
 
-The variables are accessed differently. The x` variable defined inside the
-method, also called a local variable `x`, is simply accessed by its name. The
-instance variable can be referred by using with `this`.
+The variables are accessed differently. The `x` variable defined inside the  
+method, also called a local variable `x`, is simply accessed by its name. The  
+instance variable can be referred by using with `this`.  
 
 
 ## Static methods
