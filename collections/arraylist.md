@@ -15,6 +15,27 @@ An `ArrayList` instance has a capacity. The capacity is the size of the array
 used to store the elements in the list. As elements are added to an `ArrayList`,  
 its capacity grows automatically. Choosing a proper capacity can save some time.  
 
+## Initialization 
+
+It iss good practice to use the interface (`List`) on the left side of an  
+assignment for flexibility:
+
+```java
+List<String> items = new ArrayList<>();
+```
+
+This approach allows you to change the implementation without affecting other  
+parts of your code. For example, you can switch from `ArrayList` to `LinkedList`  
+if you need better performance for frequent insertions and deletions:  
+
+```java
+List<String> items = new LinkedList<>();
+```
+
+The rest of your code remains unchanged because it interacts with the `List`  
+interface, not directly with the implementation.  
+
+
 ## The add method
 
 Single elements can be added to an `ArrayList` with the `add` method.
