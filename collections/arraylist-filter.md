@@ -61,7 +61,7 @@ void main() {
 
     for (User user : users) {
         if (user.age() > 30) {
-            result.add(user);
+            res.add(user);
         }
     }
 
