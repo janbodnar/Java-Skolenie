@@ -632,3 +632,97 @@ void main() {
 
 We define two maps and insert them into a list. Then we interate over the list
 with two `forEach` loops.  
+
+## Word occurences
+
+### Using for loops 
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+void main() throws IOException {
+
+    Map<String, Integer> wordCount = new HashMap<>();
+
+    Path path = Paths.get("src/resources/thermopylae.txt");
+    List<String> lines = Files.readAllLines(path);
+
+    for (String line : lines) {
+
+        String[] words = line.split("\\s+");
+
+        for (String word : words) {
+
+            if (!word.isEmpty()) {
+                word = word.toLowerCase();
+                wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            }
+        }
+    }
+
+    wordCount.forEach((k, v) -> System.out.printf("%s %d%n", k, v));
+}
+```
+
+
+### Using streams
+
+```java
+import java.io.IOException;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+void main(String[] args) throws IOException {
+    Path filePath = Paths.get("src/resources/thermopylae.txt");
+
+    try (Stream<String> lines = Files.lines(filePath)) {
+
+        Map<String, Long> wordOccurrences = lines
+                .flatMap(line -> Arrays.stream(line.trim().split("\\s+")))
+                .map(word -> word.replaceAll("[^a-zA-Z]", "").toLowerCase().trim())
+                .filter(word -> !word.isEmpty())
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        wordOccurrences.forEach((word, count) -> System.out.println(word + ": " + count));
+    }
+}
+```
+
+1. `**`Files.lines(Paths.get("file.txt"))`**`: Creates a `Stream<String>` where  
+   each element is a line read from the file "file.txt".  
+2. `**`.flatMap(line -> Arrays.stream(line.split("\\s+")))`**`: Splits each line  
+   into words, and flattens all streams of words into one stream.  
+3. `**`.filter(word -> word.length() > 0)`**`: Filters out any empty strings  
+   that may have been created by the split operation.  
+4. `**`.map(String::toLowerCase)`**`: Converts all words in the stream to lower  
+   case.  
+5. `**`.collect(Collectors.toList())`**`: Collects all elements of the stream  
+   into a `List<String>`.  
+
+The `flatMap` operation:  
+
+In the provided code, `flatMap` is used to transform the `Stream<String>` of  
+lines from the file into a `Stream<String>` of words. It takes each line, splits  
+it into an array of words (using `split("\\s+")`), and then creates a stream  
+from this array.   
+
+The `flatMap` method then flattens all the individual streams of words into a  
+single stream. This is necessary because after splitting, you have a stream of  
+arrays, and you want to have a stream of words instead. The flatMap operation  
+flattens the structure from `Stream<String[]>` to `Stream<String>`, allowing  
+further operations like filtering and collecting to work on individual words  
+rather than arrays of words.  
