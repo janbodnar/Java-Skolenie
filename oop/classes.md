@@ -869,7 +869,7 @@ Anonymous classes are particularly useful in scenarios where:
 - We writing quick-and-dirty code to test out a concept and don't want to  
   clutter your codebase with named classes.  
 
-### Declare & intantiate
+### Declare & instantiate
 
 In Java, when we create an anonymous class, we actually declare and  
 instantiate it at the same time. The 'extends' keyword is not used explicitly.  
