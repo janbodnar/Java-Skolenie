@@ -54,32 +54,27 @@ Streams are created from various sources such as collections, arrays, strings,
 IO resources, or generators.  
 
 ```java
-package com.zetcode;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class CreateStreams {
+void main() {
 
-    public static void main(String[] args) {
+    List<String> words = List.of("pen", "coin", "desk", "chair");
 
-        List<String> words = List.of("pen", "coin", "desk", "chair");
+    String word = words.stream().findFirst().get();
+    System.out.println(word);
 
-        String word = words.stream().findFirst().get();
-        System.out.println(word);
+    Stream<String> letters = Arrays.stream(new String[]{"a", "b", "c"});
+    System.out.printf("There are %d letters%n", letters.count());
 
-        Stream<String> letters = Arrays.stream(new String[]{"a", "b", "c"});
-        System.out.printf("There are %d letters%n", letters.count());
+    String day = "Sunday";
+    IntStream istr = day.codePoints();
 
-        String day = "Sunday";
-        IntStream istr = day.codePoints();
-
-        String s = istr.filter(e -> e != 'n').collect(StringBuilder::new,
-                StringBuilder::appendCodePoint, StringBuilder::append).toString();
-        System.out.println(s);
-    }
+    String s = istr.filter(e -> e != 'n').collect(StringBuilder::new,
+            StringBuilder::appendCodePoint, StringBuilder::append).toString();
+    System.out.println(s);
 }
 ```
 
@@ -127,15 +122,11 @@ There are three `Stream` specializations: `IntStream`, `DoubleStream`,
 and `LongStream`.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
-public class CreateStreams2 {
-
-    public static void main(String[] args) {
+    void main() {
 
         IntStream integers = IntStream.rangeClosed(1, 16);
         System.out.println(integers.average().getAsDouble());
@@ -146,7 +137,6 @@ public class CreateStreams2 {
         LongStream longs = LongStream.range(6, 25);
         System.out.println(longs.count());
     }
-}
 ```
 
 The example works with the three aforementioned specializations.  
@@ -181,14 +171,10 @@ The `Stream.of` method returns a sequential ordered stream whose elements are
 the specified values.  
 
 ```java
-package com.zetcode;
-
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-public class CreateStreams3 {
-
-    public static void main(String[] args) {
+    void main() {
 
         Stream<String> colours = Stream.of("red", "green", "blue");
         String col = colours.skip(2).findFirst().get();
@@ -198,7 +184,6 @@ public class CreateStreams3 {
         int maxVal = nums.max(Comparator.naturalOrder()).get();
         System.out.println(maxVal);
     }
-}
 ```
 
 In the example, we create two streams with the `Stream.of` method.  
@@ -227,23 +212,18 @@ We create a stream of integers and find its maximum number.
 Other methods to create streams are: `Stream.iterate` and `Stream.generate`.  
 
 ```java
-package com.zetcode;
-
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class CreateStreams4 {
+void main() {
 
-    public static void main(String[] args) {
+    Stream<Integer> s1 = Stream.iterate(5, n -> n * 2).limit(10);
+    s1.forEach(System.out::println);
 
-        Stream<Integer> s1 = Stream.iterate(5, n -> n * 2).limit(10);
-        s1.forEach(System.out::println);
-
-        Stream.generate(new Random()::nextDouble)
-                .map(e -> (e * 10))
-                .limit(5)
-                .forEach(System.out::println);
-    }
+    Stream.generate(new Random()::nextDouble)
+            .map(e -> (e * 10))
+            .limit(5)
+            .forEach(System.out::println);
 }
 ```
 
@@ -275,23 +255,18 @@ stream and print each element to the console.
 It is possible to create a stream from a file.  
 
 ```java
-package com.zetcode;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class CreateStreams5 {
+void main() throws IOException {
 
-    public static void main(String[] args) throws IOException {
+    Path path = Paths.get("/home/janbodnar/myfile.txt");
+    Stream<String> stream = Files.lines(path);
 
-        Path path = Paths.get("/home/janbodnar/myfile.txt");
-        Stream<String> stream = Files.lines(path);
-
-        stream.forEach(System.out::println);
-    }
+    stream.forEach(System.out::println);
 }
 ```
 
@@ -317,6 +292,7 @@ stream.forEach(System.out::println);
 
 We go through the elements of the stream and print them to the console.
 
+
 ## Internal and external iteration
 
 Depending on who controls the iteration process, we distinguish between external  
@@ -327,23 +303,18 @@ iteration, also called passive or implicit iteration, is controlled by the
 iterator itself. Internal iteration is available in Java streams.  
 
 ```java
-package com.zetcode;
-
 import java.util.Iterator;
 import java.util.List;
 
-public class ExternalIteration {
+void main() {
 
-    public static void main(String[] args) {
+    var words = List.of("pen", "coin", "desk", "eye", "bottle");
 
-        var words = List.of("pen", "coin", "desk", "eye", "bottle");
+    Iterator<String> it = words.iterator();
 
-        Iterator<String> it = words.iterator();
+    while (it.hasNext()) {
 
-        while (it.hasNext()) {
-
-            System.out.println(it.next());
-        }
+        System.out.println(it.next());
     }
 }
 ```
@@ -355,18 +326,13 @@ elements of the list.
 In the following example, we iterate the same list using an external iteration.  
 
 ```java
-package com.zetcode;
-
 import java.util.List;
 
-public class InternalIteration {
+void main() {
 
-    public static void main(String[] args) {
+    var words = List.of("pen", "coin", "desk", "eye", "bottle");
 
-        var words = List.of("pen", "coin", "desk", "eye", "bottle");
-
-        words.stream().forEach(System.out::println);
-    }
+    words.stream().forEach(System.out::println);
 }
 ```
 
@@ -379,6 +345,7 @@ words.stream().forEach(System.out::println);
 
 This can be shortened to `words.forEach(System.out::println)`.
 
+
 ## Stream filtering
 
 Filtering streams of data is one of the most important abilities of streams. The  
@@ -387,21 +354,16 @@ of the elements of a stream that match the given predicate. A predicate is a
 method that returns a boolean value.    
 
 ```java
-package com.zetcode;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class FilterStream {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.rangeClosed(0, 25);
 
-        IntStream nums = IntStream.rangeClosed(0, 25);
+    int[] vals = nums.filter(e -> e > 15).toArray();
 
-        int[] vals = nums.filter(e -> e > 15).toArray();
-
-        System.out.println(Arrays.toString(vals));
-    }
+    System.out.println(Arrays.toString(vals));
 }
 ```
 
@@ -431,22 +393,17 @@ System.out.println(Arrays.toString(vals));
 The array is printed to the console.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.IntStream;
 
-public class FilterStream2 {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.rangeClosed(0, 30);
+    nums.filter(this::isEven).forEach(System.out::println);
+}
 
-        IntStream nums = IntStream.rangeClosed(0, 30);
-        nums.filter(FilterStream2::isEven).forEach(System.out::println);
-    }
+boolean isEven(int e) {
 
-    private static boolean isEven(int e) {
-
-        return e % 2 == 0;
-    }
+    return e % 2 == 0;
 }
 ```
  
@@ -454,7 +411,7 @@ To get even numbers from a stream, we pass an isEven method reference to the
 filter method.  
 
 ```java
-nums.filter(FilterStream2::isEven).forEach(System.out::println);
+nums.filter(this::isEven).forEach(System.out::println);
 ```
 
 The double colon `::` operator is used to pass a method reference. The `forEach`  
@@ -467,17 +424,12 @@ The `skip(n)` method skip the first `n` elements of the stream and the `limit(m)
 method limits the number of elements in the stream to `m`.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.IntStream;
 
-public class SkipLimit {
+void main() {
 
-    public static void main(String[] args) {
-
-        IntStream s = IntStream.range(0, 15);
-        s.skip(3).limit(5).forEach(System.out::println);
-    }
+    IntStream s = IntStream.range(0, 15);
+    s.skip(3).limit(5).forEach(System.out::println);
 }
 ```
 
@@ -491,20 +443,15 @@ The `sorted` method sorts the elements of this stream, according to the provided
 `Comparator`.  
 
 ```java
-package com.zetcode;
-
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
-public class Sorting {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.of(4, 3, 2, 1, 8, 6, 7, 5);
 
-        IntStream nums = IntStream.of(4, 3, 2, 1, 8, 6, 7, 5);
-
-        nums.boxed().sorted(Comparator.reverseOrder())
-                .forEach(System.out::println);
-    }
+    nums.boxed().sorted(Comparator.reverseOrder())
+            .forEach(System.out::println);
 }
 ```
 
@@ -514,24 +461,19 @@ converts `IntStream` to `Stream<Integer>`.
 The next example shows how to compare a stream of objects.  
 
 ```java
-package com.zetcode;
-
 import java.util.Comparator;
 import java.util.List;
 
 record Car(String name, int price) {}
 
-public class Sorting2 {
+void main() {
 
-    public static void main(String[] args) {
+    List<Car> cars = List.of(new Car("Citroen", 23000),
+            new Car("Porsche", 65000), new Car("Skoda", 18000),
+            new Car("Volkswagen", 33000), new Car("Volvo", 47000));
 
-        List<Car> cars = List.of(new Car("Citroen", 23000),
-                new Car("Porsche", 65000), new Car("Skoda", 18000),
-                new Car("Volkswagen", 33000), new Car("Volvo", 47000));
-
-        cars.stream().sorted(Comparator.comparing(Car::price))
-                .forEach(System.out::println);
-    }
+    cars.stream().sorted(Comparator.comparing(Car::price))
+            .forEach(System.out::println);
 }
 ```
 
@@ -559,20 +501,15 @@ to the Car's price method, which is used when comparing cars by their price.
 The `distinct` method returns a stream consisting of unique elements.
 
 ```java
-package com.zetcode;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class UniqueElements {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.of(1, 1, 3, 4, 4, 6, 7, 7);
+    int a[] = nums.distinct().toArray();
 
-        IntStream nums = IntStream.of(1, 1, 3, 4, 4, 6, 7, 7);
-        int a[] = nums.distinct().toArray();
-
-        System.out.println(Arrays.toString(a));
-    }
+    System.out.println(Arrays.toString(a));
 }
 ```
 
@@ -590,6 +527,7 @@ int a[] = nums.distinct().toArray();
 
 We remove the duplicates with the `distinct` method.  
 
+
 # Mapping
 
 It is possible to change elements into a new stream; the original source is not    
@@ -598,21 +536,15 @@ the given function to the elements of a stream. The map is an itermediate
 operation.  
 
 ```java
-package com.zetcode;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Mapping {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
+    int[] squares = nums.map(e -> e * e).toArray();
 
-        IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
-
-        int[] squares = nums.map(e -> e * e).toArray();
-
-        System.out.println(Arrays.toString(squares));
-    }
+    System.out.println(Arrays.toString(squares));
 }
 ```
 
@@ -629,30 +561,25 @@ toArray method.
 In the next example, we transform a stream of strings.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.Stream;
 
-public class Mapping2 {
+void main() {
 
-    public static void main(String[] args) {
+    Stream<String> words = Stream.of("cardinal", "pen", "coin", "globe");
+    words.map(this::capitalize).forEach(System.out::println);
+}
 
-        Stream<String> words = Stream.of("cardinal", "pen", "coin", "globe");
-        words.map(Mapping2::capitalize).forEach(System.out::println);
-    }
+String capitalize(String word) {
 
-    private static String capitalize(String word) {
-
-        word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-        return word;
-    }
+    word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+    return word;
 }
 ```
 
 We have a stream of strings. We capitalize each of the strings of the stream.  
 
 ```java
-words.map(Mapping2::capitalize).forEach(System.out::println);
+words.map(this::capitalize).forEach(System.out::println);
 ```
 
 We pass a reference to the capitalize method to the `map` method.  
@@ -663,20 +590,14 @@ A reduction is a terminal operation that aggregates a stream into a type or a
 primitive.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.IntStream;
 
-public class Reduction {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
+    int maxValue = nums.max().getAsInt();
 
-        IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
-
-        int maxValue = nums.max().getAsInt();
-
-        System.out.printf("The maximum value is: %d%n", maxValue);
-    }
+    System.out.printf("The maximum value is: %d%n", maxValue);
 }
 ```
 
@@ -692,24 +613,20 @@ returns an `Optional` from which we get the integer using the `getAsInt` method.
 A custom reduction can be created with the `reduce` method.  
 
 ```java
-package com.zetcode;
-
 import java.util.stream.IntStream;
 
-public class Reduction2 {
+void main() {
 
-    public static void main(String[] args) {
+    IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
 
-        IntStream nums = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8);
+    int product = nums.reduce((a, b) -> a * b).getAsInt();
 
-        int product = nums.reduce((a, b) -> a * b).getAsInt();
-
-        System.out.printf("The product is: %d%n", product);
-    }
+    System.out.printf("The product is: %d%n", product);
 }
 ```
 
 The example returns a product of the integer elements in the stream.  
+
 
 ## Collection operations
 
@@ -717,31 +634,24 @@ A collection is a terminal reduction operation which reduces elements of a
 stream into a Java collection, string, value, or specific grouping.  
 
 ```java
-package com.zetcode;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 record Car(String name, int price) {
 }
 
+void main() {
 
-public class Collecting {
+    List<Car> cars = List.of(new Car("Citroen", 23000),
+            new Car("Porsche", 65000), new Car("Skoda", 18000),
+            new Car("Volkswagen", 33000), new Car("Volvo", 47000));
 
-    public static void main(String[] args) {
+    List<String> names = cars.stream().map(Car::name)
+            .filter(name -> name.startsWith("Vo"))
+            .toList();
 
-        List<Car> cars = List.of(new Car("Citroen", 23000),
-                new Car("Porsche", 65000), new Car("Skoda", 18000),
-                new Car("Volkswagen", 33000), new Car("Volvo", 47000));
+    for (String name : names) {
 
-        List<String> names = cars.stream().map(Car::name)
-                .filter(name -> name.startsWith("Vo"))
-                .collect(Collectors.toList());
-
-        for (String name : names) {
-            
-            System.out.println(name);
-        }
+        System.out.println(name);
     }
 }
 ```
@@ -751,8 +661,8 @@ their name, and returns a list of matching car names.
 
 ```java
 List<String> names = cars.stream().map(Car::name)
-    .filter(name -> name.startsWith("Vo"))
-    .collect(Collectors.toList());
+        .filter(name -> name.startsWith("Vo"))
+        .toList();
 ```
 
 At the end of the pipeline, we use the `collect` method to transform.  
@@ -761,32 +671,27 @@ At the end of the pipeline, we use the `collect` method to transform.
 In the next example, we use the `collect` method to group data.  
 
 ```java
-package com.zetcode;
-
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Collecting2 {
+void main() {
 
-    public static void main(String[] args) {
+    List<String> items = List.of("pen", "book", "pen", "coin",
+            "book", "desk", "book", "pen", "book", "coin");
 
-        List<String> items = List.of("pen", "book", "pen", "coin",
-                "book", "desk", "book", "pen", "book", "coin");
+    Map<String, Long> result = items.stream().collect(
+            Collectors.groupingBy(
+                    Function.identity(), Collectors.counting()
+            ));
 
-        Map<String, Long> result = items.stream().collect(
-                Collectors.groupingBy(
-                        Function.identity(), Collectors.counting()
-                ));
+    for (Map.Entry<String, Long> entry : result.entrySet()) {
 
-        for (Map.Entry<String, Long> entry : result.entrySet()) {
+        String key = entry.getKey();
+        Long value = entry.getValue();
 
-            String key = entry.getKey();
-            Long value = entry.getValue();
-
-            System.out.format("%s: %d%n", key, value);
-        }
+        System.out.format("%s: %d%n", key, value);
     }
 }
 ```
