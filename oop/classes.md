@@ -324,7 +324,7 @@ is an idea. It is unreal and we cannot implement the area method for it. This is
 the kind of situation where we use abstract methods. The method will be  
 implemented in a more concrete entity like a circle.  
 
-```
+```java
 class Circle extends Drawing {
 ```
 
