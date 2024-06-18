@@ -15,7 +15,7 @@ Interfaces are:
 - Contracts
 
 Objects interact with the outside world with the methods they expose. The actual  
-implementation is not important to the programmer, or it also might be secret. A 
+implementation is not important to the programmer, or it also might be secret. A  
 company might sell a library and it does not want to disclose the actual  
 implementation. A programmer might call a maximize method on a window of a GUI  
 toolkit but knows nothing about how this method is implemented. From this point  
