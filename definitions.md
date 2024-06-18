@@ -8,6 +8,7 @@ and security. Java is a multithreaded and distributed programming language. It
 can be used to create console applications, GUI applications, web applications,  
 both on PCs or embedded systems.  
 
+![Java](images/java2.jpg)
 
 Java is a programming language created by Sun Microsystems in 1991. The first  
 publicly available version of Java was released in 1995. Today, the language is  
