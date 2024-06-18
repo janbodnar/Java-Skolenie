@@ -16,8 +16,6 @@ developed by Oracle corporation.
 Java excels in creating portable mobile applications, programming various  
 appliances and in creating enterprise applications.  
 
-![Java](images/java2.jpg)
-
 ## JVM
 
 Java virtual machine (JVM) executes Java bytecode. The JVM is included in the  
@@ -41,23 +39,29 @@ JDK (Java Development Kit) is a superset of the JRE. It contains JRE and tools
 such as the compilers and debuggers necessary for developing Java applications.  
 We need to install JDK to build and run our Java programs.  
 
-## GraalVM
+## Languages 
 
-GraalVM is a high-performance JDK distribution designed to accelerate the  
-execution of applications written in Java and other JVM languages⁵. It provides  
-significant improvements in application performance and efficiency, making it  
-ideal for microservices. 
+Here are some programming languages that run on the Java platform, along with  
+their descriptions and use cases:  
 
-Key features of GraalVM include:
+- *Java*: A general-purpose programming language that is class-based,  
+  object-oriented, and designed to have as few implementation dependencies as  
+  possible. It's widely used for building enterprise-scale applications.  
+- *Groovy*: An object-oriented programming language for the Java platform. It is  
+  a dynamic language with features similar to those of Python, Ruby, Perl, and  
+  Smalltalk. Groovy is used for scripting, testing, and web development.  
+- *Scala*: A general-purpose programming language providing support for  
+  functional programming and a strong static type system. It's used for web  
+  applications, concurrent programming, and data analysis.  
+- *Kotlin*: A statically typed programming language that runs on the JVM and can  
+  be used to develop Android apps and server-side applications.  
+- *Clojure*: A modern, dynamic, and functional dialect of the Lisp programming  
+  language on the Java platform. It is used for concurrent programming and data  
+  analysis.  
 
-- An alternative just-in-time (JIT) compiler that can speed up the performance of  
-  Java and JVM-based applications.  
-- A native image utility that compiles Java bytecode ahead-of-time (AOT) and generates  
-  native executables for some applications. These executables start up almost  
-  instantaneously and use very little memory resources.  
-- Support for JavaScript, Ruby, Python, and a number of other popular languages.    
-- Multilanguage interoperability through the Truffle language implementation framework.   
+These languages are compiled into JVM bytecode which allows them to run on any  
+device capable of running a Java Virtual Machine (JVM). Each language offers  
+unique features that cater to different types of development needs.  
 
-GraalVM started in 2011 as a research project at Oracle Labs to create a runtime platform  
-that can run multiple programming languages with high performance.  
+
 
