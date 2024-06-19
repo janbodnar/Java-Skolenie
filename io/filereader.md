@@ -72,7 +72,7 @@ reached.
 
 ## Reading with BufferedReader
 
-`FileReader's` performance can be improved with `BufferedReader`.
+`FileReader's` performance can be improved with `BufferedReader`.  
 `BufferedReader` reads text from a character-input stream, buffering characters  
 so as to provide for the efficient reading of characters, arrays, and lines. The  
 buffer size may be specified, or the default size may be accepted; the default  
