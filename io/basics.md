@@ -1,5 +1,7 @@
 # Basic I/O operations
 
+We use high-level methods from the `Files` class.  
+
 ## Read input 
 
 We can use `Scanner` to read input from users.  
