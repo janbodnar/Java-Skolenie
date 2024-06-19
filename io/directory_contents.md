@@ -1,18 +1,9 @@
 # List directory contents
 
-# List directory contents
-
-## Directory definition
 
 *Directory* is an organizing unit in a computer's file system for storing and  
 locating files. Directories are hierarchically organized into a tree of  
 directories. Directories have parent-child relationships.  
-
-
-We can use the following built-in Java classes to list directory contents:  
-
-- java.nio.file.Files
-- java.io.File
 
 ## Non-recursively with Files.list
 
