@@ -400,8 +400,11 @@ execution of the statement is called a cycle.
 
 ```java
 int i = 0;
+```
+
 We initiate the i variable. It is used as a counter.
 
+```java
 while (i < 10) {
     ...
 }
