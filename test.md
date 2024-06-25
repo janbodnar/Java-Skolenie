@@ -1,5 +1,25 @@
 # Samples
 
+
+## Even/odd sum
+
+```java
+void main() {
+
+    int[] vals = {10, 25, 30, 45, 50};
+    int sum = 0;
+
+    for (int val : vals) {
+        if (val % 2 == 1) {
+            sum = sum + val;
+
+        }
+    }
+
+    System.out.println(sum);
+}
+```
+
 ## Recap
 
 ```java
