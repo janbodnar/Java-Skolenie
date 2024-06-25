@@ -1,5 +1,22 @@
 # Samples
 
+## and/or operators 
+
+```java
+void main() {
+
+    String[] words = {"sky", "war", "atom", "water", "warm", "cup", "cloud"};
+
+    for (String word : words) {
+
+        if (word.startsWith("w") && (word.length() == 3 || word.length() == 4)) {
+
+            System.out.println(word);
+        }
+    }
+}
+```
+
 
 ## and operator
 
