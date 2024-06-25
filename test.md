@@ -1,5 +1,32 @@
 # Samples
 
+
+## enum
+
+```java
+enum Season {
+    SPRING,
+    SUMMER,
+    AUTUMN,
+    WINTER
+}
+
+
+void main() {
+
+    Season s1 = Season.AUTUMN;
+    System.out.println(s1);
+
+    Season s2 = Season.WINTER;
+    System.out.println(s2);
+
+    for (Season season : Season.values()) {
+        System.out.println(season);
+    }
+}
+```
+
+
 ## and/or operators 
 
 ```java
