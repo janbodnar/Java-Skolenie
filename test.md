@@ -1,5 +1,26 @@
 # Samples
 
+
+## and operator
+
+```java
+void main() {
+
+
+    String[] words = {"sky", "war", "atom", "water", "warm", "cup", "cloud"};
+
+    for (String word : words) {
+
+        if (word.startsWith("w") || word.startsWith("c") ) {
+
+            System.out.println(word);
+        }
+
+    }
+}
+```
+
+
 ## Sum for loop
 
 ```java
