@@ -1,5 +1,21 @@
 # Samples
 
+## Sum for loop
+
+```java
+void main() {
+
+    int[] vals = {10, 25, 30, 45, 50};
+    int sum = 0;
+
+    for (int i = 0; i < vals.length; i++) {
+
+        sum = sum + vals[i];
+    }
+
+    System.out.println(sum);
+}
+```
 
 ## Even/odd sum
 
