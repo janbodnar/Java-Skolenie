@@ -122,7 +122,6 @@ the object referred by a null reference.
 import java.util.ArrayList;
 import java.util.List;
 
-```java
 void main() {
 
     List<String> words = new ArrayList<>() {{
