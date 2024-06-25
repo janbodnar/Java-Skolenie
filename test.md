@@ -17,6 +17,22 @@ void main() {
 }
 ```
 
+---
+
+```java
+void main() {
+
+    int[] vals = {1, -2, 0, 1, -1, 5, 10, -6};
+
+    for (int val : vals) {
+
+        if (val % 2 == 0 && val < 0) {
+            System.out.println(val);
+        }
+    }
+}
+```
+
 
 ## and operator
 
