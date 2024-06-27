@@ -250,3 +250,82 @@ public class DeprecatedAnnot {
     }
 }
 ```
+
+## Micronaut example
+
+The `Application.java` file:  
+
+```java
+package com.example;
+
+import io.micronaut.runtime.Micronaut;
+
+public class Application {
+
+    public static void main(String[] args) {
+        Micronaut.run(Application.class, args);
+    }
+}
+```
+
+The `MyController.java` file:  
+
+```java
+package com.example.controller;
+
+import io.micronaut.context.annotation.Property;
+import io.micronaut.http.HttpStatus;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Body;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.Status;
+
+@Controller
+public class MyController {
+
+    @Property(name="app.message")
+    private String message;
+
+    @Get(uri="/", produces="text/plain")
+    public String index() {
+        return "Home page";
+    }
+
+    @Get(uri="/message", consumes = MediaType.TEXT_PLAIN, produces="text/plain")
+    public String message() {
+        return message;
+    }
+
+    @Post(value = "/echo", consumes = MediaType.TEXT_PLAIN, produces = MediaType.TEXT_PLAIN)
+    @Status(HttpStatus.OK)
+    public String hello(@Body String text) {
+        return text;
+//        HttpResponse.ok(text).header(CONTENT_TYPE, MediaType.TEXT_PLAIN)
+    }
+
+}
+```
+
+The `application.properties` file:  
+
+```java
+micronaut.application.name=demo
+micronaut.server.port=8000
+app.message="hello from Micronaut application"
+```
+
+The `client.http` file:  
+
+```
+POST http://localhost:8000/echo HTTP/1.1
+content-type: text/plain
+
+hi there!
+
+###
+
+GET http://localhost:8000/message
+```
+
