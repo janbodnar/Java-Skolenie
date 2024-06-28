@@ -251,81 +251,141 @@ public class DeprecatedAnnot {
 }
 ```
 
-## Micronaut example
+## Custom annotation
 
-The `Application.java` file:  
+Key elements a custom Java annotation:  
+
+*1. @interface declaration:*
+
+* The starting point for defining a custom annotation.  
+* Syntax: `@interface AnnotationName { ... }`  
+
+*2. Target:*
+
+* Specifies where the annotation can be applied.  
+* Defined using the `@Target` annotation with options like `ElementType.FIELD`  
+  (for fields), `ElementType.TYPE` (for classes), etc.  
+
+*3. Retention:*
+
+* Determines how long the annotation information is retained.  
+* Defined using the `@Retention` annotation with options like  
+  `RetentionPolicy.RUNTIME` (available at runtime) or `RetentionPolicy.SOURCE`  
+  (only during compilation).  
+
+*4. Elements (methods):*
+
+* Define attributes or parameters for the annotation.   
+* These methods typically have no arguments and return values limited to  
+  primitives, String, Class types, enums, annotations, or arrays of these.  
+* They can have a default value specified using the `default` keyword.  
+
+*5. Doc comments:*
+
+* Optional comments providing documentation for the annotation.
+* Enhance code readability and understanding.
+
+
+| Element          | Description                                                                                                  |
+|------------------|-----------------------------------------------------------------------------------------------------------------|
+| `@interface`      | Declaration for creating a custom annotation.                                                                      |
+| `@Target`         | Specifies where the annotation can be applied (fields, classes, methods, etc.).                                    |
+| `@Retention`      | Determines how long the annotation information is retained (compile-time or runtime).                              |
+| Elements (methods)| Define attributes or parameters for the annotation (with data types and default values).                          |
+| Doc comments      | Optional comments to document the annotation and its usage.                                                            |
+
+
+
+### Custom annotation example:  
 
 ```java
-package com.example;
+package com.zetcode;
 
-import io.micronaut.runtime.Micronaut;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public class Application {
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface ClassDescription {
+    String description();
+}
+```
+
+Annotation processor:  
+
+```java
+package com.zetcode;
+
+import java.util.List;
+import java.util.Optional;
+
+public class AnnotationProcessor {
+
+    public void process(List<Object> objects) {
+        objects.forEach(obj -> {
+
+            Class<?> clazz = obj.getClass();
+            ClassDescription annotation = clazz.getAnnotation(ClassDescription.class);
+
+//            if (annotation != null) {
+//                System.out.println(annotation.annotationType().getName());
+//                System.out.println(annotation.description());
+//            }
+
+            Optional.ofNullable(annotation)
+                    .ifPresentOrElse(
+                            ann -> {
+                                System.out.println(ann.annotationType().getName());
+                                System.out.println(ann.description());
+                            },
+                            () -> System.out.println("No annotation found")
+                    );
+
+
+        });
+    }
+}
+```
+
+Main class:  
+
+```java
+package com.zetcode;
+
+import java.util.List;
+
+@ClassDescription(description = "this is a User class")
+class User {
+
+}
+
+@ClassDescription(description = "this is a Test class")
+class Test {
+
+}
+
+class Hello {
+
+}
+
+
+public class CustomAnnotation {
+
+    private String field;
 
     public static void main(String[] args) {
-        Micronaut.run(Application.class, args);
+
+        List<Object> objects = List.of(new User(), new Test(), new Hello());
+
+        var processor = new AnnotationProcessor();
+        processor.process(objects);
+
     }
 }
 ```
 
-The `MyController.java` file:  
 
-```java
-package com.example.controller;
-
-import io.micronaut.context.annotation.Property;
-import io.micronaut.http.HttpStatus;
-import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Status;
-
-@Controller
-public class MyController {
-
-    @Property(name="app.message")
-    private String message;
-
-    @Get(uri="/", produces="text/plain")
-    public String index() {
-        return "Home page";
-    }
-
-    @Get(uri="/message", consumes = MediaType.TEXT_PLAIN, produces="text/plain")
-    public String message() {
-        return message;
-    }
-
-    @Post(value = "/echo", consumes = MediaType.TEXT_PLAIN, produces = MediaType.TEXT_PLAIN)
-    @Status(HttpStatus.OK)
-    public String hello(@Body String text) {
-        return text;
-//        HttpResponse.ok(text).header(CONTENT_TYPE, MediaType.TEXT_PLAIN)
-    }
-
-}
-```
-
-The `application.properties` file:  
-
-```java
-micronaut.application.name=demo
-micronaut.server.port=8000
-app.message="hello from Micronaut application"
-```
-
-The `client.http` file:  
 
 ```
-POST http://localhost:8000/echo HTTP/1.1
-content-type: text/plain
-
-hi there!
-
-###
-
-GET http://localhost:8000/message
-```
-
