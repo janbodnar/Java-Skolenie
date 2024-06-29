@@ -548,7 +548,6 @@ void main() throws IOException {
 ## Hex output
 
 ```java
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -587,12 +586,11 @@ void main() throws IOException {
 ## Sorting 
 
 ```java
-
 import java.util.Arrays;
 
 // Sorting an array of primitive integer values
 
-public static void main(String[] args) {
+void main() {
 
     var nums = new int[] { 3, 2, 8, 1, 7, 0, 5, 4, 6 };
 
@@ -660,7 +658,7 @@ import java.util.function.IntConsumer;
 
 // split iterator gives read-only access to a range 
 // of elements
-void main(String[] args) {
+void main() {
 
     int[] vals = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
@@ -675,7 +673,7 @@ void main(String[] args) {
 ```java
 // count the number of vowels and consonants in 
 // all words of a list
-public static void main(String[] args) {
+void main() {
 
     String[] words = { "sun", "forest", "wood", "rocks" };
 
