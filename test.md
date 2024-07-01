@@ -19,12 +19,14 @@ void main() {
     words.add("ocean");
 
     // ascii velkost su 3 znaky
+    // slova zacinajuce na w alebo c
 
 //    values.removeIf(val -> val < 0);
-    words.removeIf();
+//    words.removeIf(word -> word.length() == 3);
+
+    words.removeIf(word -> word.startsWith("w") || word.startsWith("c"));
 
     System.out.println(words);
-
 }
 ```
 
