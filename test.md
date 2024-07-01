@@ -1,5 +1,33 @@
 # Samples
 
+## removeIf
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+void main() {
+
+    List<String> words = new ArrayList<>();
+    words.add("sky");
+    words.add("atom");
+    words.add("war");
+    words.add("cloud");
+    words.add("tent");
+    words.add("water");
+    words.add("warm");
+    words.add("ocean");
+
+    // ascii velkost su 3 znaky
+
+//    values.removeIf(val -> val < 0);
+    words.removeIf();
+
+    System.out.println(words);
+
+}
+```
+
 
 ## enum
 
