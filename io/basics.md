@@ -25,7 +25,7 @@ void main() {
 ## Create file 
 
 `Files.exists` - to check if a file exists  
-`Filex.createFile` - to create a file  
+`Files.createFile` - to create a file  
 
 ```java
 import java.io.IOException;
