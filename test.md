@@ -1,5 +1,10 @@
 # Samples
 
+# Zadania
+
+
+
+
 ## removeIf
 
 ```java
