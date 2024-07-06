@@ -91,3 +91,51 @@ Here are some common types of JAR files:
 </project>
 ```
 
+## Plain JAR vs. Shadow Plugin in Gradle
+
+The plain JAR plugin (built-in):
+
+* This is the default Gradle task for creating a JAR archive.  
+* It packages your compiled class files (*.class) and resources from your  
+  project into a single JAR file.  
+* *Dependencies:* It does not include any dependencies in the JAR. Your  
+  application needs the libraries it depends on to be installed separately on  
+  the target system.  
+  
+The shadow JAR plugin (external):  
+  
+* This is a popular third-party plugin for Gradle by John Engelman.   
+* It creates a "fat JAR" or "shadow JAR," which is a single JAR containing your  
+  application code and all its transitive dependencies.  
+* *Benefits:*  
+    * *Simplified Deployment:* Makes deployment easier as you only need to  
+      distribute the single JAR file containing everything your application  
+      needs.  
+    * *Reduced Startup Time:* Can potentially reduce the startup time of your  
+      application since it doesn't need to locate and load individual  
+      dependencies.  
+* *Drawbacks:*  
+    * *Larger JAR size:* The JAR file will be larger due to the inclusion of  
+      all dependencies.  
+    * *Potential Conflicts:* If your dependencies have conflicting classes,  
+      the shadow plugin can resolve them by renaming packages (`relocation`).  
+      This requires careful configuration.  
+
+**Choosing Between Them:**
+
+* Use the plain JAR plugin for simple projects where dependencies are managed  
+  separately, like on a server environment with pre-installed libraries.  
+* Use the shadow plugin for standalone applications or situations where managing  
+  dependencies individually is cumbersome.   
+
+Here's a table summarizing the key differences:
+
+| Feature                 | Plain JAR Plugin             | Shadow Plugin              |
+|--------------------------|------------------------------|----------------------------|
+| Dependencies included    | No                           | Yes (transitively)           |
+| File size               | Smaller                     | Larger                       |
+| Deployment complexity    | More complex (manage deps)  | Simpler (single JAR)        |
+| Startup time            | Potentially slower           | Potentially faster          |
+| Dependency conflicts    | Not handled                  | Resolved by relocation (care needed) |
+
+
