@@ -105,7 +105,7 @@ The plain JAR plugin (built-in):
 The shadow JAR plugin (external):  
   
 * This is a popular third-party plugin for Gradle by John Engelman.   
-* It creates a "fat JAR" or "shadow JAR," which is a single JAR containing your  
+* It creates a fat JAR or shadow JAR, which is a single JAR containing your  
   application code and all its transitive dependencies.  
 * *Benefits:*  
     * *Simplified Deployment:* Makes deployment easier as you only need to  
