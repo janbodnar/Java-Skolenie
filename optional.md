@@ -225,3 +225,98 @@ void main() {
             () -> System.out.println("Invalid value"));
 }
 ```
+
+## JSoup example
+
+In the following example, we use JSoup library to parse and modify an HTML  
+document.  
+
+For the project, we need the `jsoup` artifact.  
+
+```java
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+
+import java.util.Optional;
+
+
+void main() {
+
+    String htmlString = """
+            <html>
+            <head>
+            <title>My title</title>
+            </head>
+            <body>
+            <main></main>
+            </body>
+            </html>
+            """;
+
+    var doc = Jsoup.parse(htmlString);
+    Optional<Element> mainEl = Optional.ofNullable(doc.select("main").first());
+
+    mainEl.ifPresent(e -> {
+        e.append("<p>hello there!</p>");
+        e.prepend("<h1>Heading</h1>");
+    });
+
+    System.out.println(doc);
+}
+```
+
+We parse an HTML string and look for the main tag. If it is present, we append  
+`p` and `h1` tags to the document. 
+
+```java
+var doc = Jsoup.parse(htmlString);
+Optional<Element> mainEl = Optional.ofNullable(doc.select("main").first());
+```
+
+The main tag might not be present and the `first` method in this case will  
+return null. Therefore, we use the `Optional.ofNullable` method.  
+
+```java
+mainEl.ifPresent(e -> {
+    e.append("<p>hello there!</p>");
+    e.prepend("<h1>Heading</h1>");
+});
+```
+
+We only call `append` and `prepend` methods if the `Optional` contains the main  
+tag.  
+
+## Jdbi example
+
+The `findOne` method returns the only row in the result set, if any. It returns  
+`Optional.empty()` if zero rows are returned, or if the row itself is `null`.  
+
+For the example, we need the `jdbi3-core` and the `postgresql` artifacts.  
+
+```java
+import org.jdbi.v3.core.Jdbi;
+
+import java.util.Optional;
+
+void main() {
+
+    String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
+    String user = "postgres";
+    String password = "s$cret";
+
+    Jdbi jdbi = Jdbi.create(jdbcUrl, user, password);
+
+    int id = 3;
+
+    String query = "SELECT name FROM cars WHERE id = ?";
+    Optional<String> res = jdbi.withHandle(handle -> handle.select(query, id)
+            .mapTo(String.class)
+            .findOne());
+
+    res.ifPresentOrElse(System.out::println, () -> System.out.println("N/A"));
+}
+```
+
+In the example, we select a single cell from a row in a table. We print the data  
+if it is present or N/A if not.  
+
