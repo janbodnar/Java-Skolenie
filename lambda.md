@@ -36,6 +36,36 @@ void main() {
 In the example, we define an array of strings. The array is sorted using the  
 Arrays.sort method and a lambda expression.  
 
+## Simple example
+
+```java
+import java.util.List;
+import java.util.function.Predicate;
+
+class MyFilter implements Predicate<String> {
+
+    @Override
+    public boolean test(String o) {
+        return o.length() == 3;
+    }
+}
+
+
+void main() {
+
+    List<String> words = List.of("pen", "book", "ten", "coin",
+            "book", "desk", "book", "cup", "book", "coin", "top");
+
+    var fil = new MyFilter();
+//    var res = words.stream().filter(word -> word.length() == 3).toList();
+    var res = words.stream().filter(fil).toList();
+
+    System.out.println(res);
+}
+```
+
+
+
 ## Interfaces
 
 Lambda expressions are used primarily to define an inline implementation of a  
