@@ -111,7 +111,7 @@ void main() {
 
     String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
     String user = "postgres";
-    String password = "s$cret";
+    String password = "andrea";
 
     Jdbi jdbi = Jdbi.create(jdbcUrl, user, password);
 
@@ -241,7 +241,7 @@ void main() {
 
     String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
     String user = "postgres";
-    String password = "andrea";
+    String password = "s$cret";
 
     Jdbi jdbi = Jdbi.create(jdbcUrl, user, password);
 
@@ -292,8 +292,6 @@ public record Car(int id, String name, int price) {
 ```
 
 
-
-
 ## Mapping rows to a list 
 
 ```java
@@ -326,5 +324,63 @@ void main() {
 }
 
 public record Car(int id, String name, int price) {
+}
+```
+
+## SqlObjects
+
+Jdbi SqlObjects is an extension for the Jdbi library that provides a declarative  
+way to interact with relational databases in Java.  
+
+We need to add the `jdbi3-sqlobject` dependency.  
+
+```xml
+<dependency>
+    <groupId>org.jdbi</groupId>
+    <artifactId>jdbi3-sqlobject</artifactId>
+    <version>3.45.2</version>
+</dependency>
+```
+
+
+```java
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.mapper.reflect.ConstructorMapper;
+import org.jdbi.v3.sqlobject.SqlObject;
+import org.jdbi.v3.sqlobject.SqlObjectPlugin;
+import org.jdbi.v3.sqlobject.statement.SqlQuery;
+
+import java.util.Optional;
+
+void main() {
+
+    String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
+    String user = "postgres";
+    String password = "s$cret";
+
+    Jdbi jdbi = Jdbi.create(jdbcUrl, user, password);
+    jdbi.installPlugin(new SqlObjectPlugin());
+
+    jdbi.registerRowMapper(Car.class, ConstructorMapper.of(Car.class));
+    CarDao carDao = jdbi.onDemand(CarDao.class);
+
+    int searchId = 2;
+    Optional<Car> car = carDao.findById(searchId);
+
+    if (car.isPresent()) {
+        System.out.println("Car found: " + car.get());
+    } else {
+        System.out.println("Car with id " + searchId + " not found.");
+    }
+
+}
+
+public record Car(int id, String name, int price) {
+}
+
+public interface CarDao extends SqlObject {
+
+    @SqlQuery("SELECT * FROM cars WHERE id = ?")
+    Optional<Car> findById(int id);
 }
 ```
