@@ -111,7 +111,7 @@ void main() {
 
     String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
     String user = "postgres";
-    String password = "andrea";
+    String password = "s$cret";
 
     Jdbi jdbi = Jdbi.create(jdbcUrl, user, password);
 
