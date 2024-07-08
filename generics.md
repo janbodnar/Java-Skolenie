@@ -67,7 +67,7 @@ import java.util.List;
 class Base {
 }
 
-void main(String[] args) {
+void main() {
 
     List da = new ArrayList();
 
