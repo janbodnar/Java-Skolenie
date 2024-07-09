@@ -241,11 +241,11 @@ public class SleepEx {
 
 ## Thread join
 
-The `join` method is provided by the `Thread` class and allows one thread to
-wait for the completion of another thread.  
+The `join` method is provided by the `Thread` class and allows one thread to  
+wait for the completion of another thread.    
 
-When we call `t.join()` on a thread object `t`, the current thread (the one  
-calling join) pauses its execution and enters a waiting state. The waiting state
+When we call `t.join()` on a thread object `t`, the current thread (the one   
+calling join) pauses its execution and enters a waiting state. The waiting state  
 continues until the target thread `t` finishes its execution. Once `t`  
 terminates, the current thread resumes its execution from where it left off  
 before the join call.  
