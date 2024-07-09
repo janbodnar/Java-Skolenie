@@ -22,6 +22,8 @@ body. Finally, the return keyword is optional if the body has a single
 expression to return a value; curly braces are required to indicate that the  
 expression returns a value.
 
+## Arrays.sort method
+
 ```java
 import java.util.Arrays;
 
@@ -36,34 +38,78 @@ void main() {
 In the example, we define an array of strings. The array is sorted using the  
 Arrays.sort method and a lambda expression.  
 
-## Simple example
+
+## Swing ActionListener
+
+Rather than creating an anonymous class for an event handler, we can use a  
+shorter syntax with lambda expression.  
 
 ```java
-import java.util.List;
-import java.util.function.Predicate;
+package com.zetcode;
 
-class MyFilter implements Predicate<String> {
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    @Override
-    public boolean test(String o) {
-        return o.length() == 3;
+public class QuitButtonEx extends JFrame {
+
+    public QuitButtonEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        var quitButton = new JButton("Quit");
+
+//        quitButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.exit(0);
+//            }
+//        });
+
+        quitButton.addActionListener(_ -> System.exit(0));
+
+        createLayout(quitButton);
+
+        setTitle("Quit button");
+        setSize(300, 200);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private void createLayout(JComponent... arg) {
+
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
+        pane.setLayout(gl);
+
+        gl.setAutoCreateContainerGaps(true);
+
+        gl.setHorizontalGroup(gl.createSequentialGroup()
+                .addComponent(arg[0])
+        );
+
+        gl.setVerticalGroup(gl.createSequentialGroup()
+                .addComponent(arg[0])
+        );
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new QuitButtonEx();
+            ex.setVisible(true);
+        });
     }
 }
-
-
-void main() {
-
-    List<String> words = List.of("pen", "book", "ten", "coin",
-            "book", "desk", "book", "cup", "book", "coin", "top");
-
-    var fil = new MyFilter();
-//    var res = words.stream().filter(word -> word.length() == 3).toList();
-    var res = words.stream().filter(fil).toList();
-
-    System.out.println(res);
-}
 ```
-
 
 
 ## Interfaces
@@ -140,6 +186,62 @@ System.out.println(square.apply(5));
 
 `Function` is a function that accepts one argument and produces a result. The  
 operation of the lamda expression produces a square of the given integer.  
+
+```java
+import java.util.ArrayList;
+import java.util.function.Function;
+
+void main() {
+
+    var words = new ArrayList<String>();
+    words.add("sky");
+    words.add("warm");
+    words.add("winter");
+    words.add("cloud");
+    words.add("pen");
+    words.add("den");
+    words.add("tree");
+    words.add("sun");
+    words.add("silk");
+
+    Function<String, Integer> words2len = word -> word.length();
+
+    var res = words.stream().map(words2len).toList();
+//    var res = words.stream().map(word -> word.length()).toList();
+    System.out.println(res);
+}
+```
+
+
+## Predicate 
+
+Represents a predicate (boolean-valued function) of one argument.  
+
+```java
+import java.util.ArrayList;
+import java.util.function.Predicate;
+
+void main() {
+
+    var words = new ArrayList<String>();
+    words.add("sky");
+    words.add("warm");
+    words.add("winter");
+    words.add("cloud");
+    words.add("pen");
+    words.add("den");
+    words.add("tree");
+    words.add("sun");
+    words.add("silk");
+
+    Predicate<String> hasThreeChars = word -> word.length() == 3;
+    words.removeIf(hasThreeChars);
+//    words.removeIf(word -> word.length() == 3);
+
+    System.out.println(words);
+}
+```
+
 
 ## Filtering data
 
