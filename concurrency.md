@@ -410,6 +410,98 @@ public class AtomicLongEx {
 }
 ```
 
+## Task button
+
+The example shows how the background task interferes with the main application  
+thread if not put on a separate thread.  
+
+```java
+package com.zetcode;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.SwingWorker;
+import java.awt.EventQueue;
+
+class MyWorker extends SwingWorker<Void, Void> {
+
+    @Override
+    protected Void doInBackground() throws Exception {
+        // Simulate a time-consuming task
+        Thread.sleep(3000);
+        return null;
+    }
+
+    @Override
+    protected void done() {
+        System.out.println("task done");
+    }
+}
+
+public class ButtonTaskEx extends JFrame {
+
+    public ButtonTaskEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        var taskButton = new JButton("Task");
+
+//        taskButton.addActionListener((event) -> {
+//            var worker = new MyWorker();
+//            worker.execute();
+//        });
+
+
+        taskButton.addActionListener((event) -> {
+            try {
+                Thread.sleep(3000);
+                System.out.println("task done");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        createLayout(taskButton);
+
+        setTitle("Task button");
+        setSize(500, 450);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private void createLayout(JComponent... arg) {
+
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
+        pane.setLayout(gl);
+
+        gl.setAutoCreateContainerGaps(true);
+
+        gl.setHorizontalGroup(gl.createSequentialGroup()
+                .addComponent(arg[0])
+        );
+
+        gl.setVerticalGroup(gl.createSequentialGroup()
+                .addComponent(arg[0])
+        );
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new ButtonTaskEx();
+            ex.setVisible(true);
+        });
+    }
+}
+```
+
 
 ## Searching for files 
 
