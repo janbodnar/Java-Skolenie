@@ -147,7 +147,7 @@ match.
 ## Implicit word boundaries
 
 The `\w` is a character class used for a character allowed in a word. For the  
-\w+ regular expression, which denotes a word, the leading and trailing word  
+`\w+` regular expression, which denotes a word, the leading and trailing word  
 boundary metacharacters are implicit; i.e. `\w+` is equal to `\b\w+\b`.  
 
 
