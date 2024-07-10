@@ -242,10 +242,10 @@ with `withLocale`.
 ## Locale ResourceBundle
 
 A resource bundle is a Java properties file that contains locale-specific data.  
-We localize messages with resource bundles.  
+We localize messages with resource bundles. The files are located in the 
+`src/main/resources` directory.  
 
 ```
-resources/words.properties
 w1=Earth
 w2=ocean
 ```
@@ -254,7 +254,6 @@ This is the default properties file; it is typically in English language. We
 have two words inside the file.  
 
 ```
-resources/words_de.properties
 w1=Erde
 w2=ozean
 ```
@@ -269,7 +268,11 @@ w2=океан
 
 The `words_ru.properties` file contains words in Russian language.
 
+When using IntelliJ IDEA, we need to change the encoding of the properties file  
+to utf-8; the default is ISO-8859-1  
+
 ```java
+import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -277,7 +280,7 @@ void main() {
 
     Locale[] locales = {
             Locale.GERMAN,
-            new Locale("ru", "RU"),
+            Locale.of("ru", "RU"),
             Locale.ENGLISH
     };
 
@@ -294,11 +297,13 @@ void main() {
 
         getWord(locale, "w2");
     }
+
+    System.out.println(Charset.defaultCharset());
 }
 
 void getWord(Locale curLoc, String key) {
 
-    ResourceBundle words = ResourceBundle.getBundle("resources/words", curLoc);
+    ResourceBundle words = ResourceBundle.getBundle("main/resources/words", curLoc);
     String value = words.getString(key);
 
     System.out.printf("Locale: %s, Value: %s %n", curLoc, value);
@@ -308,7 +313,7 @@ void getWord(Locale curLoc, String key) {
 In the code example, we print all the words used in three resource bundles.
 
 ```java
-ResourceBundle words = ResourceBundle.getBundle("resources/words", curLoc);
+ResourceBundle words = ResourceBundle.getBundle("main/resources/words", curLoc);
 ```
 
 With the `ResourceBundle.getBundle` method, we get the bundle for the currently  
