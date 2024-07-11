@@ -7,7 +7,6 @@ INSERT INTO countries(name, population) VALUES('Brazil', 207221000);
 INSERT INTO countries(name, population) VALUES('Pakistan', 196626000);
 INSERT INTO countries(name, population) VALUES('Nigeria', 186988000);
 INSERT INTO countries(name, population) VALUES('Bangladesh', 162099000);
-INSERT INTO countries(name, population) VALUES('Nigeria', 186988000);
 INSERT INTO countries(name, population) VALUES('Russia', 146838000);
 INSERT INTO countries(name, population) VALUES('Japan', 126830000);
 INSERT INTO countries(name, population) VALUES('Mexico', 122273000);
