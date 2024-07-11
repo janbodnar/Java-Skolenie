@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MySqlVersionEx {
+public class DbVersionEx {
 
     public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class MySqlVersionEx {
 
         String url = "jdbc:mysql://localhost:3306/testdb?useSsl=false";
         String user = "testuser";
-        String password = "test623";
+        String password = "s$cret";
 
         try {
 
@@ -37,7 +37,7 @@ public class MySqlVersionEx {
 
         } catch (SQLException ex) {
 
-            Logger lgr = Logger.getLogger(MySqlVersionEx.class.getName());
+            Logger lgr = Logger.getLogger(DbVersionEx.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
 
         } finally {
@@ -46,7 +46,7 @@ public class MySqlVersionEx {
                 try {
                     rs.close();
                 } catch (SQLException ex) {
-                    Logger lgr = Logger.getLogger(MySqlVersionEx.class.getName());
+                    Logger lgr = Logger.getLogger(DbVersionEx.class.getName());
                     lgr.log(Level.SEVERE, ex.getMessage(), ex);
                 }
             }
@@ -55,7 +55,7 @@ public class MySqlVersionEx {
                 try {
                     st.close();
                 } catch (SQLException ex) {
-                    Logger lgr = Logger.getLogger(MySqlVersionEx.class.getName());
+                    Logger lgr = Logger.getLogger(DbVersionEx.class.getName());
                     lgr.log(Level.SEVERE, ex.getMessage(), ex);
                 }
             }
@@ -64,7 +64,7 @@ public class MySqlVersionEx {
                 try {
                     con.close();
                 } catch (SQLException ex) {
-                    Logger lgr = Logger.getLogger(MySqlVersionEx.class.getName());
+                    Logger lgr = Logger.getLogger(DbVersionEx.class.getName());
                     lgr.log(Level.SEVERE, ex.getMessage(), ex);
                 }
             }
