@@ -11,6 +11,16 @@ the HTML5 specification, and parses HTML to the same DOM as modern browsers.
 - clean user-submitted content against a safe white-list, to prevent XSS attacks
 - output tidy HTML
 
+## Dependency
+
+``xml
+<dependency>
+    <groupId>org.jsoup</groupId>
+    <artifactId>jsoup</artifactId>
+    <version>1.17.2</version>
+</dependency>
+```
+
 ## JSoup class
 
 `JSoup` class provides the core public access point to the jsoup functionality  
