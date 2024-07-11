@@ -1,5 +1,42 @@
 # Samples
 
+## Read CSV files
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+
+void main() throws IOException {
+
+    Path path= Paths.get("src/resources/data.csv");
+
+    String contents = Files.readString(path);
+
+//    String regex = "[,\\s]+";
+    String regex = ",";
+    String[] parts = contents.split(regex);
+
+    System.out.println(Arrays.toString(parts));
+
+    int sum = 0;
+
+    for (String part : parts) {
+
+
+        sum += Integer.parseInt(part.trim());
+    }
+
+    System.out.println(sum);
+
+}
+```
+
+
+
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
