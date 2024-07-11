@@ -13,7 +13,7 @@ the HTML5 specification, and parses HTML to the same DOM as modern browsers.
 
 ## Dependency
 
-``xml
+```xml
 <dependency>
     <groupId>org.jsoup</groupId>
     <artifactId>jsoup</artifactId>
