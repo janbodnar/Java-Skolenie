@@ -443,7 +443,7 @@ void main() throws IOException {
             StandardCharsets.UTF_8)) {
 
         HeaderColumnNameMappingStrategy<Car> strategy
-                = new HeaderColumnNameMappingStrategy<>()>
+                = new HeaderColumnNameMappingStrategy<>();
         strategy.setType(Car.class);
 
         CsvToBean<Car> csvToBean = new CsvToBeanBuilder<Car>(br)
