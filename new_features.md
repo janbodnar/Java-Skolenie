@@ -30,3 +30,47 @@ void main() {
     }
 }
 ```
+
+## Primitive types in patterns 
+
+```java
+import java.util.Random;
+
+void main() {
+
+    boolean isGirl = new Random().nextBoolean();
+
+    String name = pickName(isGirl);
+    System.out.printf("chosen name: %s %n", name);
+}
+
+String pickName(boolean isGirl) {
+
+    return switch (isGirl) {
+        case true -> "Zuzana";
+        case false -> "Martin";
+    };
+}
+```
+
+```java
+import java.util.Arrays;
+
+void main() {
+
+    int[] ages = { 12, 23, 45, 0, 67, 88, 43, 55, -4};
+
+    Arrays.stream(ages).forEach(e -> System.out.println(e + ": " + checkAge(e)));
+}
+
+String checkAge(int age) {
+
+    return switch (age) {
+        case int i when i < 18 && i > 0-> "minor";
+        case int i when i >= 18 && i < 64 -> "adult";
+        case int i when i > 64 -> "senior";
+        default -> "n/a";
+    };
+}
+```
+
