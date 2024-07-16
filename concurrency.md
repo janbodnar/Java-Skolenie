@@ -310,6 +310,26 @@ public class JoinEx {
 }
 ```
 
+## Synchronization Tools in Java
+
+The following table  provides a brief overview of common synchronization tools.
+Each tool has its own specific functionalities and use cases.
+
+| Tool | Description | Use Cases |
+|---|---|---|
+| *synchronized* | Keyword that ensures only one thread can access a code block or method at a time. | Thread-safety for methods or critical sections of code. |
+| *volatile* | Modifier that ensures immediate visibility of changes made to a variable by one thread to other threads. | Making primitive variables thread-visible for basic operations (doesn't guarantee atomicity). |
+| *AtomicInteger/AtomicLong/ etc.* | Classes offering atomic operations (get, set, increment, decrement) on primitive data types. | Thread-safe updates on single variables (counters, flags). |
+| *ReentrantLock* | Manually controlled lock object. Threads acquire and release the lock explicitly. | Fine-grained control over synchronization, useful for complex synchronization scenarios. |
+| *Semaphore* | Controls access to a limited number of resources. Only a specified number of threads can acquire the semaphore at a time. | Managing access to a pool of resources, preventing resource exhaustion. |
+| *CountDownLatch* | Signals all waiting threads when a counter reaches zero. | Coordinating thread completion, waiting for a specific number of tasks to finish. |
+| *CyclicBarrier* | Awaits a fixed number of threads to reach a barrier point before all threads proceed. | Coordinating thread execution, ensuring all threads reach a specific point before continuing. |
+| *Phaser* | A more flexible barrier that allows threads to register and unregister dynamically.  | Coordinating phases of concurrent tasks with dynamic participation. |
+| *BlockingQueue* | A queue that blocks threads attempting to enqueue or dequeue elements when the queue is full/empty. | Thread-safe producer-consumer queues for data exchange between threads. |
+| *ConcurrentHashMap/ etc.* | Concurrent collections specifically designed for thread-safe access. | Thread-safe data structures for storing and manipulating collections. |
+
+
+
 ## AtomicLong
 
 `AtomicLong` provides a long variable that can be read and written atomically.  
