@@ -8,7 +8,7 @@ multiple CPU units or cores.
 
 ![Tasks](images/tasks.png)
 
-![Concurrency vs parallelism](https://www.youtube.com/watch?v=RlM9AfWf1WU)
+(https://www.youtube.com/watch?v=RlM9AfWf1WU)[Concurrency vs parallelism]
 
 ## Terms 
 
