@@ -738,15 +738,15 @@ void main(String[] args) throws IOException {
 }
 ```
 
-1. `**`Files.lines(Paths.get("file.txt"))`**`: Creates a `Stream<String>` where  
+1. `Files.lines(Paths.get("file.txt"))`: Creates a `Stream<String>` where  
    each element is a line read from the file "file.txt".  
-2. `**`.flatMap(line -> Arrays.stream(line.split("\\s+")))`**`: Splits each line  
+2. `.flatMap(line -> Arrays.stream(line.split("\\s+")))`: Splits each line  
    into words, and flattens all streams of words into one stream.  
-3. `**`.filter(word -> word.length() > 0)`**`: Filters out any empty strings  
+3. `.filter(word -> word.length() > 0)`: Filters out any empty strings  
    that may have been created by the split operation.  
-4. `**`.map(String::toLowerCase)`**`: Converts all words in the stream to lower  
+4. `.map(String::toLowerCase)`: Converts all words in the stream to lower  
    case.  
-5. `**`.collect(Collectors.toList())`**`: Collects all elements of the stream  
+5. `.collect(Collectors.toList())`: Collects all elements of the stream  
    into a `List<String>`.  
 
 The `flatMap` operation:  
