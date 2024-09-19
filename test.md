@@ -1,5 +1,21 @@
 # Priklady
 
+## Print words in titlecase
+
+```java
+void main() {
+
+    String[] words = { "sky", "nord", "cup", "cloud", "war", "water" };
+
+    for (String word: words) {
+
+        System.out.println(Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase());
+        
+    }
+}
+```
+
+
 ## Generate 10 random integers
 
 ```java
