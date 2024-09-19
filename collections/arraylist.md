@@ -231,7 +231,7 @@ When we add multiple data types to a list, we omit the angle brackets.
 The following example uses the `addAll` method to add multiple elements to a  
 list in one step.  
 
-```ava
+```java
 import java.util.ArrayList;
 import java.util.List;
 
