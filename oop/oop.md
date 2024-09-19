@@ -449,17 +449,19 @@ class Being {
 
     public Being(String being) {
 
-        System.out.println(String.format("Being %s is created", being));
+        System.out.printf("Being %s is created%n", being);
     }
 }
 
-public class Constructor {
+public class Main {
 
-    @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(String[] args) {
 
-        new Being();
-        new Being("Tom");
+        Being b1 = new Being();
+        Being b2 = new Being("Tom");
+
+        System.out.println(b1.getClass());
+        System.out.println(b2.getClass());
     }
 }
 ```
@@ -477,20 +479,13 @@ public Being() {
 This constructor does not take any parameters.
 
 ```java
-public Being(String being) {
+  public Being(String being) {
 
-    System.out.println(String.format("Being %s is created", being));
-}
+      System.out.printf("Being %s is created%n", being);
+  }
 ```
 
 This constructor takes one string parameter.  
-
-```java
-@SuppressWarnings("ResultOfObjectAllocationIgnored")
-```
-
-This annotation will suppress a warning that we do not assign our created  
-objects to any variables. Normally this would be a suspicious activity.  
 
 ```java
 new Being();
