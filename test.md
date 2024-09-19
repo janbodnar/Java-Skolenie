@@ -1,5 +1,23 @@
 # Priklady
 
+## Generate 10 random integers
+
+```java
+import java.util.Random;
+
+void main() {
+
+    var random = new Random();
+
+    for (var i = 0; i < 10; i++) {
+
+        var r = random.nextInt(10);
+        System.out.println(r);
+    }
+}
+```
+
+
 ## Calculate sum
 
 ```java
