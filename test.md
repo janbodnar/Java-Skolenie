@@ -1,5 +1,22 @@
 # Priklady
 
+## Calculate sum
+
+```java
+void main() {
+
+    int sum = 0;
+    int[] vals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    for (int i = 0; i< vals.length; i++) {
+
+        sum = sum + vals[i];
+    }
+
+    System.out.println(sum);
+}
+```
+
 
 ## Formatovany vystup
 
