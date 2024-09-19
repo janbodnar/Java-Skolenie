@@ -338,6 +338,37 @@ if (capitals.containsKey(key1)) {
 This if statement prints a message depending on whether the map contains the  
 given key.  
 
+## Practical usage
+
+The following program calcuates the frequency of characters in the string.  
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+void main() {
+
+    String message = "there is an old falcon in the sky";
+
+    Map<Character, Integer> charFreq = new HashMap<>();
+
+    for (Character c : message.toCharArray()) {
+
+        // Check if the character already exists in the map
+        if (charFreq.containsKey(c)) {
+            // Increment the frequency count for the existing character
+            charFreq.put(c, charFreq.get(c) + 1);
+        } else {
+            // Add the character to the map with a frequency of 1
+            charFreq.put(c, 1);
+        }
+    }
+
+    System.out.println(charFreq);
+}
+```
+
+
 ## The replace method
 
 There are `replace` methods which enable programmers to replace entries.
