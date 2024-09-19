@@ -40,8 +40,25 @@ void main() {
 }
 ```
 
+## The Map.of method
 
-We have factory methods for HashMap initialization.
+The `Map.of` method returns an unmodifiable map.
+
+```java
+import java.util.Map;
+
+void main() {
+
+    Map<Integer, String> colours = Map.of(1, "red", 2, "blue", 3, "brown");
+    System.out.println(colours);
+}
+```
+
+
+## The Map.ofEntries method
+
+The `Map.ofEntries` returns an unmodifiable map containing keys and values extracted  
+from the given entries.  
 
 ```java
 import java.util.Map;
@@ -49,10 +66,7 @@ import static java.util.Map.entry;
 
 void main() {
 
-    Map colours = Map.of(1, "red", 2, "blue", 3, "brown");
-    System.out.println(colours);
-
-    Map countries = Map.ofEntries(
+    Map<String, String> countries = Map.ofEntries(
             entry("de", "Germany"),
             entry("sk", "Slovakia"),
             entry("ru", "Russia"));
@@ -61,8 +75,8 @@ void main() {
 }
 ```
 
-The example uses `Map.of` and `Map.ofEntries` to initialize hashmaps. These two  
-factory methods return unmodifiable maps.  
+
+Older syntax:  
 
 ```java
 import java.util.HashMap;
