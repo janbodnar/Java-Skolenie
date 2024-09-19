@@ -17,6 +17,22 @@ void main() {
 }
 ```
 
+```java
+void main() {
+
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sum = 0;
+
+    for (int val: vals) {
+        sum = sum + val;
+    }
+
+    System.out.println(sum);
+
+    System.out.println("end of program");
+}
+```
+
 
 ## Formatovany vystup
 
