@@ -721,8 +721,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
 void main(String[] args) throws IOException {
+
     Path filePath = Paths.get("src/resources/thermopylae.txt");
 
     try (Stream<String> lines = Files.lines(filePath)) {
