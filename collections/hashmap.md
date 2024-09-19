@@ -19,6 +19,28 @@ signatures including `get`, `put`, `size`, or `isEmpty`.
 
 ## HashMap initialization
 
+Creating an empty `HashMap` and initializing with `put` method. 
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+void main() {
+
+    Map<String, String> capitals = new HashMap<>();
+
+    capitals.put("svk", "Bratislava");
+    capitals.put("ger", "Berlin");
+    capitals.put("hun", "Budapest");
+    capitals.put("czk", "Prague");
+    capitals.put("pol", "Warsaw");
+    capitals.put("ita", "Rome");
+
+    System.out.println(capitals);
+}
+```
+
+
 We have factory methods for HashMap initialization.
 
 ```java
