@@ -1,5 +1,37 @@
 # Priklady
 
+## Calculate sum from CSV file
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+void main() throws IOException {
+
+    String fileName = "data.csv";
+    Path path = Path.of(fileName);
+
+    List<String> lines = Files.readAllLines(path);
+
+    int sum = 0;
+
+    for (String line : lines) {
+
+        String[] parts = line.split(",");
+
+        for (String part: parts) {
+
+            sum += Integer.parseInt(part); 
+        }
+    }
+
+    System.out.println(sum);
+}
+```
+
+
 ## Circle/Rectangle
 
 ```java
