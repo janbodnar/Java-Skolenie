@@ -28,7 +28,8 @@ arrays.
 
 ```java
 import java.util.Arrays;
- void main() {
+
+void main() {
 
     int[] a = new int[5];
 
