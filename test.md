@@ -1,5 +1,36 @@
 # Priklady
 
+## Read CSV data
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+void main() throws IOException {
+
+    String fileName = "data.csv";
+    List<String> lines = Files.readAllLines(Path.of(fileName));
+
+    int sum = 0;
+
+    for (var line: lines) {
+
+        String[] parts = line.split(",");
+
+        for (String part: parts) {
+
+            sum += Integer.parseInt(part);
+        }
+
+    }
+
+    System.out.println(sum);
+}
+```
+
+
 ## Print words in titlecase
 
 ```java
