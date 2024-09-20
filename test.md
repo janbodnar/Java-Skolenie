@@ -1,5 +1,90 @@
 # Priklady
 
+## Circle/Rectangle
+
+```java
+package com.zetcode;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Circle c = new Circle(10);
+        System.out.println(c.area());
+
+        c.setRadius(5);
+        System.out.println(c.area());
+
+        c.setRadius(22);
+        System.out.println(c.area());
+
+        Rectangle r = new Rectangle(10, 20);
+        System.out.println(r.getArea());
+    }
+}
+```
+
+```java
+package com.zetcode;
+
+public class Rectangle {
+
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getArea() {
+
+        return this.width * this.height;
+    }
+
+}
+````
+
+```java
+package com.zetcode;
+
+public class Circle {
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+
+    private int radius;
+
+    public void setRadius(int radius) {
+
+        this.radius = radius;
+    }
+
+    public double area() {
+
+        return this.radius * this.radius * Math.PI;
+    }
+}
+```
+
 
 ## Getters/setters
 
