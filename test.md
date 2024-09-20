@@ -1,5 +1,33 @@
 # Priklady
 
+## Sum negative/positive values
+
+```java
+void main() {
+
+    int[] vals = {1, -2, -4, 0, 5, 9, 11, -3};
+
+    int sum_pos = 0;
+    int sum_neg = 0;
+
+    for (int val: vals) {
+
+        if (val < 0) {
+            sum_neg = sum_neg + val;
+        }
+        
+        if (val > 0) {
+            sum_pos = sum_pos + val;
+        }
+        
+    }
+
+    System.out.println(sum_neg);
+    System.out.println(sum_pos);
+}
+```
+
+
 ## Read CSV data
 
 ```java
