@@ -1,5 +1,53 @@
 # Priklady
 
+
+## Getters/setters
+
+```java
+package com.zetcode;
+
+class Person {
+
+    private String firstName;
+    private String lastName;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Person p1 = new Person();
+        p1.setFirstName("Lucy");
+        p1.setLastName("Black");
+
+        Person p2 = new Person();
+        p2.setFirstName("Maria");
+        p2.setLastName("Novak");
+
+        System.out.println(p1.getFirstName() + " " + p1.getLastName());
+        System.out.println(p2.getFirstName() + " " + p2.getLastName());
+
+    }
+}
+```
+
+
 ## Sum negative/positive values
 
 ```java
