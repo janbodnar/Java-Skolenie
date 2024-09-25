@@ -50,3 +50,44 @@ I'd be glad to explain the `equals` and `hashCode` methods in Java:
 
 By following these guidelines, you can effectively implement `equals` and `hashCode` in your Java classes,  
 ensuring correct object comparison and efficient use of hash-based data structures.
+
+```java
+import java.util.Objects;
+
+class Person {
+
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && age == person.age;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+}
+
+void main() {
+
+    Person p1 = new Person("John Doe", 32);
+    Person p2 = new Person("John Doe", 32);
+
+    System.out.println(p1.equals(p2));
+    System.out.println(p1 == p2);
+}
+```
+
+
+
+
