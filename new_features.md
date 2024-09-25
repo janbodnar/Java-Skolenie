@@ -74,3 +74,40 @@ String checkAge(int age) {
 }
 ```
 
+## readln function
+
+(Java 23)  
+
+New `readln` function in `java.io.IO`.  
+
+```java
+void main() {
+
+    String name = readln("Enter your name:");
+    println("Hello " + name + "!");
+}
+```
+
+## Automatic imports 
+
+(Java 23)  
+
+Automatic import of `java.base` for 
+
+```java
+void main() {
+
+    println("Java 23");
+
+    var vals = List.of(1, 2, 3, 4, 5);
+    vals.forEach(e -> println(e));
+
+    var now = Instant.now();
+    println(now);
+
+    var r = new Random();
+    println(r.nextInt());
+}
+```
+
+
