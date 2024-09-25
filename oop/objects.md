@@ -2,7 +2,8 @@
 
 ## Mutable & immutable objects
 
-In Java, objects can be classified into two categories based on their mutability: *mutable* and *immutable*.
+In Java, objects can be classified into two categories based on their mutability:  
+*mutable* and *immutable*.
 
 ### Mutable Objects
 
@@ -81,6 +82,95 @@ void main() {
 }
 ```
 
+## instanceof operator
+
+The `instanceof` in Java is an operator used to check if an object is an instance of  
+a particular class or interface. It returns a boolean value: `true` if the object  
+is an instance of the specified type, and `false` otherwise.
+
+```java
+
+class Base {}
+class Planet {}
+
+void main() {
+
+    List<Object> obs = List.of(new Base(), new Planet(), new Base(), new Planet(),
+            new Base(), new Planet(), new Base(), new Base(), new Planet() );
+
+    var r = new Random();
+
+    for (int i = 0; i < 10; i++) {
+
+        int idx = r.nextInt(obs.size());
+
+        System.out.println(idx);
+        var o = obs.get(idx);
+
+        if (o instanceof Base) {
+            System.out.println("Base");
+        }
+
+        if (o instanceof Planet) {
+            System.out.println("Planet");
+        }
+    }
+}
+```
+
+`instanceof` is often used in conjunction with downcasting to ensure type safety.  
+
+```java
+void main() {
+
+    List<Shape> shapes = new ArrayList<>();
+    shapes.add(new Circle(5));
+    shapes.add(new Rectangle(4, 3));
+
+    for (Shape shape : shapes) {
+        if (shape instanceof Circle) {
+            Circle circle = (Circle) shape;
+            System.out.println("Circle area: " + circle.getArea());
+        } else if (shape instanceof Rectangle) {
+            Rectangle rectangle = (Rectangle) shape;
+            System.out.println("Rectangle area: " + rectangle.getArea());
+        } else {
+            System.out.println("Unknown shape");
+        }
+    }
+}
+
+
+class Shape {
+    // ...
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double getArea() {
+        return width * height;
+    }
+}
+```
 
 
 ## Equals & hashCode
