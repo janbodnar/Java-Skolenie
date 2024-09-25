@@ -58,6 +58,54 @@ default -> System.out.println("Unknown");
 The default branch is executed when the value does not match any previous  
 branch.  
 
+## Using primitive types
+
+`boolean` values:  
+
+```java
+import java.util.Random;
+
+void main() {
+
+    boolean isGirl = new Random().nextBoolean();
+
+    String name = pickName(isGirl);
+    System.out.printf("chosen name: %s %n", name);
+}
+
+String pickName(boolean isGirl) {
+
+    return switch (isGirl) {
+        case true -> "Zuzana";
+        case false -> "Martin";
+    };
+}
+```
+
+int values: 
+
+```java
+import java.util.Arrays;
+
+void main() {
+
+    int[] ages = { 12, 23, 45, 0, 67, 88, 43, 55, -4};
+
+    Arrays.stream(ages).forEach(e -> System.out.println(e + ": " + checkAge(e)));
+}
+
+String checkAge(int age) {
+
+    return switch (age) {
+        case int i when i < 18 && i > 0-> "minor";
+        case int i when i >= 18 && i < 64 -> "adult";
+        case int i when i > 64 -> "senior";
+        default -> "n/a";
+    };
+}
+```
+
+
 ## Using enumerations
 
 In the next example, we work with enumerations.
