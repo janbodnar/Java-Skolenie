@@ -44,28 +44,6 @@ To create an immutable class in Java:
 4. **Make a defensive copy of mutable fields:** If the class contains mutable fields, create a defensive  
    copy (e.g., using `clone()` or `copyOf()`) when returning them from methods.  
 
-**Example of an Immutable Class:**
-
-```java
-public final class Point {
-    private final int x;
-    private final int y;
-
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-}
-```
-
 By following these guidelines, we can create immutable classes in Java, which can enhance the  
 reliability, thread safety, and performance of your applications.  
 
