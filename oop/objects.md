@@ -12,7 +12,7 @@ I'd be glad to explain the `equals` and `hashCode` methods in Java:
   - Reflexive: `x.equals(x)` is always true.
   - Symmetric: If `x.equals(y)` is true, then `y.equals(x)` is also true.
   - Transitive: If `x.equals(y)` and `y.equals(z)` are true, then `x.equals(z)` is also true.
-  - Consistent: Multiple invocations of `equals` on the same object with the same non-null
+  - Consistent: Multiple invocations of `equals` on the same object with the same non-null  
     argument should produce the same result.
   - For any non-null reference `x`, `x.equals(null)` is always false.
 - **Default implementation:** The default implementation in `Object` compares references.  
