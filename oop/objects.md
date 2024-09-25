@@ -1,9 +1,7 @@
 # Objects 
 
 
-## Equals & hashcode
-
-I'd be glad to explain the `equals` and `hashCode` methods in Java:
+## Equals & hashCode
 
 **equals**
 
