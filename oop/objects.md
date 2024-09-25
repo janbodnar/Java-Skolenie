@@ -1,5 +1,109 @@
 # Objects 
 
+## Mutable & immutable objects
+
+In Java, objects can be classified into two categories based on their mutability: *mutable* and *immutable*.
+
+### Mutable Objects
+
+Mutable objects can be modified after they are created. Their internal state can change over time.  
+
+Examples:  
+  - `ArrayList`
+  - `StringBuilder`
+  - Custom classes that have mutable fields
+
+### Immutable Objects
+
+Immutable objects cannot be modified once they are created. Their internal state remains constant  
+throughout their lifetime.  
+
+Examples:
+
+- `String`
+- `Integer`
+- `Double`
+- Custom classes designed to be immutable
+
+**Why Immutability is Important:**
+
+* **Thread Safety:** Immutable objects are inherently thread-safe. Multiple threads can safely share  
+  and access an immutable object without the risk of data corruption.  
+* **Caching:** Immutable objects can be cached more efficiently, as their values will never change.  
+  This can improve performance in certain scenarios.  
+* **Predictability:** Immutable objects are easier to reason about and predict their behavior, making  
+  code more reliable and easier to maintain.  
+
+**Creating Immutable Classes:**
+
+To create an immutable class in Java:
+
+1. **Declare all fields as final:** This prevents them from being modified after object creation.  
+2. **Do not provide any public setters:** This ensures that the object's state cannot be changed from  
+   outside.
+4. **Make a defensive copy of mutable fields:** If the class contains mutable fields, create a defensive  
+   copy (e.g., using `clone()` or `copyOf()`) when returning them from methods.  
+
+**Example of an Immutable Class:**
+
+```java
+public final class Point {
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+}
+```
+
+By following these guidelines, we can create immutable classes in Java, which can enhance the  
+reliability, thread safety, and performance of your applications.  
+
+
+
+The following is a custom immutable object. 
+
+```java
+final class Point {
+
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+}
+
+void main() {
+
+    var p = new Point(4, 5);
+    System.out.println(p);
+
+    System.out.println(p.getX());
+    System.out.println(p.getY());
+}
+```
+
+
 
 ## Equals & hashCode
 
