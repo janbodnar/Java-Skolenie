@@ -17,11 +17,11 @@ The following constructs have their own scope:
      - Methods
 
 2. **Methods:**
-   - Variables declared within a method are only accessible within that method.
-   - Parameters passed to a method also have their own scope within the method.
+   - Variables declared within a method are only accessible within that method.  
+   - Parameters passed to a method also have their own scope within the method.  
 
 3. **Classes:**
-   - Variables declared within a class are accessible throughout the class, including
+   - Variables declared within a class are accessible throughout the class, including  
      within methods and constructors.
    - However, if a variable is declared as `private`, it can only be accessed within
      the class itself.
@@ -29,5 +29,47 @@ The following constructs have their own scope:
 4. **Interfaces:**
    - Variables declared within an interface are implicitly `public`, `static`, and `final`.
    - They can be accessed from anywhere within the class that implements the interface.
+
+
+The program presents the block scope:  
+
+```java
+void main() {
+    
+    String word = "falcon";
+
+    for (int i = 0; i < 10; i++) {
+        System.out.println(word);
+    }
+
+     // System.out.println(i); not defined
+}
+```
+
+Method scope:  
+
+```java
+String name = "Peter";
+
+void main() {
+
+    String name = "Jozef";
+    System.out.println("This is main function");
+
+    System.out.printf("Hello %s!%n", name);
+    hello();
+}
+
+void hello() {
+
+    System.out.println("This is greet function");
+    System.out.printf("Hello %s!%n", name);
+}
+```
+
+
+
+
+
 
 
