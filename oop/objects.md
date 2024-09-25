@@ -15,20 +15,20 @@ I'd be glad to explain the `equals` and `hashCode` methods in Java:
   - Consistent: Multiple invocations of `equals` on the same object with the same non-null
     argument should produce the same result.
   - For any non-null reference `x`, `x.equals(null)` is always false.
-- **Default implementation:** The default implementation in `Object` compares references.
-- Two objects are considered equal only if they are the same object.
-- **Custom implementation:** To define your own equality criteria, override the `equals` method
-  in your class. Consider comparing relevant fields using `==` for primitive types and `equals` for objects.
+- **Default implementation:** The default implementation in `Object` compares references.  
+- Two objects are considered equal only if they are the same object.  
+- **Custom implementation:** To define your own equality criteria, override the `equals` method  
+  in your class. Consider comparing relevant fields using `==` for primitive types and `equals` for objects.  
 
 **hashCode**
 
-- **Purpose:** Returns a hash code value for an object. This value is used by data structures like `HashMap`
+- **Purpose:** Returns a hash code value for an object. This value is used by data structures like `HashMap`  
   and `HashSet` to efficiently store and retrieve objects.
 - **Contract:**
   - If two objects are equal according to `equals`, then their hash codes must be equal.
-  - If two objects are not equal according to `equals`, their hash codes are not required to be different,
-    but it's generally recommended to have different hash codes for different objects to improve performance.
-- **Default implementation:** The default implementation in `Object` generates a hash code based on the
+  - If two objects are not equal according to `equals`, their hash codes are not required to be different,  
+    but it's generally recommended to have different hash codes for different objects to improve performance.  
+- **Default implementation:** The default implementation in `Object` generates a hash code based on the  
   object's memory address.
 - **Custom implementation:** To improve the efficiency of hash-based data structures, override the  
   `hashCode` method in your class. Consider using a combination of hash codes for relevant fields,  
