@@ -1,5 +1,29 @@
 # Java poznamky
 
+
+## Citanie suboru 
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+void main() throws IOException {
+
+    String fileName = "words.txt";
+    Path filePath = Path.of(fileName);
+
+    List<String> lines = Files.readAllLines(filePath);
+
+    for (String line: lines) {
+
+        System.out.printf("The word %s has %d characters%n", line,  line.length());
+    }
+}
+```
+
+
 Tento priklad ukazuje pouzitie pola.  
 
 ## Pole cisiel
