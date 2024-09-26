@@ -251,6 +251,51 @@ static {
 In the static initializer, we print a message to the console and initialize a  
 static variable.  
 
+
+## Java static import
+
+Static imports allow members (fields and methods) defined in a class as public  
+static to be used in Java code without specifying the class in which the field  
+is defined.  
+
+### Static import disadvantages
+
+The overuse the static import feature can make our program unreadable and  
+unmaintainable, polluting its namespace with all the static members we import.  
+
+### Static import example
+
+```java
+package com.zetcode;
+
+import static java.lang.Math.PI;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println(PI);
+    }
+}
+```
+
+In the example, we use the PI constant without its class.
+
+## Java constants
+
+The static modifier, in combination with the final modifier, is also used to  
+define constants. The final modifier indicates that the value of this field  
+cannot change.  
+
+```java
+public static final double PI = 3.14159265358979323846;
+```
+
+For example, in `java.lang.Math` we have a constant named `PI`, whose value is  
+an approximation of pi (the ratio of the circumference of a circle to its  
+diameter).
+
+
 ## Static nested classes
 
 A static nested class is a nested class that can be created without the instance  
@@ -318,49 +363,6 @@ Main.Nested sn = new Main.Nested();
 ```
 
 The dot operator is used to refer to the nested class.
-
-## Java static import
-
-Static imports allow members (fields and methods) defined in a class as public  
-static to be used in Java code without specifying the class in which the field  
-is defined.  
-
-### Static import disadvantages
-
-The overuse the static import feature can make our program unreadable and  
-unmaintainable, polluting its namespace with all the static members we import.  
-
-### Static import example
-
-```java
-package com.zetcode;
-
-import static java.lang.Math.PI;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        System.out.println(PI);
-    }
-}
-```
-
-In the example, we use the PI constant without its class.
-
-## Java constants
-
-The static modifier, in combination with the final modifier, is also used to  
-define constants. The final modifier indicates that the value of this field  
-cannot change.  
-
-```java
-public static final double PI = 3.14159265358979323846;
-```
-
-For example, in `java.lang.Math` we have a constant named `PI`, whose value is  
-an approximation of pi (the ratio of the circumference of a circle to its  
-diameter).
 
 ## Singleton pattern
 
