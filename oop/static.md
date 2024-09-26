@@ -122,19 +122,6 @@ class name followed by the dot operator and the variable name.
 - static variables are called class variables or static fields.
 - static variables are associated with the class, rather than with any object.
 
-Common usage:
-
-- Constants: Often used to define constants, such as `public static final int MAX_USERS = 100;`.  
-- Counters: Useful for counting instances of a class, like `static int instanceCount;`.  
-- Configuration Settings: Store configuration settings that apply to all instances, such as  
-  database connection strings.  
-- Utility Classes: In utility or helper classes where methods and variables are static, like `Math.PI`.  
-- Shared Resources: Manage shared resources, like a static `Logger` instance for logging purposes.  
-
-These uses leverage the class-level scope and memory efficiency of static variables to maintain consistency  
-and global access across instances.  
-
-
 ```java
 class Runner {
 
@@ -161,6 +148,19 @@ public class Main {
     }
 }
 ```
+
+Common usage:
+
+- Constants: Often used to define constants, such as `public static final int MAX_USERS = 100;`.  
+- Counters: Useful for counting instances of a class, like `static int instanceCount;`.  
+- Configuration Settings: Store configuration settings that apply to all instances, such as  
+  database connection strings.  
+- Utility Classes: In utility or helper classes where methods and variables are static, like `Math.PI`.  
+- Shared Resources: Manage shared resources, like a static `Logger` instance for logging purposes.  
+
+These uses leverage the class-level scope and memory efficiency of static variables to maintain consistency  
+and global access across instances.  
+
 
 ## Static method
 
