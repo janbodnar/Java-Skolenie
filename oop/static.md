@@ -169,7 +169,7 @@ method, we use the name of the class, the dot operator, and the name of the
 method. Static methods can only work with static variables.  
 
 Static methods are often used to represent data or calculations that do not work with    
-object state. For instance, `java.lang.Math` contains static methods for various calculations. 
+object state. For instance, `java.lang.Math` contains static methods for various calculations.   
 They are usually shorter methods.  
 
 We use the static keyword to declare a static method. When no static modifier is  
