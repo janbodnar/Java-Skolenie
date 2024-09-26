@@ -1,5 +1,29 @@
 # Java poznamky
 
+## Podmienecne vymazanie prvkov
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+void main() {
+
+    List<String> words = new ArrayList<>();
+    words.add("sky");
+    words.add("atom");
+    words.add("cup");
+    words.add("war");
+    words.add("water");
+    words.add("new");
+    words.add("ocean");
+
+    words.removeIf(word -> !word.startsWith("w") );
+
+    System.out.println(words);
+}
+```
+
+
 
 ## Citanie suboru 
 
