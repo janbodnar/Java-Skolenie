@@ -122,6 +122,33 @@ class name followed by the dot operator and the variable name.
 - static variables are called class variables or static fields.
 - static variables are associated with the class, rather than with any object.
 
+```java
+class Runner {
+
+    static int x = 11;
+
+    static void fun1() {
+        System.out.println(x);
+    }
+
+    void fun2() {
+        System.out.println(x);
+    }
+}
+
+
+public class Main {
+    
+    public static void main(String[] args) {
+
+        var r = new Runner();
+
+        Runner.fun1();
+        r.fun2();
+    }
+}
+```
+
 ## Static method
 
 Static methods are called without an instance of the object. To call a static  
