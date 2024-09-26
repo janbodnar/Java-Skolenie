@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS cars;
 CREATE TABLE cars(id INTEGER PRIMARY KEY, name TEXT, price INTEGER);
 
 INSERT INTO cars(name, price) VALUES('Audi', 52642);
