@@ -23,6 +23,7 @@ void main() {
 }
 ```
 
+Priklad vymaze elementy zo zoznamu, ktore sa nezacinaju na 'w'.
 
 
 ## Citanie suboru 
