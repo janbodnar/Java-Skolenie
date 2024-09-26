@@ -231,3 +231,30 @@ string representation of the enum. Since the compiler knows all the possible
 constants beforehand, the switch expression is exhaustive, that is, we do not  
 have to define the default arm.  
 
+## Modify example
+
+Add `MaritalStatus` enum to the example and filter all single users.  
+
+```java
+import java.util.List;
+
+void main() {
+
+    List<User> users = List.of(
+            new User("Jack", "jack234@gmail.com"),
+            new User("Peter", "pete2@post.com"),
+            new User("Lucy", "lucy17@gmail.com"),
+            new User("Robert", "bob56@post.com"),
+            new User("Martin", "mato4@imail.com")
+    );
+
+    List<User> res = users.stream()
+            .filter(user -> user.email().matches(".*post.com"))
+            .toList();
+
+    res.forEach(p -> System.out.println(p.name()));
+}
+
+record User(String name, String email) {
+}
+```
