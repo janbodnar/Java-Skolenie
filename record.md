@@ -182,7 +182,7 @@ record User(String fname, String lname, int salary) implements Comparable<User> 
 }
 ```
 
-The record implements the `Comparable` interface and overrides the `compareTo`
+The record implements the `Comparable` interface and overrides the `compareTo`  
 method where we compare the users' last names.  
 
 ## Filtering records
@@ -217,7 +217,7 @@ record User(String fname, String lname, int salary) {
 }
 ```
 
-We have a list of User records. We filter the users by their salary.
+We have a list of User records. We filter the users by their salary.  
 
 ```java
 var filtered = users.stream().filter(e -> e.salary() > 2000)
