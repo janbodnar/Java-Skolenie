@@ -1,5 +1,44 @@
 # Java poznamky
 
+## Filtrovanie slov zo suboru
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
+void main() throws IOException {
+
+    List<String> w_words = new ArrayList<>();
+    List<String> w_c_words = new ArrayList<>();
+
+    String fileName = "words.txt";
+    Path filePath = Path.of(fileName);
+
+    List<String> lines = Files.readAllLines(filePath);
+
+    for (String line: lines) {
+
+        if (line.startsWith("w")) {
+            w_words.add(line);
+        }
+    }
+
+    for (String line: lines) {
+
+        if (line.startsWith("w") || line.startsWith("c") ) {
+            w_c_words.add(line);
+        }
+    }
+
+    System.out.println(w_words);
+    System.out.println(w_c_words);
+}
+```
+
+
 ## Podmienecne vymazanie prvkov
 
 ```java
