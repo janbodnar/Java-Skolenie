@@ -37,5 +37,8 @@ void main() {
 }
 ```
 
-![image](https://github.com/user-attachments/assets/f8b93a87-96d2-42f2-a818-51875cd43e20)
+## Hlavne okno
+
+![IntelliJ Main](/images/intellij.png)
+
 
