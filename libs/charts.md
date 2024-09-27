@@ -51,3 +51,533 @@ public class HistogramEx {
     }
 }
 ```
+
+## Line chart
+
+```java
+package com.zetcode;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+public class LineChartEx extends JFrame {
+
+    public LineChartEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        XYDataset dataset = createDataset();
+        JFreeChart chart = createChart(dataset);
+
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBackground(Color.white);
+        add(chartPanel);
+
+        pack();
+        setTitle("Line chart");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private XYDataset createDataset() {
+
+        var series = new XYSeries("2016");
+        series.add(18, 567);
+        series.add(20, 612);
+        series.add(25, 800);
+        series.add(30, 980);
+        series.add(40, 1410);
+        series.add(50, 2350);
+
+        var dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+
+        return dataset;
+    }
+
+    private JFreeChart createChart(XYDataset dataset) {
+
+        JFreeChart chart = ChartFactory.createXYLineChart(
+                "Average salary per age",
+                "Age",
+                "Salary (€)",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
+
+        XYPlot plot = chart.getXYPlot();
+
+        var renderer = new XYLineAndShapeRenderer();
+        renderer.setSeriesPaint(0, Color.RED);
+        renderer.setSeriesStroke(0, new BasicStroke(2.0f));
+
+        plot.setRenderer(renderer);
+        plot.setBackgroundPaint(Color.white);
+
+        plot.setRangeGridlinesVisible(true);
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        plot.setDomainGridlinesVisible(true);
+        plot.setDomainGridlinePaint(Color.BLACK);
+
+        chart.getLegend().setFrame(BlockBorder.NONE);
+
+        chart.setTitle(new TextTitle("Average Salary per Age",
+                        new Font("Serif", java.awt.Font.BOLD, 18)
+                )
+        );
+
+        return chart;
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new LineChartEx();
+            ex.setVisible(true);
+        });
+    }
+}
+```
+
+## Line chart with 2 series
+
+```java
+package com.zetcode;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+public class LineChartEx2 extends JFrame {
+
+    public LineChartEx2() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        XYDataset dataset = createDataset();
+        JFreeChart chart = createChart(dataset);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBackground(Color.white);
+        
+        add(chartPanel);
+
+        pack();
+        setTitle("Line chart");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private XYDataset createDataset() {
+
+        var series1 = new XYSeries("2014");
+        series1.add(18, 530);
+        series1.add(20, 580);
+        series1.add(25, 740);
+        series1.add(30, 901);
+        series1.add(40, 1300);
+        series1.add(50, 2219);
+
+        var series2 = new XYSeries("2016");
+        series2.add(18, 567);
+        series2.add(20, 612);
+        series2.add(25, 800);
+        series2.add(30, 980);
+        series2.add(40, 1210);
+        series2.add(50, 2350);
+
+        var dataset = new XYSeriesCollection();
+        dataset.addSeries(series1);
+        dataset.addSeries(series2);
+
+        return dataset;
+    }
+
+    private JFreeChart createChart(final XYDataset dataset) {
+
+        JFreeChart chart = ChartFactory.createXYLineChart(
+                "Average salary per age",
+                "Age",
+                "Salary (€)",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
+
+        XYPlot plot = chart.getXYPlot();
+
+        var renderer = new XYLineAndShapeRenderer();
+
+        renderer.setSeriesPaint(0, Color.RED);
+        renderer.setSeriesStroke(0, new BasicStroke(2.0f));
+        renderer.setSeriesPaint(1, Color.BLUE);
+        renderer.setSeriesStroke(1, new BasicStroke(2.0f));
+
+        plot.setRenderer(renderer);
+        plot.setBackgroundPaint(Color.white);
+        plot.setRangeGridlinesVisible(false);
+        plot.setDomainGridlinesVisible(false);
+
+        chart.getLegend().setFrame(BlockBorder.NONE);
+
+        chart.setTitle(new TextTitle("Average Salary per Age",
+                        new Font("Serif", Font.BOLD, 18)
+                )
+        );
+
+        return chart;
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new LineChartEx2();
+            ex.setVisible(true);
+        });
+    }
+}
+```
+
+## Save to image
+
+
+```java
+package com.zetcode;
+
+import java.io.File;
+import java.io.IOException;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+public class LineChartToPNGEx {
+
+    public static void main(String[] args) throws IOException {
+
+        var series1 = new XYSeries("2014");
+        series1.add(18, 530);
+        series1.add(20, 580);
+        series1.add(25, 740);
+        series1.add(30, 901);
+        series1.add(40, 1300);
+        series1.add(50, 2219);
+
+        var dataset = new XYSeriesCollection();
+        dataset.addSeries(series1);
+
+        JFreeChart chart = ChartFactory.createXYLineChart(
+                "Average salary per age",
+                "Age",
+                "Salary (€)",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
+
+        ChartUtils.saveChartAsPNG(new File("line_chart.png"), chart, 450, 400);
+    }
+}
+```
+
+## Bubble chart
+
+
+```java
+package com.zetcode;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYBubbleRenderer;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.data.xy.DefaultXYZDataset;
+import org.jfree.data.xy.XYZDataset;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+
+public class BubbleChartEx extends JFrame {
+
+    public BubbleChartEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        XYZDataset dataset = createDataset();
+
+        JFreeChart chart = createChart(dataset);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBackground(Color.white);
+        add(chartPanel);
+
+        pack();
+
+        setTitle("Bubble chart");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private XYZDataset createDataset() {
+
+        var dataset = new DefaultXYZDataset();
+
+        dataset.addSeries("Product A", new double[][]{{50}, {642}, {23 * 5}});
+        dataset.addSeries("Product B", new double[][]{{23}, {540}, {47 * 5}});
+        dataset.addSeries("Product C", new double[][]{{19}, {188}, {30 * 5}});
+
+        return dataset;
+    }
+
+    private JFreeChart createChart(XYZDataset dataset) {
+
+        JFreeChart chart = ChartFactory.createBubbleChart(
+                "Products",
+                "Quantity",
+                "Price",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false);
+
+        XYPlot plot = (XYPlot) chart.getPlot();
+
+        NumberAxis nax1 = (NumberAxis) plot.getDomainAxis();
+        nax1.setLowerMargin(0.2);
+        nax1.setUpperMargin(0.2);
+
+        NumberAxis nax2 = (NumberAxis) plot.getRangeAxis();
+        nax2.setLowerMargin(0.9);
+        nax2.setUpperMargin(0.9);
+
+        XYBubbleRenderer renderer = (XYBubbleRenderer) plot.getRenderer();
+        renderer.setDefaultItemLabelsVisible(true);
+
+        chart.setTitle(new TextTitle("Products",
+                new Font("Serif", java.awt.Font.BOLD, 18))
+        );
+
+        return chart;
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new BubbleChartEx();
+            ex.setVisible(true);
+        });
+    }
+}
+```
+
+## Bar chart
+
+```java
+package com.zetcode;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+public class BarChartEx extends JFrame {
+
+    public BarChartEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        CategoryDataset dataset = createDataset();
+
+        JFreeChart chart = createChart(dataset);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBackground(Color.white);
+        add(chartPanel);
+
+        pack();
+        setTitle("Bar chart");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private CategoryDataset createDataset() {
+
+        var dataset = new DefaultCategoryDataset();
+        dataset.setValue(46, "Gold medals", "USA");
+        dataset.setValue(38, "Gold medals", "China");
+        dataset.setValue(29, "Gold medals", "UK");
+        dataset.setValue(22, "Gold medals", "Russia");
+        dataset.setValue(13, "Gold medals", "South Korea");
+        dataset.setValue(11, "Gold medals", "Germany");
+
+        return dataset;
+    }
+
+    private JFreeChart createChart(CategoryDataset dataset) {
+
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Olympic gold medals in London",
+                "",
+                "Gold medals",
+                dataset,
+                PlotOrientation.VERTICAL,
+                false, true, false);
+
+        return barChart;
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new BarChartEx();
+            ex.setVisible(true);
+        });
+    }
+}
+```
+
+
+## Pie chart
+
+```java
+package com.zetcode;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+public class PieChartEx extends JFrame {
+
+    public PieChartEx() {
+
+        initUI();
+    }
+
+    private void initUI() {
+
+        DefaultPieDataset dataset = createDataset();
+
+        JFreeChart chart = createChart(dataset);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBackground(Color.white);
+        add(chartPanel);
+
+        pack();
+        setTitle("Pie chart");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    private DefaultPieDataset createDataset() {
+
+        var dataset = new DefaultPieDataset();
+        dataset.setValue("Apache", 52);
+        dataset.setValue("Nginx", 31);
+        dataset.setValue("IIS", 12);
+        dataset.setValue("LiteSpeed", 2);
+        dataset.setValue("Google server", 1);
+        dataset.setValue("Others", 2);
+
+        return dataset;
+    }
+
+    private JFreeChart createChart(DefaultPieDataset dataset) {
+
+        JFreeChart pieChart = ChartFactory.createPieChart(
+                "Web servers market share",
+                dataset,
+                false, true, false);
+
+        return pieChart;
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new PieChartEx();
+            ex.setVisible(true);
+        });
+    }
+}
+```
