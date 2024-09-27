@@ -1,5 +1,30 @@
 # Java poznamky
 
+## Sorting records
+
+```java
+void main() {
+
+    var users = List.of(
+            new User("John", "Doe", 1230),
+            new User("Lucy", "Novak", 670),
+            new User("Ben", "Walter", 2050),
+            new User("Robin", "Brown", 2300),
+            new User("Amy", "Doe", 1250),
+            new User("Joe", "Draker", 1190),
+            new User("Janet", "Doe", 980),
+            new User("Albert", "Novak", 1930));
+
+    var sorted = users.stream().sorted(Comparator.comparing(User::lastName).reversed()).toList();
+
+    sorted.forEach(System.out::println);
+}
+
+record User(String firstName, String lastName, int salary) {
+}
+```
+
+
 ## Sorting
 
 ```java
