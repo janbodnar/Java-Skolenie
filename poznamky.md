@@ -1,5 +1,88 @@
 # Java poznamky
 
+## Kosher kod na pracu s databazou
+
+`Main.java`:  
+
+```java
+package org.example;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Program program = new Program();
+        program.run();
+    }
+}
+```
+
+`Program.java`:  
+
+```java
+package org.example;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Program {
+
+    String username = "postgres";
+    String password = "postgres";
+    String query = "SELECT * FROM countries";
+
+    public void run() {
+
+        List<Country> countries = getData();
+        processData(countries);
+    }
+
+    private List<Country> getData() {
+
+        List<Country> countries = new ArrayList<>();
+
+        try (Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/testdb",
+                username, password);
+             PreparedStatement pst = con.prepareStatement(query);
+             ResultSet rs = pst.executeQuery()) {
+
+            while (rs.next()) {
+
+                countries.add(new Country(rs.getInt(1), rs.getString(2),
+                        rs.getInt(3)));
+            }
+
+        } catch (SQLException ex) {
+
+            Logger lgr = Logger.getLogger(getClass().getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+        }
+        return countries;
+    }
+
+    private void processData(List<Country> countries) {
+
+        countries.stream().limit(10).forEach(System.out::println);
+        System.out.println("------------------------");
+        countries.stream().filter(country -> country.population() > 500_000_000).forEach(System.out::println);
+    }
+}
+
+record Country(int id, String name, int population) {
+}
+```
+
+
+
+
+
+
+
+
 ## Parsovanie CSV suboru z webu
 
 ```java
