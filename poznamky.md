@@ -1,5 +1,49 @@
 # Java poznamky
 
+## Parsovanie CSV suboru z webu
+
+```java
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+void main() throws IOException, InterruptedException {
+
+    List<User> users = new ArrayList<>();
+
+    URI uri = URI.create("https://webcode.me/users.csv");
+    HttpRequest request = HttpRequest.newBuilder(uri).build();
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        String content = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+        System.out.println(content.lines().toList());
+
+        List<String> lines = content.lines().skip(1).limit(100).toList();
+
+        lines.forEach(line -> {
+
+            String[] fields = line.split(",", 4);
+            User user = new User(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3]);
+            users.add(user);
+        });
+
+        users.stream().limit(10).forEach(user -> System.out.printf("%s %s, %s%n", user.firstName(),
+                user.lastName(), user.occupation()));
+    }
+}
+
+record User(int id, String firstName, String lastName, String occupation) {
+}
+```
+
+
+
+
 ## Filter with enums
 
 ```java
