@@ -1,5 +1,28 @@
 # Java poznamky
 
+## Sorting
+
+```java
+import java.util.Comparator;
+import java.util.List;
+
+void main() {
+
+    List<String> words = List.of("sky", "pen", "new", "rock", "war", "water");
+    System.out.println(words);
+
+    List<String> filtered = words.stream().filter(word -> word.startsWith("w")).toList();
+    System.out.println(filtered);
+
+    List<String> sorted = words.stream().sorted(Comparator.naturalOrder()).toList();
+    System.out.println(sorted);
+
+    List<String> reversed = words.stream().sorted(Comparator.reverseOrder()).toList();
+    System.out.println(reversed);
+}
+```
+
+
 ## forEach
 
 ```java
