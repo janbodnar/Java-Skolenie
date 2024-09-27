@@ -1,5 +1,38 @@
 # Java poznamky
 
+## Filter with enums
+
+```java
+import java.util.List;
+
+void main() {
+
+    List<User> users = List.of(
+            new User("Jack", "jack234@gmail.com", MaritalStatus.DIVORCED),
+            new User("Peter", "pete2@post.com", MaritalStatus.SINGLE),
+            new User("Lucy", "lucy17@gmail.com", MaritalStatus.DIVORCED),
+            new User("Robert", "bob56@post.com", MaritalStatus.MARRIED),
+            new User("Martin", "mato4@imail.com", MaritalStatus.MARRIED)
+    );
+
+    List<User> res = users.stream()
+            .filter(user -> user.maritalStatus() == MaritalStatus.MARRIED)
+            .toList();
+
+    res.forEach(p -> System.out.println(p.name()));
+}
+
+record User(String name, String email, MaritalStatus maritalStatus) {
+}
+
+enum MaritalStatus {
+    SINGLE,
+    MARRIED,
+    DIVORCED
+}
+```
+
+
 ## Sorting records
 
 ```java
