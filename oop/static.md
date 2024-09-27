@@ -27,49 +27,47 @@ create a constant value that is attached to a class.
 ## Variable example
 
 ```java
+package com.zetcode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 class Being {
-
-    public static int count;
+    public static int count = 0; // Initialize count
 }
 
 class Cat extends Being {
-
     public Cat() {
         count++;
     }
 }
 
 class Dog extends Being {
-
     public Dog() {
         count++;
     }
 }
 
 class Donkey extends Being {
-
     public Donkey() {
         count++;
     }
 }
 
+public class Main { // Added class declaration
+    public static void main(String[] args) { // Corrected main method signature
+        List<Being> beings = new ArrayList<>();
 
-void main(String[] args) {
+        beings.add(new Cat());
+        beings.add(new Cat());
+        beings.add(new Cat());
+        beings.add(new Dog());
+        beings.add(new Donkey());
 
-    List<Being> beings = new ArrayList<>();
+        int nOfBeings = Being.count;
 
-    beings.add(new Cat());
-    beings.add(new Cat());
-    beings.add(new Cat());
-    beings.add(new Dog());
-    beings.add(new Donkey());
-
-    int nOfBeings = Being.count;
-
-    System.out.format("There are %d beings %n", nOfBeings);
+        System.out.format("There are %d beings %n", nOfBeings);
+    }
 }
 ```
 
