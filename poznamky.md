@@ -1,5 +1,30 @@
 # Java poznamky
 
+## forEach
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+void main() {
+
+    List<String> words = List.of("sky", "pen", "new", "rock", "war", "water");
+
+    System.out.println(words);
+
+//    words.forEach(word -> System.out.println(word));
+    words.forEach(System.out::println);
+    
+//    for (String word: words) {
+//        System.out.println(word);
+//    }
+
+    int[] vals = {1, 2, 3, 4, 5};
+    Arrays.stream(vals).forEach(System.out::println);
+}
+```
+
+
 ## Filtrovanie slov zo suboru
 
 ```java
