@@ -1,5 +1,10 @@
 # Parsing args with JCommander
 
+The JCommander library is a powerful command-line argument parser for Java   
+applications. It provides a simple and intuitive way to define command-line  
+options and arguments, parse them from the command-line input, and access  
+their values within your Java code.
+
 
 `Main.java`:  
 
@@ -44,7 +49,6 @@ public class Program {
     Args args = new Args();
 
     public void run(String[] cmdArgs) {
-
 
         parseArgs(cmdArgs);
 
