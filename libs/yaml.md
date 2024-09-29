@@ -211,4 +211,106 @@ void main() throws IOException {
 The `loadAll` method oarses all YAML documents in the `Reader` and produce corresponding Java objects.  
 
 
+## Writing data
+
+`User.java`
+
+```java
+package com.zetcode;
+
+import java.util.Objects;
+
+public class User {
+    private String firstName;
+    private String lastName;
+    private String occupation;
+
+    public User(String firstName, String lastName, String occupation) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.occupation = occupation;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+
+        return Objects.equals(firstName, user.firstName)
+                && Objects.equals(lastName, user.lastName)
+                && Objects.equals(occupation, user.occupation);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(firstName);
+        result = 31 * result + Objects.hashCode(lastName);
+        result = 31 * result + Objects.hashCode(occupation);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", occupation='").append(occupation).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+}
+```
+
+`Main.java`
+
+```java
+import com.zetcode.User;
+import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.Yaml;
+
+void main() throws IOException {
+
+    var dops = new DumperOptions();
+    dops.setIndent(2);
+
+
+    Yaml yaml = new Yaml(dops);
+    String fileName = "src/main/resources/users2.yaml";
+
+    var users = List.of(new User("John", "Doe", "gardener"),
+            new User("Roger", "Roe", "driver"),
+            new User("Peter", "Novak", "programmer")
+    );
+    
+    try (var wr = new FileWriter(fileName, StandardCharsets.UTF_8)) {
+
+        yaml.dump(users, wr);
+    }
+}
+```
+
 
