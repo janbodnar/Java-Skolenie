@@ -96,3 +96,119 @@ void main() throws IOException {
 }
 ```
 
+## Reading a list of users 
+
+`users.yaml`
+
+```yaml
+firstName: John
+lastName: Doe
+occupation: gardener
+---
+firstName: Roger
+lastName: Roe
+occupation: driver
+---
+firstName: Peter
+lastName: Novak
+occupation: programmer
+```
+
+`User.java`
+
+The Java class into which we read the data must be a regular class with a  
+default constructor.  
+
+```java
+package com.zetcode;
+
+import java.util.Objects;
+
+public class User {
+    private String firstName;
+    private String lastName;
+    private String occupation;
+
+    public User() {
+
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+
+        return Objects.equals(firstName, user.firstName)
+                && Objects.equals(lastName, user.lastName)
+                && Objects.equals(occupation, user.occupation);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(firstName);
+        result = 31 * result + Objects.hashCode(lastName);
+        result = 31 * result + Objects.hashCode(occupation);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", occupation='").append(occupation).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+}
+```
+
+`Main.java`
+
+```java
+import com.zetcode.User;
+import org.yaml.snakeyaml.LoaderOptions;
+import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.Yaml;
+
+void main() throws IOException {
+
+    Yaml yaml = new Yaml(new Constructor(User.class, new LoaderOptions()));
+    String fileName = "src/main/resources/users.yaml";
+
+    try (var fr = new FileReader(fileName, StandardCharsets.UTF_8)) {
+
+        var res = yaml.loadAll(fr);
+        res.forEach(System.out::println);
+    }
+}
+```
+
+The `loadAll` method oarses all YAML documents in the `Reader` and produce corresponding Java objects.  
+
+
+
