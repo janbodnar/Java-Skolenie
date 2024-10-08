@@ -126,17 +126,17 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
-    void main() {
+void main() {
 
-        IntStream integers = IntStream.rangeClosed(1, 16);
-        System.out.println(integers.average().getAsDouble());
+    IntStream integers = IntStream.rangeClosed(1, 16);
+    System.out.println(integers.average().getAsDouble());
 
-        DoubleStream doubles = DoubleStream.of(2.3, 33.1, 45.3);
-        doubles.forEachOrdered(e -> System.out.println(e));
+    DoubleStream doubles = DoubleStream.of(2.3, 33.1, 45.3);
+    doubles.forEachOrdered(e -> System.out.println(e));
 
-        LongStream longs = LongStream.range(6, 25);
-        System.out.println(longs.count());
-    }
+    LongStream longs = LongStream.range(6, 25);
+    System.out.println(longs.count());
+}
 ```
 
 The example works with the three aforementioned specializations.  
@@ -174,16 +174,16 @@ the specified values.
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-    void main() {
+void main() {
 
-        Stream<String> colours = Stream.of("red", "green", "blue");
-        String col = colours.skip(2).findFirst().get();
-        System.out.println(col);
+    Stream<String> colours = Stream.of("red", "green", "blue");
+    String col = colours.skip(2).findFirst().get();
+    System.out.println(col);
 
-        Stream<Integer> nums = Stream.of(3, 4, 5, 6, 7);
-        int maxVal = nums.max(Comparator.naturalOrder()).get();
-        System.out.println(maxVal);
-    }
+    Stream<Integer> nums = Stream.of(3, 4, 5, 6, 7);
+    int maxVal = nums.max(Comparator.naturalOrder()).get();
+    System.out.println(maxVal);
+}
 ```
 
 In the example, we create two streams with the `Stream.of` method.  
@@ -250,6 +250,19 @@ Stream.generate(new Random()::nextDouble)
 A stream of five random doubles is created with the `Stream.generate` method.  
 Each of the elements is multiplied by ten. In the end, we iterate over the  
 stream and print each element to the console.  
+
+```java
+import java.util.Random;
+import java.util.stream.IntStream;
+
+void main() {
+
+    IntStream.generate(() -> new Random().nextInt(101))
+            .limit(100).forEach(System.out::println);
+}
+```
+
+Creating a stream of 100 random integers.  
 
 
 It is possible to create a stream from a file.  
@@ -528,7 +541,7 @@ int a[] = nums.distinct().toArray();
 We remove the duplicates with the `distinct` method.  
 
 
-# Mapping
+## Mapping
 
 It is possible to change elements into a new stream; the original source is not    
 modified. The map method returns a stream consisting of the results of applying  
