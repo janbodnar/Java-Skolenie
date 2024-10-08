@@ -732,3 +732,39 @@ for (Map.Entry<String, Long> entry : result.entrySet()) {
 ```
 
 We go through the map and print its key/value pairs.  
+
+
+## splitAsStream of Pattern
+
+The  `splitAsStream` method creates a stream from the given input sequence  
+around matches of this pattern.
+
+```java
+import java.util.List;
+import java.util.regex.Pattern;
+
+void main() {
+
+    String data = "1,2,3,4,5,6,7,8,9,10";
+
+    List<String> res = Pattern.compile(",")
+            .splitAsStream(data)
+            .toList();
+
+    System.out.println(res);
+
+    List<Integer> res2 = Pattern.compile(",")
+            .splitAsStream(data)
+            .mapToInt(Integer::valueOf).boxed().toList();
+
+    System.out.println(res2);
+
+    int mysum = Pattern.compile(",")
+            .splitAsStream(data)
+            .mapToInt(Integer::valueOf).sum();
+
+    System.out.println(mysum);
+}
+```
+
+
