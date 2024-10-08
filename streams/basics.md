@@ -767,4 +767,21 @@ void main() {
 }
 ```
 
+## The chars method
 
+```java
+import java.util.Arrays;
+
+void main() {
+
+    String msg = "There is an old falcon in the sky.";
+    String vowels = "aeiouAEIOU";
+
+    Character[] consonants = msg.chars()
+            .filter(c -> vowels.indexOf(Character.toChars(c)[0]) == -1 && Character.isLetter(c))
+            .mapToObj(c -> (char) c) // Convert int to char
+            .toArray(Character[]::new);
+
+    System.out.println(Arrays.toString(consonants));
+}
+```
