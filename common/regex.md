@@ -848,3 +848,41 @@ void main()  {
 }
 ```
 
+Word frequency:  
+
+```java
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+void main()  {
+
+    var data = """
+            The Battle of Thermopylae was fought between an alliance of Greek city-states,
+            led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
+            course of three days, during the second Persian invasion of Greece.
+            """;
+
+    Pattern pattern = Pattern.compile("[\\s+,.]+");
+    List<String> words = pattern.splitAsStream(data).toList();
+    System.out.println(words);
+
+    Map<String, Integer> freq = new HashMap<>();
+
+    for (String word : words) {
+
+        if (freq.containsKey(word)) {
+
+            int n = freq.get(word);
+            freq.put(word, ++n);
+        } else {
+
+            freq.put(word, 1);
+        }
+    }
+
+    System.out.println(freq);
+}
+```
+
