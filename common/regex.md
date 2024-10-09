@@ -15,6 +15,9 @@ pattern and performs match operations against an input string. Matcher has
 methods such as find, matches, end to perform matching operations. When there is  
 an exception parsing a regular expression, Java throws a `PatternSyntaxException`.  
 
+English words: `https://www.mit.edu/~ecprice/wordlist.10000`  
+
+
 ## Regex examples
 
 The following table shows a couple of regular expression strings.  
