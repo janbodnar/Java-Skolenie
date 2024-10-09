@@ -788,3 +788,44 @@ have from 2 to 18 characters, such as sk, net, info, travel, cleaning,
 travelinsurance. The maximum length can be 63 characters, but most domain are  
 shorter than 18 characters today. There is also a dot character. This is because  
 some top level domains have two parts; for example `co.uk`.  
+
+## The asMatchPredicate method
+
+The `asMatchPredicate` creates a predicate that tests if this pattern matches  
+a given input string. It can be conveniently used with the `Stream's` `filter` method.  
+
+```java
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+void main() throws IOException, InterruptedException {
+
+    var uri = URI.create("https://www.mit.edu/~ecprice/wordlist.10000");
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(uri)
+                .GET() // GET is default
+                .build();
+
+        HttpResponse<Stream<String>> data = client.send(request,
+                HttpResponse.BodyHandlers.ofLines());
+
+        Pattern pattern = Pattern.compile("w..r");
+
+//        long n = data.body().filter(word -> word.startsWith("w") && word.length() == 4).count();
+        var res = data.body().filter(pattern.asMatchPredicate()).toList();
+
+        System.out.println(res);
+
+    }
+
+}
+```
+
