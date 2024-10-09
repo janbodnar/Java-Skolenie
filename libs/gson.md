@@ -924,7 +924,58 @@ System.out.format("%s: ", value);
 
 We get the next string value and print it to the console.
 
+
 ## Read JSON data from web
+
+There are two kinds of JSON responses:
+
+- named
+- unnamed
+
+The following example shows an unnamed JSON list:  
+
+```java 
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+
+
+void main() throws IOException, InterruptedException {
+
+    URI uri = URI.create("https://webcode.me/users2.json");
+    HttpRequest request = HttpRequest.newBuilder(uri).build();
+
+    var gson = new Gson();
+    List<User> users;
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        String content = client.send(request,
+                HttpResponse.BodyHandlers.ofString()).body();
+
+        Type usersListType = new TypeToken<List<User>>() {}.getType();
+        users = gson.fromJson(content, usersListType);
+
+        for (var user : users) {
+            System.out.println(user);
+        }
+    }
+}
+
+record User(int id, @SerializedName("first_name") String firstName,
+            @SerializedName("last_name") String lastName, String email) {
+}
+```
+
+For the named response, we need to add additional object `UsersResponse`:  
 
 ```java
 import com.google.gson.Gson;
