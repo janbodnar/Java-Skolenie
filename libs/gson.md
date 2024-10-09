@@ -924,3 +924,51 @@ System.out.format("%s: ", value);
 
 We get the next string value and print it to the console.
 
+## Read JSON data from web
+
+```java
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+
+
+void main() throws IOException, InterruptedException {
+
+    URI uri = URI.create("https://webcode.me/users.json");
+    HttpRequest request = HttpRequest.newBuilder(uri).build();
+
+    var gson = new Gson();
+    List<User> users;
+    UsersResponse response;
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        String content = client.send(request,
+                HttpResponse.BodyHandlers.ofString()).body();
+        
+        Type usersResponseType = new TypeToken<UsersResponse>() {}.getType();
+        response = gson.fromJson(content, usersResponseType);
+
+        for (var user : response.users()) {
+            System.out.println(user);
+        }
+    }
+}
+
+record UsersResponse(List<User> users) {
+}
+
+record User(int id, @SerializedName("first_name") String firstName,
+            @SerializedName("last_name") String lastName, String email) {
+}
+```
+
+
