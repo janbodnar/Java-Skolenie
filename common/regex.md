@@ -823,9 +823,28 @@ void main() throws IOException, InterruptedException {
         var res = data.body().filter(pattern.asMatchPredicate()).toList();
 
         System.out.println(res);
-
     }
+}
+```
 
+## The splitAsStream method
+
+The `splitAsStream` splits the string based on regular expression.  
+
+```java
+import java.util.regex.Pattern;
+
+void main()  {
+
+    var data = """
+            1,2;3;4;5,6;7;8;9,9
+            2,12,11;3;4;6;7,6,10
+            """;
+
+    Pattern pattern = Pattern.compile("[,;\n]");
+
+    int suma = pattern.splitAsStream(data).mapToInt(Integer::valueOf).sum();
+    System.out.println(suma);
 }
 ```
 
