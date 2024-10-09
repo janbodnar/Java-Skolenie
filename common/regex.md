@@ -695,14 +695,13 @@ Subpatterns are patterns within patterns. Subpatterns are created with `()`
 characters.  
 
 ```java
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 void main() {
 
-    List<String> words = Arrays.asList("book", "bookshelf", "bookworm",
+    List<String> words = List.of("book", "bookshelf", "bookworm",
             "bookcase", "bookish", "bookkeeper", "booklet", "bookmark");
 
     Pattern p = Pattern.compile("book(worm|mark|keeper)?");
