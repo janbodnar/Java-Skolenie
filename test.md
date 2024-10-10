@@ -1,5 +1,38 @@
 # Priklady
 
+
+## Get date from JSON
+
+```java
+import com.google.gson.Gson;
+
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+
+void main() throws IOException, InterruptedException {
+
+    String webPage = "http://time.jsontest.com";
+    URI uri = URI.create(webPage);
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
+        String body = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
+
+        Gson gson = new Gson();
+        TimeData td = gson.fromJson(body, TimeData.class);
+
+        System.out.println(td);
+    }
+}
+
+record TimeData(String time, Long milliseconds_since_epoch, String date) {
+}
+```
+
+
 ```json
 [
   {
