@@ -1,5 +1,30 @@
 # Priklady
 
+## Filter nulls
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+void main() {
+
+    List<String> words = new ArrayList<>() {{
+        add("sky");
+        add(null);
+        add("blue");
+        add(null);
+        add("cloud");
+        add(null);
+        add("ocean");
+    }};
+
+    List<String> cleaned = words.stream().filter(word -> word != null).toList();
+
+    cleaned.forEach(word -> {
+        System.out.printf("The %s word has %d letters%n", word, word.length());
+    });
+}
+```
 
 ## Regex words from web
 
