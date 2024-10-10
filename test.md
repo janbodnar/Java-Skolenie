@@ -1,5 +1,40 @@
 # Priklady
 
+
+## Regex, extrahovanie dat
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+void main() {
+
+    var sites = List.of("webcode.me", "zetcode.com", "freebsd.org", "netbsd.org");
+
+    List<String> topLevels = new ArrayList<>();
+    List<String> secondLevels = new ArrayList<>();
+
+    Pattern p = Pattern.compile("(\\w+)\\.(\\w+)");
+
+    for (var site: sites) {
+
+        Matcher matcher = p.matcher(site);
+
+        while (matcher.find()) {
+
+            topLevels.add(matcher.group(1));
+            secondLevels.add(matcher.group(2));
+        }
+    }
+
+    System.out.println(topLevels);
+    System.out.println(secondLevels);
+}
+```
+
+
 ## Stream pole
 
 ```java
