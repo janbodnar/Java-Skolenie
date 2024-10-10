@@ -1,6 +1,58 @@
 # Priklady
 
 
+## Regex words from web
+
+```java
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+void main() throws IOException, InterruptedException {
+
+    var uri = URI.create("https://www.mit.edu/~ecprice/wordlist.10000");
+
+    try (HttpClient client = HttpClient.newHttpClient()) {
+
+        HttpRequest request = HttpRequest.newBuilder(uri).GET().build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        Pattern pattern = Pattern.compile(".{10}");
+        String body = response.body();
+
+        List<String> lines = body.lines().toList();
+        List<String> found = new ArrayList<>();
+
+        for (String line : lines) {
+            Matcher m = pattern.matcher(line);
+
+            if (m.matches()) {
+                found.add(line);
+            }
+        }
+
+        System.out.println(found.size());
+
+        Path path = Path.of("src/resources/words_10.txt");
+        Files.write(path, found);
+
+//        Path path = Path.of("src/resources/words.txt");
+//        Files.writeString(path, body);
+
+    }
+}
+```
+
+
 ## Regex, extrahovanie dat
 
 ```java
