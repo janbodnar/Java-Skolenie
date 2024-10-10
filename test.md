@@ -1,5 +1,26 @@
 # Priklady
 
+```json
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "occupation": "gardener"
+  },
+  {
+    "firstName": "Roger",
+    "lastName": "Roe",
+    "occupation": "teacher"
+  },
+  {
+    "firstName": "Paul",
+    "lastName": "Novak",
+    "occupation": "programmer"
+  }
+]
+```
+
+
 ## Json
 
 ```java
