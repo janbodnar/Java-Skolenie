@@ -173,3 +173,153 @@ class DemoTest {
 }
 ```
 
+## DB Example
+
+Dependencies: `micronaut-data-jdbc`, `postgresql`, `snakeyaml`, 
+
+`application.yaml`: 
+
+```yaml
+micronaut:
+  application:
+    name: demo2
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/testdb
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    username: postgres
+    password: andrea
+```
+
+`User.java`:  
+
+```java
+package com.example.model;
+
+import io.micronaut.data.annotation.GeneratedValue;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.MappedProperty;
+import io.micronaut.serde.annotation.Serdeable;
+
+@Serdeable
+@MappedEntity(value = "users")
+public class User {
+
+
+    @Id
+    @GeneratedValue(GeneratedValue.Type.AUTO)
+    private Long id;
+
+    @MappedProperty("first_name")
+    private String firstName;
+
+    @MappedProperty("last_name")
+    private String lastName;
+    private String occupation;
+    private String dob;
+
+    public User() {
+
+    }
+
+    public User(String firstName, String lastName, String occupation, String dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.occupation = occupation;
+        this.dob = dob;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+}
+```
+
+`UserRepository.java`:  
+
+```java
+package com.example.repository;
+
+import com.example.model.User;
+import io.micronaut.data.jdbc.annotation.JdbcRepository;
+import io.micronaut.data.model.query.builder.sql.Dialect;
+import io.micronaut.data.repository.CrudRepository;
+
+@JdbcRepository(dialect = Dialect.POSTGRES)
+public interface UserRepository extends CrudRepository<User, Long> {
+}
+```
+
+`MyController.java`: 
+
+```java
+package com.example.controller;
+
+import com.example.model.User;
+import com.example.repository.UserRepository;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+
+import java.util.List;
+
+@Controller
+public class MyController {
+
+    private final UserRepository userRepository;
+
+    public MyController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Get("/users")
+    public List<User> users() {
+        return userRepository.findAll();
+    }
+
+    @Get("/users/{id}")
+    public HttpResponse<User> getUser(Long id) {
+        return userRepository.findById(id)
+                .map(HttpResponse::ok)
+                .orElse(HttpResponse.notFound());
+    }
+}
+```
