@@ -1,5 +1,40 @@
 # Priklady
 
+## Json
+
+```java
+import com.google.gson.Gson;
+
+void main() {
+
+    Map<Integer, String> colours = new HashMap<>();
+    colours.put(1, "blue");
+    colours.put(2, "yellow");
+    colours.put(3, "green");
+
+    Gson gson = new Gson();
+    String output = gson.toJson(colours);
+    System.out.println(output);
+
+    List<String> words = List.of("sky", "blue", "atom");
+
+    String output2 = gson.toJson(words);
+    System.out.println(output2);
+
+    List<User> users = List.of(new User("John", "Doe", "gardener"),
+            new User("Roger", "Roe", "teacher"),
+            new User("Paul", "Novak", "programmer"));
+
+    String output3 = gson.toJson(users);
+    System.out.println(output3);
+
+}
+
+record User(String firstName, String lastName, String occupation) {
+}
+```
+
+
 ## Filter nulls
 
 ```java
