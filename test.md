@@ -1,5 +1,35 @@
 # Priklady
 
+
+## Get h1 from webpage
+
+```java
+package com.zetcode;
+
+import java.io.IOException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+public class JSoupMetaInfoEx {
+
+    public static void main(String[] args) throws IOException {
+
+        String url = "https://wikipedia.sk";
+        Document document = Jsoup.connect(url).get();
+
+        Element h1tag = document.select("h1").first();
+
+        if (h1tag != null) {
+            String h1text = h1tag.text();
+            System.out.println(h1text);
+        } else {
+            System.out.println("h1 tag not found");
+        }
+    }
+}
+```
+
 ## Regex 
 
 ```java
