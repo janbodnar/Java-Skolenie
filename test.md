@@ -1,5 +1,27 @@
 # Priklady
 
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="format.css">
+    <title>My html page</title>
+</head>
+<body>
+
+<a href="https://wikipedia.org">Wikipedia.org</a>
+
+<p>Today is a beautiful day. We go swimming and fishing.</p>
+<p>Hello there. How are you?</p>
+
+<a href="https://youtube.com">Youtube</a>
+
+</body>
+</html>
+```
+
 
 ## Get h1 from webpage
 
