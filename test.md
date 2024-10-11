@@ -1,5 +1,73 @@
 # Priklady
 
+## Regex 
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+void main () {
+    
+    // calculate sum
+    
+    String data = """
+            1;2;12,  4,5 ,6,  7;2;3
+            1;2;6; 15;2;5;6;7;34
+            """;
+
+    Pattern pattern = Pattern.compile("[,;\\s]+");
+
+    int suma = pattern.splitAsStream(data).mapToInt(Integer::valueOf).sum();
+    System.out.println(suma);
+    
+    // calculate average
+    String data2 = """
+            | Jozef Novak 1230 |
+            | John Doe 2340    |
+            | Paul Smith 1234  |
+            | Lucia Novak 1224 |
+            """;
+
+    Pattern pattern2 = Pattern.compile("\\d+");
+
+    Matcher matcher = pattern2.matcher(data2);
+
+    List<Integer> values = new ArrayList<>();
+
+    while (matcher.find()) {
+        int val = Integer.parseInt(matcher.group());
+        values.add(val);
+    }
+
+    System.out.println(values);
+
+    OptionalDouble avg = values.stream().mapToDouble(Double::valueOf).average();
+    avg.ifPresent(System.out::println);
+
+
+    // pick phrases that contain dog, falcon or night
+    
+    String data3 = """
+            a new coin
+            an old falcon
+            a small house
+            a stormy night
+            a new costume
+            a happy dog
+            """;
+
+//    Pattern pattern = Pattern.compile("dog|falcon|night");
+//    List<String> found = data3.lines().filter(word -> pattern.matcher(word).find()).toList();
+    List<String> found = data3.lines().filter(word -> word.matches(".* dog|.* falcon|night")).toList();
+    System.out.println(found);
+}
+```
+
+
 ## Recap
 
 ```java
