@@ -1,5 +1,50 @@
 # Priklady
 
+
+## Get ages of users
+
+```java
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.mapper.reflect.ConstructorMapper;
+
+import java.util.List;
+
+void main() {
+
+    String jdbcUrl = "jdbc:postgresql://localhost:5432/testdb";
+    String username = "postgres";
+    String password = "postgres";
+
+    Jdbi jdbi = Jdbi.create(jdbcUrl, username, password);
+
+    List<User> users = jdbi.withHandle(handle -> handle.select("SELECT * FROM users")
+            .registerRowMapper(User.class, ConstructorMapper.of(User.class))
+            .mapTo(User.class)
+            .list());
+
+    if (users.isEmpty()) {
+
+        System.out.println("No users found.");
+    } else {
+
+        System.out.println("found " + users.size() + " users");
+    }
+
+    for (User user: users) {
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate birthDate = LocalDate.parse(user.dob);
+        Period age = Period.between(birthDate, currentDate);
+
+        System.out.printf("%s %s is %d years old%n", user.first_name, user.last_name, age.getYears());
+    }
+}
+
+public record User(int id, String first_name, String last_name, String occupation, String dob) {
+}
+```
+
+
 ```html
 <!doctype html>
 <html lang="en">
