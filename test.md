@@ -1,5 +1,39 @@
 # Priklady
 
+## Recap
+
+```java
+void main () {
+
+    String data = """
+            1;2;12,4,5,6,7;2;3
+            1;2;6;15;2;5;6;7;34
+            """;
+
+    // compute sum of values
+
+    String data2 = """
+            | Jozef Novak 1230 |
+            | John Doe 2340    |
+            | Paul Smith 1234  |
+            | Lucia Novak 1224 |
+            """;
+
+    // Compute average
+
+    String data3 = """
+            a new coin
+            an old falcon
+            a small house
+            a stormy night
+            a new costume
+            a happy dog
+            """;
+    
+    // pick phrases that contain dog, falcon or night
+
+}
+```
 
 ## Get date from JSON
 
