@@ -431,6 +431,62 @@ public class AtomicLongEx {
 }
 ```
 
+## CountdownLatch
+
+`CountDownLatch` in Java to synchronize the startup of multiple service checkers.   
+This example simulates a scenario where the main application thread waits for    
+several service checkers to complete their health checks before proceeding.  
+
+```java
+import java.util.concurrent.CountDownLatch;
+
+class ServiceChecker implements Runnable {
+    private final String serviceName;
+    private final CountDownLatch latch;
+
+    public ServiceChecker(String serviceName, CountDownLatch latch) {
+        this.serviceName = serviceName;
+        this.latch = latch;
+    }
+
+    @Override
+    public void run() {
+        try {
+            // Simulate checking the service
+            System.out.println("Checking " + serviceName + "...");
+            Thread.sleep((long) (Math.random() * 3000)); // Random sleep to simulate delay
+            System.out.println(serviceName + " is up!");
+        } catch (InterruptedException e) {
+            System.err.println("Service check interrupted: " + serviceName);
+        } finally {
+            latch.countDown(); // Decrease the count of the latch
+        }
+    }
+}
+
+public class ApplicationStartup {
+    public static void main(String[] args) throws InterruptedException {
+        int numberOfServices = 3; // Number of services to check
+        CountDownLatch latch = new CountDownLatch(numberOfServices); // Initialize the latch
+
+        // Create and start threads for each service checker
+        Thread service1 = new Thread(new ServiceChecker("Service A", latch));
+        Thread service2 = new Thread(new ServiceChecker("Service B", latch));
+        Thread service3 = new Thread(new ServiceChecker("Service C", latch));
+
+        service1.start();
+        service2.start();
+        service3.start();
+
+        System.out.println("Waiting for all services to be checked...");
+
+        latch.await(); // Main thread waits until all services are checked
+
+        System.out.println("All services are up. Proceeding with application startup.");
+    }
+}
+```
+
 ## Task button
 
 The example shows how the background task interferes with the main application  
