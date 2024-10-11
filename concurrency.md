@@ -718,6 +718,40 @@ public class SearchingImagesEx extends JFrame {
 }
 ```
 
+## Parallel tasks
+
+Using streams:
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
+void main() {
+    // List of words to check
+    List<String> words = Arrays.asList("level", "world", "radar", "java",
+            "civic", "hello", "deified", "noon");
+
+    // Find palindromes using parallel stream
+    List<String> palindromes = findPalindromes(words);
+
+    // Print the results
+    System.out.println("Palindromes: " + palindromes);
+}
+
+List<String> findPalindromes(List<String> words) {
+    return words.parallelStream() // Use parallel stream for concurrent processing
+            .filter(this::isPalindrome) // Filter palindromes
+            .collect(Collectors.toList()); // Collect results into a list
+}
+
+boolean isPalindrome(String word) {
+    String reversed = new StringBuilder(word).reverse().toString(); // Reverse the word
+    return word.equals(reversed); // Check if the original word is equal to its reverse
+}
+```
+
 ## Sequential requests 
 
 ```java
