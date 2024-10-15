@@ -166,9 +166,9 @@ void main(String[] args) {
 The example counts the number of elements in the list.
 
 
-## Collectors.summintInt
+## Collectors.summingInt
 
-The `Collectors.summintInt` returns a `Collector` that produces the sum of a  
+The `Collectors.summingInt` returns a `Collector` that produces the sum of a  
 integer-valued function applied to the input elements.  
 
 ```java
