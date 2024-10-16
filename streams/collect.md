@@ -344,7 +344,7 @@ record Product(String name, String category, BigDecimal price) {}
 We have a list of products. With the `Collectors.groupingBy`, we separate the  
 products into groups based on their category.  
 
---
+---
 
 The following example groups cities by countries.  
 
