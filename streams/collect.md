@@ -344,6 +344,101 @@ record Product(String name, String category, BigDecimal price) {}
 We have a list of products. With the `Collectors.groupingBy`, we separate the  
 products into groups based on their category.  
 
+--
+
+The following example groups cities by countries.  
+
+```java
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+record City(String name, int population, String country) {
+    static City of(String line) {
+        City city = line.transform(field -> new City(field.split(",")[0],
+                Integer.parseInt(field.split(",")[1]), field.split(",")[2]));
+        return city;
+    }
+}
+
+void main() {
+
+    String data = """
+            Name,Population,Country
+            Tokyo,13929286,Japan
+            Delhi,30290936,India
+            Shanghai,26317104,China
+            São Paulo,12176866,Brazil
+            Mexico City,9209944,Mexico
+            Cairo,9500000,Egypt
+            Mumbai,20411000,India
+            Beijing,21542000,China
+            Dhaka,8906039,Bangladesh
+            Osaka,26900000,Japan
+            New York City,8419600,USA
+            Karachi,14910352,Pakistan
+            Istanbul,15462452,Turkey
+            Buenos Aires,2890151,Argentina
+            Chongqing,30000000,China
+            Kolkata,14900000,India
+            Manila,1780148,Philippines
+            Rio de Janeiro,6748000,Brazil
+            Tianjin,15500000,China
+            Kinshasa,14500000,D.R. Congo
+            Guangzhou,14000000,China
+            Lagos,14000000,Nigeria
+            Moscow,11920000,Russia
+            Lima,9820000,Peru
+            Bangkok,10500000,Thailand
+            Chennai,10000000,India
+            Hyderabad,9746000,India
+            Wuhan,11000000,China
+            Hangzhou,10000000,China
+            Chengdu,16000000,China
+            Los Angeles,3980400,USA
+            London,8982000,U.K.
+            Paris,2148000,France
+            Berlin,3645000,Germany
+            Madrid,3223000,Spain
+            Rome,2873000,IItaly
+            Toronto,2930000,Canada
+            Sydney,5312000,Australia
+            Melbourne,5078000,Australia
+            Brisbane,2362000,Australia
+            Cape Town,433688,South Africa
+            Johannesburg,957441,South Africa
+            Nairobi,4397000,Kenya
+            Addis Ababa,3041000,Ethiopia
+            Hanoi,8000000,Vietnam
+            Seoul,9776000,South Korea
+            Taipei,2683000,Taiwan
+            Kuala Lumpur,1800000,Malaysia
+            Singapore,5700000,Singapore
+            Bangalore,8443675,India
+            Ahmedabad,5570585,India
+            Pune,3124458,India
+            Colombo,6471000,Sri Lanka
+            Islamabad,1015000,Pakistan
+            Abu Dhabi,1455000,UAE
+            Doha,1465000,Qatar
+            Baghdad,9000000,Iraq
+            Riyadh,7500000,Saudi Arabia
+            Sofia,1241675,Bulgaria
+            Budapest,1754000,Hungary
+            Vienna,1897491,Austria
+            Brussels,1795905,Belgium
+            Amsterdam,872757,Netherlands""";
+
+    List<City> cities = data.lines().skip(1).map(e -> City.of(e)).toList();
+    System.out.println(cities);
+
+    Map<String, Long> res = cities.stream().collect(
+            Collectors.groupingBy(City::country, Collectors.counting()));
+
+    res.forEach((k, v) -> System.out.printf("%s %d %n", k, v));
+}
+```
 
 ## Collectors.partitioningBy
 
