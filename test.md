@@ -1,5 +1,36 @@
 # Priklady
 
+## Random vals
+
+```java
+import java.util.Random;
+
+void main() {
+
+    var r = new Random();
+    int num = r.nextInt(7) - 3;
+
+    if (num > 0) {
+
+        System.out.println("The number is positive");
+    } else if (num < 0) {
+
+        System.out.println("The number is negative");
+    } else {
+        System.out.println("The number is zero");
+    }
+
+//    if (num < 0) {
+//        System.out.println("The number is negative");
+//    }
+//
+//    if (num == 0) {
+//        System.out.println("The number is zero");
+//    }
+
+}
+```
+
 
 ## Program
 
