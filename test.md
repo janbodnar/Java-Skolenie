@@ -1,5 +1,32 @@
 # Priklady
 
+## Sum array of integers 
+
+```java
+void main() {
+
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+//    System.out.println(vals[0]);
+//    System.out.println(vals[1]);
+//    System.out.println(vals[2]);
+//
+//    System.out.println(vals[vals.length-1]);
+
+    int vals_len = vals.length;
+
+    int sum = 0;
+
+    for (int i = 0; i < vals_len; i++) {
+
+        sum = sum + vals[i];
+    }
+
+    System.out.println(sum);
+}
+```
+
+
 ## Random vals
 
 ```java
