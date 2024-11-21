@@ -1,5 +1,28 @@
 # Priklady
 
+
+## Podmienene vypisanie hodnot pola
+
+```java
+void main() {
+
+    String[] planets = {
+            "Mercury", "Venus", "Earth",
+            "Mars", "Jupiter", "Saturn", "Uranus", "Pluto"
+    };
+
+// Vypis planety zacinajuce na M alebo S
+    for (String planet : planets) {
+
+        if (planet.startsWith("M") || planet.startsWith("S") ) {
+            System.out.println(planet);
+        }
+    }
+}
+```
+
+
+
 ## Sum array of integers 
 
 ```java
