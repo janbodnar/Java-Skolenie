@@ -1,6 +1,33 @@
 # Priklady
 
 
+## Program
+
+```java
+package me.webcode;
+
+import java.util.List;
+
+public class Program {
+
+    void main() {
+
+        List<String> words = List.of("sky", "storm");
+
+        for (String word : words) {
+            System.out.println(word);
+        }
+
+        int x = 10;
+        int y = 11;
+        int z = x + y;
+
+        System.out.println(z);
+    }
+}
+```
+
+
 ## Get ages of users
 
 ```java
