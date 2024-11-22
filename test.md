@@ -1,5 +1,24 @@
 # Priklady
 
+
+## Ternary operator
+
+```java
+void main() {
+    int age = 31;
+
+    boolean adult = age >= 18 ? true : false;
+    
+//    if (age >= 18) {
+//        adult = true;
+//    } else {
+//        adult = false;
+//    }
+
+    System.out.println(String.format("Adult: %s", adult));
+}
+```
+
 ## suma a dnesny datum
 
 ```java
