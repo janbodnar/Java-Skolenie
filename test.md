@@ -2,7 +2,7 @@
 
 ## Stranky na riesenie uloh
 
-- [leetcode.com]([https://link-url-here.org](https://leetcode.com/))
+- [leetcode.com](https://link-url-here.org](https://leetcode.com/))
 
 
 ## Frekvencia znakov v texte
