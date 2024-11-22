@@ -1,5 +1,28 @@
 # Priklady
 
+## Cleaning words
+
+```java
+import java.util.List;
+
+void main() {
+
+    var words = List.of("sky\n", "\nwar\n", "toy  ", "  blue", "\t\t", "", "sky");
+    System.out.println(words);
+
+    ArrayList<String> words_cleaned = new ArrayList<>();
+
+    for (String word : words) {
+
+        if (!word.isBlank()) {
+            words_cleaned.add(word.trim());
+        }
+    }
+
+    System.out.println(words_cleaned);
+}
+```
+
 
 ## Ternary operator
 
