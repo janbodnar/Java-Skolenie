@@ -3,6 +3,7 @@
 ## Stranky na riesenie uloh
 
 - [leetcode.com](https://leetcode.com/)
+- [www.codewars.com](https://www.codewars.com/)
 
 
 ## Frekvencia znakov v texte
