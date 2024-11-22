@@ -585,7 +585,7 @@ void main() {
 
     var word = "falcon ";
 
-    var output = word.repeat((5));
+    var output = word.repeat(5);
     System.out.println(output);
 }
 ```
