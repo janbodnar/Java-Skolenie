@@ -1,5 +1,38 @@
 # Priklady
 
+## Fill arrays
+
+```java
+import java.util.Arrays;
+
+void main() {
+
+    int[] a = new int[10];
+
+    System.out.println(Arrays.toString(a));
+    Arrays.fill(a, 1);
+
+    System.out.println(Arrays.toString(a));
+
+    double[] b = new double[15];
+    Random r = new Random();
+    Arrays.setAll(b, idx -> r.nextDouble(10));
+
+    System.out.println(Arrays.toString(b));
+
+    float[] b2 = new float[15];
+    Random r1 = new Random();
+
+    for (int i = 0; i < b2.length; i++) {
+        float randomFloat = r.nextFloat() * 100; // Generate a random float between 0 and 100
+        float roundedFloat = Math.round(randomFloat * 100.0f) / 100.0f; // Round to two decimal places
+        b2[i] = roundedFloat;
+    }
+    
+    System.out.println(Arrays.toString(b2));
+}
+```
+
 ## Read CSV file
 
 ```java
