@@ -1,5 +1,31 @@
 # Priklady
 
+## Frekvencia znakov v texte
+
+```java
+void main() {
+
+    String text = """
+            The Battle of Thermopylae was fought between an alliance of Greek city-states,
+            led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
+            course of three days, during the second Persian invasion of Greece.
+            """;
+
+    Map<Character, Integer> charCountMap = new HashMap<>();
+
+    for (char c : text.toCharArray()) {
+        if (charCountMap.containsKey(c)) {
+            charCountMap.put(c, charCountMap.get(c) + 1);
+        } else {
+            charCountMap.put(c, 1);
+        }
+    }
+
+    charCountMap.forEach((key, value) -> System.out.println(key + ": " + value));
+}
+```
+
+
 ## Cleaning words
 
 ```java
