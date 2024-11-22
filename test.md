@@ -1,6 +1,28 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+void main() {
+
+    // vypis hlasku John Doe is 45 years old and he is a gardener
+    String name = "John Doe";
+    int age = 45;
+    String occupation = "gardener";
+
+
+    // vypis slova zacinajuce sa na w
+    // vypis slova majuce tri pismena
+    List<String> words = List.of("sky", "blue", "nord", "small", "war");
+
+    // vypocitaj sumu
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};   
+}
+```
+
+
+
 ## Podmienene vypisanie hodnot pola
 
 ```java
