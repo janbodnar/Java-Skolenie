@@ -1,5 +1,29 @@
 # Priklady
 
+## suma a dnesny datum
+
+```java
+void main() {
+
+    // vypocitaj sumu
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    int sum = 0;
+
+    for (int val : vals) {
+        sum = sum + val;
+    }
+
+    System.out.println(sum);
+    System.out.println(Arrays.stream(vals).sum());
+
+    // Vypis dnesny datum
+
+    LocalDate today = LocalDate.now();
+    System.out.println("Dnešný dátum je: " + today);
+
+}
+```
 
 ## forEach funkcia
 
