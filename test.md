@@ -1,5 +1,23 @@
 # Priklady
 
+## Suma z CSV dat
+
+```java
+void main() {
+
+    String data = "1,2,3,4,5,6,7,8,9,10";
+    String[] fields = data.split(",");
+
+    int suma = 0;
+
+    for (String field : fields) {
+        suma = suma + Integer.parseInt(field);
+    }
+
+    System.out.println(suma);
+```
+
+
 ## Stranky na riesenie uloh
 
 - [leetcode.com](https://leetcode.com/)
