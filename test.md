@@ -1,5 +1,32 @@
 # Priklady
 
+## Read CSV file
+
+```java
+void main() throws IOException {
+
+    String fileName = "C:/Users/bodnar/Documents/data.csv";
+    Path filePath = Path.of(fileName);
+
+    List<String> lines = Files.readAllLines(filePath);
+
+    int suma = 0;
+
+    for (String line : lines) {
+
+        String[] fields = line.split(";");
+
+
+        for (String field : fields) {
+            suma = suma + Integer.parseInt(field);
+        }
+    }
+
+    System.out.println(suma);
+}
+```
+
+
 ## Suma z CSV dat
 
 ```java
