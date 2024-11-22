@@ -1,5 +1,48 @@
 # Priklady
 
+## toString funkcia
+
+```java
+package com.zetcode;
+
+class Person {
+
+    public String firstName;
+    public String lastName;
+    public String occupation;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", occupation='" + occupation + '\'' +
+                '}';
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Person p1 = new Person();
+        p1.firstName = "Jane";
+        p1.lastName = "Doe";
+        p1.occupation = "teacher";
+
+        Person p2 = new Person();
+        p2.firstName = "Roger";
+        p2.lastName = "Roe";
+        p2.occupation = "driver";
+
+        System.out.println(p1);
+        System.out.println(p2);
+
+    }
+}
+```
+
+
 ## Map of planets
 
 ```java
