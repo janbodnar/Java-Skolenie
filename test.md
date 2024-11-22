@@ -15,6 +15,12 @@ void main() {
             System.out.println(w);
         }
     });
+
+    words.forEach(w -> {
+        if (w.length() == 3) {
+            System.out.println(w);
+        }
+    });
 }
 ```
 
