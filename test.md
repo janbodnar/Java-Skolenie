@@ -1,9 +1,27 @@
 # Priklady
 
 
+## forEach funkcia
+
+```java
+void main() {
+
+    // vypis slova zacinajuce sa na w
+    // vypis slova majuce tri pismena
+    List<String> words = List.of("sky", "blue", "water", "nord", "small", "war");
+
+    words.forEach(w -> {
+        if (w.startsWith("w")) {
+            System.out.println(w);
+        }
+    });
+}
+```
+
+
 ## Opakovanie
 
-```python
+```java
 void main() {
 
     // vypis hlasku John Doe is 45 years old and he is a gardener
