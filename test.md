@@ -12,7 +12,7 @@ void main() {
     // calculate sum of 1..10 integers
     int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     
-    // print the following message 8 times
+    // print the following message 8 times using while loop
     String msg = "an old falcon";
     
     // print first, last, last but one elements
