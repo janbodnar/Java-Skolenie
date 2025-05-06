@@ -71,6 +71,16 @@ void main() {
     System.out.println(words[len-1]);
     System.out.println(words[len-2]);
 
+    int sum_of_chars = 0;
+
+    for (String word : words) {
+        sum_of_chars += word.length();
+    }
+
+    System.out.println(sum_of_chars);
+
+    System.out.println("end of program");
+
     // using classic for loop, generate 10 random numbers
     var random = new Random();
 
