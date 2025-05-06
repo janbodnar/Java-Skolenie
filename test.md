@@ -71,6 +71,14 @@ void main() {
     System.out.println(words[len-1]);
     System.out.println(words[len-2]);
 
+    // using classic for loop, generate 10 random numbers
+    var random = new Random();
+
+    for (int i = 0; i<10; i++) {
+
+        int r = random.nextInt();
+        System.out.println(r);
+    }
 
 }
 ```
