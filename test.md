@@ -1,5 +1,25 @@
 # Priklady
 
+## split function
+
+```java
+void main() {
+
+    String fullName = "John Doe";
+
+    String[] parts = fullName.split(" ");
+
+    String firstName = parts[0];
+    String lastName = parts[1];
+
+    System.out.println(firstName);
+    System.out.println(lastName);
+
+    System.out.println(fullName);
+}
+```
+
+
 ## and/or operators
 
 ```java
