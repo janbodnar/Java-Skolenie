@@ -24,7 +24,31 @@ void main() {
 }
 ```
 
+## Riesenia
 
+```java
+void main() {
+
+    // print message John Doe is 45 years old
+    String name = "John Doe";
+    int age = 45;
+
+    System.out.printf("%s is %d years old%n", name, age);
+    System.out.println(name + " is " + age + " years old");
+
+    // calculate sum of 1..10 integers
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sum = 0;
+
+    for (int val : vals) {
+        sum = sum + val;
+    }
+
+    System.out.println(sum);
+
+
+}
+```
 
 
 
