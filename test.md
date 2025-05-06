@@ -1,5 +1,28 @@
 # Priklady
 
+## Calculate sum of CSV data
+
+```java
+void main(String[] args) {
+
+//   1. calculate sum
+//   2. transform to 1;2;3;4;5;6;7;8;9;10
+    String data = "1,2,3,4,5,6,7,8,9,10";
+
+//    ["1", "2", .. "10"]
+    String[] fields = data.split(",");
+    int sum = 0;
+
+    for (String field :fields) {
+        sum += Integer.parseInt(field);
+    }
+
+    System.out.println(sum);
+
+}
+```
+
+
 ## Sum of program args
 
 ```java
