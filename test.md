@@ -62,6 +62,16 @@ void main() {
 
     System.out.println("end of program");
 
+
+    String[] words = {"sky", "look", "pen", "snow", "car", "war"};
+
+    int len = words.length;
+
+    System.out.println(words[0]);
+    System.out.println(words[len-1]);
+    System.out.println(words[len-2]);
+
+
 }
 ```
 
