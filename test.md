@@ -1,5 +1,41 @@
 # Priklady
 
+## Opakovanie
+
+```java
+void main() {
+
+    // print message John Doe is 45 years old
+    String name = "John Doe";
+    int age = 45;
+    
+    // calculate sum of 1..10 integers
+    int[] vals = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    // print the following message 8 times
+    String msg = "an old falcon";
+    
+    // print first, last, last but one elements
+    // calculate the sum of lenghts
+    String[] words = {"sky", "look", "pen", "snow", "car", "war"};
+    
+    // using classic for loop, generate 10 random numbers
+    var random = new Random();
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## toString funkcia
 
 ```java
