@@ -1,5 +1,27 @@
 # Priklady
 
+## and/or operators
+
+```java
+void main() {
+
+    String[] words = {"war", "water", "cup", "snow", "pup", "cloud", "dog", "warm"};
+    
+    for (var word : words) {
+
+        if (word.startsWith("w") || word.startsWith("c")) {
+            System.out.println(word);
+        }
+
+        if (word.length() == 3 && word.startsWith("w")) {
+            System.out.println(word);
+        }
+    }
+}
+```
+
+
+
 ## Opakovanie
 
 ```java
