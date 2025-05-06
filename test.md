@@ -46,6 +46,21 @@ void main() {
 
     System.out.println(sum);
 
+    // print the following message 8 times using while loop
+    String msg = "an old falcon";
+
+    for (int i = 0; i < 8; i++) {
+        System.out.println(msg);
+    }
+
+    int i = 0;
+
+    while (i < 8) {
+        System.out.println(msg);
+        i++;
+    }
+
+    System.out.println("end of program");
 
 }
 ```
