@@ -1,5 +1,33 @@
 # Priklady
 
+## Looping Hashmaps
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+void main() {
+
+    Map<String, String> capitals = new HashMap<>();
+
+    capitals.put("svk", "Bratislava");
+    capitals.put("ger", "Berlin");
+    capitals.put("hun", "Budapest");
+    capitals.put("czk", "Prague");
+    capitals.put("pol", "Warsaw");
+    capitals.put("ita", "Rome");
+
+    capitals.forEach((k, v) -> {
+                if (v.startsWith("B") || v.startsWith("W")) {
+                    System.out.printf("%s - %s%n", k, v);
+                }
+            }
+    );
+}
+```
+
+
+
 ## Contains key/value
 
 ```java
