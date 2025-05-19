@@ -1,5 +1,54 @@
 # Priklady
 
+## Contains key/value
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+void main() {
+
+    Map<String, String> capitals = new HashMap<>();
+
+    capitals.put("svk", "Bratislava");
+    capitals.put("ger", "Berlin");
+    capitals.put("hun", "Budapest");
+    capitals.put("czk", "Prague");
+    capitals.put("pol", "Warsaw");
+    capitals.put("ita", "Rome");
+
+    String key1 = "ger";
+    String key2 = "rus";
+
+    String value1 = "Trnava";
+
+    if (!capitals.containsValue(value1)) {
+        System.out.println("Hashmap does not contain value " + value1);
+    } else {
+        System.out.println("Hashmap does contain value " + value1);
+    }
+
+
+    if (capitals.containsKey(key1)) {
+
+        System.out.printf("HashMap contains %s key%n", key1);
+    } else {
+
+        System.out.printf("HashMap does not contain %s key%n", key1);
+    }
+
+    if (capitals.containsKey(key2)) {
+
+        System.out.printf("HashMap contains %s key%n", key2);
+    } else {
+
+        System.out.printf("HashMap does not contain %s key%n", key2);
+    }
+}
+```
+
+
+
 ## Reading files
 
 ```java
