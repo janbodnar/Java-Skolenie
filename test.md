@@ -1,5 +1,7 @@
 # Priklady
 
+
+
 ## Looping Hashmaps
 
 ```java
@@ -23,6 +25,33 @@ void main() {
                 }
             }
     );
+}
+```
+
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+void main() {
+
+    Map<String, String> capitals = new HashMap<>();
+
+    capitals.put("svk", "Bratislava");
+    capitals.put("ger", "Berlin");
+    capitals.put("hun", "Budapest");
+    capitals.put("czk", "Prague");
+    capitals.put("pol", "Warsaw");
+    capitals.put("ita", "Rome");
+
+    for (var pair: capitals.entrySet()) {
+
+        if (pair.getValue().endsWith("e")) {
+            System.out.println(pair);
+        }
+
+//        System.out.format("%s: %s%n", pair.getKey(), pair.getValue());
+    }
 }
 ```
 
