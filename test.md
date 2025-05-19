@@ -1,5 +1,35 @@
 # Priklady
 
+## Reading files
+
+```java
+void main() throws IOException {
+
+//    String fileName = "words.txt";
+//    String fileName = "C:/Users/bodnar//IdeaProjects/SimpleEx/words.txt";
+//    String fileName = "C:\\Users\\bodnar\\IdeaProjects\\SimpleEx\\words.txt";
+
+    String fileName = "C:/Users/bodnar/Documents/words.txt";
+
+    List<String> lines = Files.readAllLines(Paths.get(fileName));
+    lines.forEach(line -> System.out.println(line.toUpperCase()));
+
+    for (String line: lines) {
+        System.out.println(line.length());
+    }
+
+
+//    String content = Files.readString(Paths.get(fileName));
+//
+//    System.out.println(content);
+//    String[] words = content.split("[\\s]+");
+
+//    System.out.println(Arrays.toString(words));
+
+}
+```
+
+
 ## forEach loop
 
 ```java
