@@ -1,5 +1,47 @@
 # Priklady
 
+## Opakovanie
+
+```java
+void main(String[] args) {
+
+    // print message: John Doe is 34 years old, he is a gardener
+    String name = "John Doe";
+    int age = 34;
+    String occupation = "gardener";
+
+    // calculate sum using for loop
+    // print first, second, last, last but one elements
+    var vals = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    
+    // calculate sum of values 20..50, both inclusive
+    // using while loop
+
+    // print first, second, last, last but one element
+    int[] data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // calculate sum
+    String data2 = "1,2,3,4,5,6,7,8,9,10";
+
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Calculate sum of CSV data
 
 ```java
