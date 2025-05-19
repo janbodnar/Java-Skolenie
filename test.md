@@ -62,6 +62,19 @@ void main(String[] args) {
     System.out.println(last);
     System.out.println(lastButOne);
 
+
+    // calculate sum of values 20..50, both inclusive
+    // using while loop
+
+    int sum2 = 0;
+    int i = 20;
+
+    while (i <= 50) {
+
+        sum2 += i;
+        i++;
+    }
+
 ```
 
 
