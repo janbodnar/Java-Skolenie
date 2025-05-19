@@ -1,6 +1,26 @@
 # Priklady
 
 
+## Sorting arrays
+
+```java
+import java.util.Arrays;
+
+void main() {
+
+    int[] a = { 5, 2, 4, 3, 1 };
+    int[] sorted = Arrays.stream(a).sorted().toArray();
+
+    System.out.println(Arrays.toString(sorted));
+    System.out.println(Arrays.toString(a));
+
+    int[] b = { 5, 2, 4, 3, 1 };
+    Arrays.sort(b);
+    System.out.println(Arrays.toString(b));
+}
+```
+
+
 ## Split with regex
 
 ```java
