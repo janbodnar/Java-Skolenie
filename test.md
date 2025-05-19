@@ -27,6 +27,20 @@ void main(String[] args) {
 ```
 
 
+## Riesenia
+
+```java
+    // print message: John Doe is 34 years old, he is a gardener
+    String name = "John Doe";
+    int age = 34;
+    String occupation = "gardener";
+
+    System.out.printf("%s is %d years old, he is a %s%n", name, age, occupation);
+
+    String msg = String.format("%s is %d years old, he is a %s%n", name, age, occupation);
+    System.out.println(msg);
+```
+
 
 
 
