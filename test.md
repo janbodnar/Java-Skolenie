@@ -1,6 +1,27 @@
 # Priklady
 
 
+## Split with regex
+
+```java
+void main(String[] args) {
+
+     // calculate sum
+    String data2 = "1,2;3,4;5,6,7;8,9;10";
+    int sum3 = 0;
+
+    String[] fields = data2.split("[;,]");
+
+    for (String field: fields) {
+
+        sum3 += Integer.parseInt(field);
+    }
+
+    System.out.println(sum3);
+}
+```
+
+
 ## Replace and calculate
 
 ```java
