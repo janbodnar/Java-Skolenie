@@ -78,6 +78,15 @@ void main(String[] args) {
     System.out.println(sum2);
 
 
+    // print first, second, last, last but one element
+    int[] data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    System.out.println(data[0]);
+    System.out.println(data[1]);
+    System.out.println(data[data.length - 1]);
+    System.out.println(data[data.length - 2]);
+
+
 ```
 
 
