@@ -481,9 +481,9 @@ void main() {
     String msg = "";
 
     if (r >= 0) {
-        msg = STR."\{p} was found at position \{r} of the sorted array";
+        msg = String.format("%s was found at position %d of the sorted array%n", p, r);
     } else {
-        msg = STR."\{p} was not found";
+        msg = String.format("%s was not found", p);
     }
 
     System.out.println(msg);
