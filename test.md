@@ -1,5 +1,23 @@
 # Priklady
 
+## forEach loop
+
+```java
+void main() {
+
+    List<String> words = List.of("sky", "blue", "cup", "ocean");
+
+    words.forEach(word -> System.out.println(word.toUpperCase()));
+
+    for (String word : words) {
+        System.out.println(word.toUpperCase());
+    }
+
+}
+```
+
+
+
 
 ## Sorting arrays
 
