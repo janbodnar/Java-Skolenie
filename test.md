@@ -39,6 +39,29 @@ void main(String[] args) {
 
     String msg = String.format("%s is %d years old, he is a %s%n", name, age, occupation);
     System.out.println(msg);
+
+    // calculate sum using for loop
+    // print first, second, last, last but one elements
+    List<Integer> vals = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    int sum = 0;
+
+    for (Integer val: vals) {
+        sum += val;
+    }
+
+    System.out.println(sum);
+    
+    int first = vals.getFirst();
+    int second = vals.get(1);
+    int last = vals.getLast();
+    int lastButOne = vals.get(vals.size() - 2);
+
+    System.out.println(first);
+    System.out.println(second);
+    System.out.println(last);
+    System.out.println(lastButOne);
+
 ```
 
 
