@@ -1,6 +1,78 @@
 # Priklady
 
 
+## Multiple inheritance
+
+```java
+package com.zetcode;
+
+abstract class Shape {
+
+    protected int x;
+    protected int y;
+
+    public abstract double area();
+}
+
+class Rectangle extends Shape {
+
+    public Rectangle(int x, int y) {
+
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public double area() {
+
+        return this.x * this.y;
+    }
+}
+
+class Circle extends Shape {
+
+    private int radius;
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return this.radius * this.radius * Math.PI;
+    }
+}
+
+class Square extends Shape {
+
+    public Square(int x) {
+
+        this.x = x;
+    }
+
+    @Override
+    public double area() {
+
+        return this.x * this.x;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Circle[] circles = {new Circle(5), new Circle(8), new Circle(11), new Circle(12)};
+        Shape[] shapes = { new Square(5), new Circle(10), new Rectangle(9, 4), new Square(12) };
+
+        for (Shape shape : shapes) {
+
+            System.out.println(shape.area());
+        }
+    }
+}
+```
+
+
 ## Program
 
 
