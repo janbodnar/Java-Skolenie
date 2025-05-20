@@ -54,6 +54,24 @@ void main(String ... args) {
 }
 ```
 
+## Riesenia
+
+```java
+    List<Integer> randomVals = new ArrayList<>();
+    Random rand = new Random();
+
+    for (int i = 0; i < 100; i++) {
+
+        int r = rand.nextInt(1, 100);
+        randomVals.add(r);
+    }
+
+    System.out.println(randomVals);
+```
+
+
+
+
 
 
 ## Looping Hashmaps
