@@ -82,6 +82,10 @@ void main(String ... args) {
     int[] copy = Arrays.copyOf(original, original.length);
     System.out.println(Arrays.toString(copy));
 
+    // -------
+
+    List<String> lines = Files.readAllLines(Paths.get("words.txt"));
+    lines.forEach(line -> System.out.println(line.toUpperCase()));
 ```
 
 
