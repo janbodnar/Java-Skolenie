@@ -86,6 +86,23 @@ void main(String ... args) {
 
     List<String> lines = Files.readAllLines(Paths.get("words.txt"));
     lines.forEach(line -> System.out.println(line.toUpperCase()));
+
+    // -------
+
+    String data = """
+            small,new,purple
+            big,cup,nest
+            data,cloud,ink
+            """;
+
+    List<String> lines = data.lines().toList();
+    System.out.println(lines);
+
+    for (String line: lines) {
+        System.out.println(line);
+    }
+
+
 ```
 
 
