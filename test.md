@@ -102,6 +102,42 @@ void main(String ... args) {
         System.out.println(line);
     }
 
+    // -------
+
+    HashMap<String, Integer> salaries = new HashMap<>();
+
+    salaries.put("emp1", 2300);
+    salaries.put("emp2", 1350);
+    salaries.put("emp3", 4100);
+    salaries.put("emp4", 2100);
+    salaries.put("emp5", 2900);
+    salaries.put("emp6", 1380);
+
+    int sum = 0;
+    int min = 0;
+    int max = 0;
+
+    var values = salaries.values();
+    min = Integer.MAX_VALUE;
+
+    for (int value: values) {
+
+        if (value > max) {
+            max = value;
+        }
+
+        if (value < min) {
+            min = value;
+        }
+
+        sum += value;
+    }
+
+    System.out.println(sum);
+    System.out.println(max);
+    System.out.println(min);
+    System.out.println(sum/values.size());
+
 
 ```
 
