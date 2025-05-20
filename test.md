@@ -1,5 +1,18 @@
 # Priklady
 
+The `words.txt` file:
+
+```
+sky
+ocean
+pup
+rock
+war
+water
+small
+```
+
+
 ```java
 import java.util.Random;
 
