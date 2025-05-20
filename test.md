@@ -1,5 +1,25 @@
 # Priklady
 
+## Optional with Streams
+
+```java
+void main() {
+
+    Stream<String> colours = Stream.of("red", "green", "blue", "yellow", "orange", "pink");
+
+    Optional<String> first = colours.skip(4).findFirst();
+    first.ifPresent(System.out::println);
+
+    Stream<Integer> nums = Stream.of(3, 4, 5, 6, 7);
+    Optional<Integer> maxVal = nums.max(Comparator.naturalOrder());
+    maxVal.ifPresent(e -> System.out.println(2 * e));
+
+    nums = Stream.of(3, 4, 5, 6, 7);
+    Optional<Integer> minVal = nums.min(Comparator.naturalOrder());
+    minVal.ifPresent(System.out::println); 
+}
+```
+
 
 ## Multiple inheritance
 
