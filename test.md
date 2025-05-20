@@ -1,5 +1,49 @@
 # Priklady
 
+
+## Program
+
+
+```java
+package com.example;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
+public class Program {
+    
+    public void run() {
+
+        print100RandomInts();
+        
+        System.out.println(now());
+        System.out.println(now());
+    }
+
+    private void print100RandomInts() {
+
+        var rand = new Random();
+        
+        for (int i = 0; i<100; i++) {
+
+            System.out.println(rand.nextInt(100));
+        }
+    }
+
+    private String now() {
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+
+        return now.format(formatter);
+    }
+}
+```
+
+
+
+
 The `words.txt` file:
 
 ```
