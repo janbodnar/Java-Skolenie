@@ -67,6 +67,21 @@ void main(String ... args) {
     }
 
     System.out.println(randomVals);
+
+    // ---------
+
+    int[] original = {1, 2, 3, 4, 5, 6};
+    int[] newArray = new int[original.length];
+
+    for (int i=0; i<original.length;i++) {
+        newArray[i]  = original[i];
+    }
+
+    System.out.println(Arrays.toString(newArray));
+    
+    int[] copy = Arrays.copyOf(original, original.length);
+    System.out.println(Arrays.toString(copy));
+
 ```
 
 
