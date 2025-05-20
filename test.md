@@ -1,5 +1,46 @@
 # Priklady
 
+```java
+import java.util.Random;
+
+void main(String ... args) {
+
+    // calculate min, max, sum, avg of salaries
+
+    HashMap<String, Integer> salaries = new HashMap<>();
+
+    salaries.put("emp1", 2300);
+    salaries.put("emp2", 1350);
+    salaries.put("emp3", 4100);
+    salaries.put("emp4", 2100);
+    salaries.put("emp5", 2900);
+    salaries.put("emp6", 1380);
+    
+
+    // create a list of 100 random integers from 1 .. 100
+
+
+    // create int[] vals3 from
+
+    int[] vals = {1, 2, 3};
+    int[] vals2 = {4, 5, 6};
+
+
+    // Read data from words.txt and print
+    // in uppercase
+
+
+    // load data into list and sort it
+
+    String data = """
+            small,new,purple
+            big,cup,nest
+            data,cloud,ink
+            """;
+ 
+}
+```
+
 
 
 ## Looping Hashmaps
