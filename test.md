@@ -1,5 +1,54 @@
 # Priklady
 
+## Opakovanie
+
+
+
+```java
+void main() {
+
+    // calculate sum
+    int[] vals = {3, 2, 2, 2, 1, 1, 3, 6, 7, 8, 9};
+
+
+//    filter all words with 3 letters
+//    filter all words starting with 'w'
+//    sort words in ascending and descending modes
+    List<String> words = List.of("sky", "blue", "job",
+            "rock", "cup", "club", "atom", "water", "war");
+
+
+    // calculate sum
+    String data = """
+            1,2,3,4,5
+            6,7,8,9,10
+            """;
+
+    // select unique values
+    int[] vals2 = {3, 2, 2, 2, 1, 1, 3, 6, 7, 8, 9};
+    
+    
+//    print today's datetime (use copilot)
+//    calculate age from "2001-11-28" (use copilot)
+
+// read words.txt file and filter out words starting in 'w'
+// read words.txt file and filter out words that contain 'w' letter
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Optional with Streams
 
 ```java
