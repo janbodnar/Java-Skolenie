@@ -1,6 +1,33 @@
 # Priklady
 
 
+## Parse last 3 countries
+
+```java
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+void main() throws IOException {
+
+    String url = "https://webcode.me";
+    Document document = Jsoup.connect(url).get();
+
+    String cssQuery = "body p:nth-of-type(2)";
+    var tag = document.select(cssQuery).first();
+
+    System.out.println(tag);
+
+    String url2 = "https://webcode.me/countries.html";
+    Document document2 = Jsoup.connect(url2).get();
+
+    String cssQuery2 = "table tbody tr:nth-last-child(-n+3)";
+    var last3Rows = document2.select(cssQuery2);
+
+    System.out.println(last3Rows);
+}
+```
+
+
 ## HTML/CSS
 
 
