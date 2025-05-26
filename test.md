@@ -102,6 +102,13 @@ void main() {
     System.out.println(sum3);
 
 
+    int[] vals_copy = Arrays.stream(vals).toArray();
+    System.out.println(Arrays.toString(vals_copy));
+
+    int[] vals_copy2 = Arrays.copyOf(vals, vals.length);
+    System.out.println(Arrays.toString(vals_copy2));
+
+
 ```
 
 
