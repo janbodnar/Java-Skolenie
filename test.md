@@ -1,5 +1,35 @@
 # Priklady
 
+## Regex groups
+
+```java
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+void main() {
+
+    var sites = List.of("Paul Novak:gardener", "Kate Smith:singer", "Paul Black:programmer",
+            "Arkadij Novy:student");
+
+    Pattern p = Pattern.compile("(\\w+):(\\w+)");
+
+    List<String> jobs = new ArrayList<>();
+
+    for (var site: sites) {
+
+        Matcher matcher = p.matcher(site);
+
+        while (matcher.find()) {
+
+            jobs.add(matcher.group(2));
+        }
+    }
+    System.out.println(jobs);
+}
+```
+
+
 ## GUI APP
 
 ```java
