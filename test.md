@@ -135,6 +135,14 @@ void main() {
 //
 //    System.out.println(words_3);
 
+    // select unique values
+    int[] vals2 = {3, 2, 2, 2, 1, 1, 3, 6, 7, 8, 9};
+
+    int[] uvals = Arrays.stream(vals2).distinct().toArray();
+    System.out.println(Arrays.toString(uvals));
+
+
+
 ```
 
 
