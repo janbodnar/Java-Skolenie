@@ -26,6 +26,7 @@ sweater
 void main() {
 
     // calculate sum
+// create a copy 
     int[] vals = {3, 2, 2, 2, 1, 1, 3, 6, 7, 8, 9};
 
 
