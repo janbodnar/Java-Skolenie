@@ -1,5 +1,22 @@
 # Priklady
 
+## Regex split
+
+```java
+void main() {
+
+    String data = "1,2,3;4,5;6,7;8,9;10";
+
+    String[] fields = data.split("[,;]");
+
+    List<Integer> vals = Arrays.stream(fields).map(Integer::parseInt).toList();
+
+    System.out.println(Arrays.toString(fields));
+    System.out.println(vals);
+}
+```
+
+
 ## Regex groups
 
 ```java
