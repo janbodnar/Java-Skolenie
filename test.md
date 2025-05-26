@@ -151,6 +151,35 @@ void main() {
     int years = Period.between(dob, now).getYears();
     System.out.println(years);
 
+
+    // calculate sum
+    String data = """
+            1,2,3,4,5
+            6,7,8,9,10
+            """;
+
+    int sum = 0;
+    for (String line : data.split("\\n")) {
+        for (String num : line.split(",")) {
+            sum += Integer.parseInt(num);
+        }
+    }
+
+    System.out.println("Sum: " + sum);
+
+
+    int sum2 = 0;
+    List<String> lines = data.lines().toList();
+
+    for (String line: lines) {
+        String[] fields = line.split(",");
+        for (String field: fields) {
+            sum2 += Integer.parseInt(field);
+        }
+    }
+
+    System.out.println(sum2);
+
 ```
 
 
