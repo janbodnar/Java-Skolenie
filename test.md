@@ -1,6 +1,92 @@
 # Priklady
 
 
+## HTML/CSS
+
+
+```css
+h1 {
+    color: blue;
+    font-size: 5em;
+    text-align: center;
+}
+
+p:first-child {
+    font-size: 2em;
+    text-align: center;
+    color: red;
+}
+
+p:last-child {
+    font-size: 1.5em;
+    text-align: center;
+    color: green;
+}
+
+footer p {
+    font-size: 1.2em;
+    text-align: center;
+    color: purple;
+}
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>My First Heading</h1>
+
+
+    <p font="">My first paragraph.</p>
+
+    <ul>
+        <li>sky</li>
+        <li>auto</li>
+        <li>red</li>
+        <li>past</li>
+        <li>word</li>
+        <li>rock</li>
+        <li>pen</li>
+        <li>dog</li>
+        <li>cat</li>
+        <li>mouse</li>
+    </ul>
+
+    <p>My second paragraph.</p>
+
+
+    <footer>
+        <p>My first footer.</p>
+        <p>My second footer.</p>
+        <p>My third footer.</p>
+        <p>My fourth footer.</p>
+        <p>My fifth footer.</p>
+    </footer>
+
+</body>
+
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
 ## JSoup
 
 ```java
