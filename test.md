@@ -109,6 +109,32 @@ void main() {
     System.out.println(Arrays.toString(vals_copy2));
 
 
+//    filter all words with 3 letters
+//    filter all words starting with 'w'
+//    sort words in ascending and descending modes
+    List<String> words = List.of("sky", "blue", "job",
+            "rock", "cup", "club", "atom", "water", "war");
+
+    words.stream().filter(word -> word.startsWith("w")).forEach(System.out::println);
+    words.stream().filter(word -> word.length() == 3).forEach(System.out::println);
+
+    List<String> sorted_asc = words.stream().sorted().toList();
+    System.out.println(sorted_asc);
+
+    List<String> sorted_desc = words.stream().sorted(Comparator.reverseOrder()).toList();
+    System.out.println(sorted_desc);
+
+
+//    List<String> words_3 = new ArrayList<>();
+//
+//    for (var word : words) {
+//        if (word.startsWith("w")) {
+//            words_3.add(word);
+//        }
+//    }
+//
+//    System.out.println(words_3);
+
 ```
 
 
