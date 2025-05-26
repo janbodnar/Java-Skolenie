@@ -1,5 +1,42 @@
 # Priklady
 
+
+## JSoup
+
+```java
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+void main() throws IOException {
+
+    String url = "https://webcode.me";
+    Document doc = Jsoup.connect(url).get();
+
+    String title = doc.title();
+    System.out.println(title);
+
+    System.out.println("------------------------------");
+    
+    var body = doc.body();
+    System.out.println(body);
+    System.out.println(body.tagName());
+    System.out.println(body.text());
+
+    System.out.println("------------------------------");
+    var children = body.children();
+
+    children.forEach(System.out::println);
+}
+```
+
+
+
+
+
+
+
+
+
 ## Opakovanie
 
 The `words.txt` file:
