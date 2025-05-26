@@ -80,6 +80,27 @@ void main() {
     System.out.println(sum2);
 
 
+    int sum = 0;
+
+    for (int val: vals) {
+        sum += val;
+    }
+
+    System.out.println(sum);
+
+    int i = 0;
+    int sum2 = 0;
+
+    while (i < vals.length) {
+        sum2 += vals[i];
+        i++;
+    }
+
+    System.out.println(sum2);
+
+    int sum3 = Arrays.stream(vals).sum();
+    System.out.println(sum3);
+
 
 ```
 
