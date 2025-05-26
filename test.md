@@ -2,6 +2,24 @@
 
 ## Opakovanie
 
+The `words.txt` file:
+
+```
+sky
+blue
+word
+war
+rock
+blue
+jean
+nice
+alcohol
+post
+rock
+flower
+sweater
+```
+
 
 
 ```java
