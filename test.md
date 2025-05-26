@@ -142,6 +142,14 @@ void main() {
     System.out.println(Arrays.toString(uvals));
 
 
+    var now = LocalDate.now();
+    System.out.println(now);
+
+    String dateOfBirthS = "2001-11-28";
+    LocalDate dob = LocalDate.parse(dateOfBirthS);
+    
+    int years = Period.between(dob, now).getYears();
+    System.out.println(years);
 
 ```
 
