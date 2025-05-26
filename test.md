@@ -180,6 +180,16 @@ void main() {
 
     System.out.println(sum2);
 
+// read words.txt file and filter out words starting in 'w'
+// read words.txt file and filter out words that contain 'w' letter
+
+    Files.readAllLines(Path.of("words.txt")).stream()
+            .filter(line -> line.startsWith("w"))
+            .forEach(System.out::println);
+
+    Files.readAllLines(Path.of("words.txt")).stream()
+            .filter(line -> line.contains("w"))
+            .forEach(System.out::println);
 ```
 
 
