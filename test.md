@@ -55,6 +55,33 @@ void main() {
 }
 ```
 
+## Riesenia
+
+```java
+   // calculate sum
+    int[] vals = {3, 2, 2, 2, 1, 1, 3, 6, 7, 8, 9};
+
+    int sum = 0;
+
+    for (int val: vals) {
+        sum += val;
+    }
+
+    System.out.println(sum);
+
+    int i = 0;
+    int sum2 = 0;
+
+    while (i < vals.length) {
+        sum2 += vals[i];
+        i++;
+    }
+
+    System.out.println(sum2);
+
+
+
+```
 
 
 
