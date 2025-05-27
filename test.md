@@ -91,6 +91,22 @@ void main() {
             .collect(Collectors.joining());
 
     System.out.println(output);
+
+
+    int[] rvals = new int[100];
+
+    var rand = new Random();
+
+    for (int i = 0; i < 100; i++) {
+
+        rvals[i] = rand.nextInt(100) + 1;
+    }
+
+    System.out.println(Arrays.toString(rvals));
+
+
+    int[] rvals2 = rand.ints(100, 0, 100).toArray();
+    System.out.println(Arrays.toString(rvals2));
 ```
 
 
