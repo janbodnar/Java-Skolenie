@@ -187,6 +187,28 @@ void main() {
 }
 ```
 
+Here's a markdown table with common format specifiers for Java's `DateTimeFormatter.ofPattern` method, formatted for easy copying.
+
+
+| Symbol | Meaning                     | Presentation | Examples                       |
+|--------|-----------------------------|--------------|--------------------------------|
+| y      | Year                        | Number       | 2025, 25               |
+| M      | Month in year               | Number/Text  | 7, 07, Jul, July       |
+| d      | Day of month                | Number       | 27, 05                 |
+| H      | Hour in day (0-23)          | Number       | 0, 23, 10              |
+| h      | Hour in am/pm (1-12)        | Number       | 1, 12, 10              |
+| m      | Minute in hour              | Number       | 30, 05                 |
+| s      | Second in minute            | Number       | 55, 05                 |
+| S      | Millisecond                 | Number       | 978, 005               |
+| a      | AM/PM marker                | Text         | AM, PM                 |
+| E      | Day of week                 | Text         | Tue, Tuesday           |
+| D      | Day of year                 | Number       | 1, 365                 |
+| z      | Time zone (name)            | Text         | Pacific Standard Time, PST |
+| Z      | Time zone (offset)          | Number       | +0000, -0800           |
+| X      | Time zone (offset, Z for UTC) | Number     | Z, +00:00, -08:00      |
+
+
+
 Custom formats can be defined with `DateTimeFormatter.ofPattern`.
 
 ```java
