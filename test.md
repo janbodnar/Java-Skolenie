@@ -107,6 +107,13 @@ void main() {
 
     int[] rvals2 = rand.ints(100, 0, 100).toArray();
     System.out.println(Arrays.toString(rvals2));
+
+
+    // flatten the array
+    int[][] vals = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    int[] flattened = Arrays.stream(vals).flatMapToInt(Arrays::stream).toArray();
+    System.out.println(Arrays.toString(flattened));
 ```
 
 
