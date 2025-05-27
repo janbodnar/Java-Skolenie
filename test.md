@@ -56,6 +56,44 @@ void main() {
 }
 ```
 
+## Riesenia
+
+```java
+    // find several ways how to print 'hello there ' 7 times in Java in one line
+
+    for (int i = 0; i<7; i++) {
+
+        System.out.print("hello there ");
+    }
+
+    System.out.println();
+
+    System.out.println("hello there ".repeat(7));
+
+    System.out.println();
+
+    String result = String.join("", Collections.nCopies(7, "hello there "));
+    System.out.println(result);
+
+    System.out.println();
+
+    var sb = new StringBuilder();
+    for (int i = 0; i<7; i++) {
+
+        sb.append("hello there ");
+    }
+
+    System.out.println(sb);
+
+
+    String output = Stream.generate(() -> "hello there ")
+            .limit(7)
+            .collect(Collectors.joining());
+
+    System.out.println(output);
+```
+
+
 
 
 
