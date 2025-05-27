@@ -187,7 +187,8 @@ void main() {
 }
 ```
 
-Here's a markdown table with common format specifiers for Java's `DateTimeFormatter.ofPattern` method, formatted for easy copying.
+Here's a markdown table with common format specifiers for Java's `DateTimeFormatter.ofPattern` method,  
+formatted for easy copying.
 
 
 | Symbol | Meaning                     | Presentation | Examples                       |
