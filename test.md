@@ -121,6 +121,24 @@ void main() {
         long n = lines.distinct().count();
         System.out.println(n);
     }
+
+    // user regex
+    String text = """
+            there are 4 apples in the basket, 12 apples on the table
+            and 9 apples in the fridge and 34 pears on the floor.
+            """;
+
+    int totalApples = 0;
+
+    var pattern = Pattern.compile("(\\d+) apples");
+    Matcher matcher = pattern.matcher(text);
+
+    while (matcher.find()) {
+        totalApples += Integer.parseInt(matcher.group(1));
+    }
+
+    System.out.println(totalApples);
+
 ```
 
 
