@@ -1,5 +1,46 @@
 # Priklady
 
+## Prepared statements
+
+```java
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+void main() {
+
+    int carPrice = 23999;
+    String carName = "Oldsmobile";
+
+    String sql = "INSERT INTO cars(name, price) VALUES(?, ?)";
+//    String sql = "INSERT INTO cars(name, price) VALUES(" + carName + ", " + carPrice + ")";
+//    String sql = String.format("INSERT INTO cars(name, price) VALUES(%s,%d", carName, carPrice);
+
+
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db")) {
+
+        try (PreparedStatement pst = con.prepareStatement(sql)) {
+
+            pst.setString(1, carName);
+            pst.setInt(2, carPrice);
+            pst.executeUpdate();
+
+            System.out.println("A new car has been inserted");
+        }
+
+    } catch (SQLException ex) {
+
+        Logger lgr = Logger.getLogger(getClass().getName());
+        lgr.log(Level.SEVERE, ex.getMessage(), ex);
+    }
+}
+```
+
+
 
 ## Opakovanie 
 
