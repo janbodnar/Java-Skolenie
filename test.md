@@ -18,7 +18,7 @@ void main() {
 
     String sql = "INSERT INTO cars(name, price) VALUES(?, ?)";
 //    String sql = "INSERT INTO cars(name, price) VALUES(" + carName + ", " + carPrice + ")";
-//    String sql = String.format("INSERT INTO cars(name, price) VALUES(%s,%d", carName, carPrice);
+//    String sql = String.format("INSERT INTO cars(name, price) VALUES(%s,%d"), carName, carPrice);
 
 
     try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db")) {
