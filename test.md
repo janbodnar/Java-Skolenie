@@ -1,5 +1,65 @@
 # Priklady
 
+
+## Opakovanie 
+
+```java
+
+record User(String firstName, String lastName, String occupation) {
+
+}
+
+void main() {
+
+    // find several ways how to print 'hello there' 7 times in Java in one line
+
+    // create an array of 100 random values between 1, 100
+
+    // flatten the array
+    int[][] vals = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+
+    // read the words.txt file and calculate the number of unique
+    // words
+
+    // calculate the number of apples
+    // user regex
+    String text = """
+            there are 4 apples in the basket, 12 apples on the table
+            and 9 apples in the fridge
+            """;
+
+    // filter out all gardeners
+    // add date of birth attribute (a String) and calculate each users' age
+    List<User> users = List.of(
+            new User("John", "Doe", "gardener"),
+            new User("Roger", "Roe", "driver"),
+            new User("Alice", "Smith", "teacher"),
+            new User("Bob", "Johnson", "engineer"),
+            new User("Charlie", "Brown", "doctor"),
+            new User("Dave", "Wilson", "chef"),
+            new User("Emma", "Davis", "artist"),
+            new User("Frank", "Miller", "musician"),
+            new User("Grace", "Taylor", "nurse"),
+            new User("Henry", "Anderson", "scientist"),
+            new User("Isabella", "White", "gardener"),
+            new User("Jack", "Harris", "firefighter"),
+            new User("Katherine", "Martin", "pilot"),
+            new User("Leo", "Thompson", "gardener"),
+            new User("Mia", "Moore", "lawyer"),
+            new User("Nathan", "Clark", "policeman"),
+            new User("Olivia", "Lewis", "gardener"),
+            new User("Peter", "Walker", "photographer"),
+            new User("Quinn", "Hall", "programmer"),
+            new User("Rachel", "Allen", "gardener")
+    ); 
+}
+```
+
+
+
+
+
 ## Regex split
 
 ```java
