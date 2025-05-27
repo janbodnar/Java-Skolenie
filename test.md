@@ -114,6 +114,13 @@ void main() {
 
     int[] flattened = Arrays.stream(vals).flatMapToInt(Arrays::stream).toArray();
     System.out.println(Arrays.toString(flattened));
+
+    String fileName = "words.txt";
+
+    try (var lines = Files.lines(Path.of(fileName))) {
+        long n = lines.distinct().count();
+        System.out.println(n);
+    }
 ```
 
 
