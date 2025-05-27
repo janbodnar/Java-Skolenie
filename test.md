@@ -1,5 +1,99 @@
 # Priklady
 
+## Retrive table based on metadata
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+void main() {
+
+    String query = "SELECT * FROM cars";
+
+    try (Connection con = DriverManager.getConnection("jdbc:sqlite:test.db");
+         PreparedStatement pst = con.prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+
+        ResultSetMetaData meta = rs.getMetaData();
+        int colCount = meta.getColumnCount();
+
+        // Store column names and calculate maximum width for each column
+        String[] colNames = new String[colCount];
+        int[] colWidths = new int[colCount];
+
+        // Get column names and initialize widths
+        for (int i = 0; i < colCount; i++) {
+            colNames[i] = meta.getColumnName(i + 1);
+            colWidths[i] = colNames[i].length(); // Start with column name length
+        }
+
+        // Print column headers
+        for (int i = 0; i < colCount; i++) {
+            System.out.printf("%-" + (colWidths[i] + 2) + "s", colNames[i]);
+        }
+        System.out.println();
+
+        // Print separator line
+        for (int i = 0; i < colCount; i++) {
+            System.out.printf("%-" + (colWidths[i] + 2) + "s", "-".repeat(colWidths[i]));
+        }
+        System.out.println();
+
+        // Process each row
+        while (rs.next()) {
+            for (int i = 0; i < colCount; i++) {
+                // Get column type to handle different data types
+                int colType = meta.getColumnType(i + 1);
+                String value;
+
+                switch (colType) {
+                    case java.sql.Types.INTEGER:
+                    case java.sql.Types.BIGINT:
+                        value = String.valueOf(rs.getInt(i + 1));
+                        break;
+                    case java.sql.Types.VARCHAR:
+                    case java.sql.Types.CHAR:
+                        value = rs.getString(i + 1) != null ? rs.getString(i + 1) : "";
+                        break;
+                    case java.sql.Types.DOUBLE:
+                    case java.sql.Types.FLOAT:
+                        value = String.format("%.2f", rs.getDouble(i + 1));
+                        break;
+                    case java.sql.Types.DATE:
+                        value = rs.getDate(i + 1) != null ? rs.getDate(i + 1).toString() : "";
+                        break;
+                    default:
+                        value = rs.getObject(i + 1) != null ? rs.getObject(i + 1).toString() : "";
+                        break;
+                }
+
+                // Update column width if value is longer
+                colWidths[i] = Math.max(colWidths[i], value.length());
+                System.out.printf("%-" + (colWidths[i] + 2) + "s", value);
+            }
+            System.out.println();
+        }
+
+    } catch (SQLException ex) {
+        Logger lgr = Logger.getLogger("MyLogger");
+        lgr.log(Level.SEVERE, "SQLException occurred: " + ex.getMessage(), ex);
+    } catch (Exception ex) {
+        Logger lgr = Logger.getLogger("MyLogger");
+        lgr.log(Level.SEVERE, "Unexpected error: " + ex.getMessage(), ex);
+    }
+}
+
+```
+
+
+
+
 ## Prepared statements
 
 ```java
