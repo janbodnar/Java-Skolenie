@@ -23,7 +23,7 @@ void main() {
     // words
 
     // calculate the number of apples
-    // user regex
+    // use regex
     String text = """
             there are 4 apples in the basket, 12 apples on the table
             and 9 apples in the fridge
