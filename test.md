@@ -139,6 +139,61 @@ void main() {
 
     System.out.println(totalApples);
 
+
+
+record User(String firstName, String lastName, String occupation, String dateOfBirth) {
+
+    int age() {
+        return Period.between(LocalDate.parse(dateOfBirth), LocalDate.now()).getYears();
+    }
+
+}
+
+void main() throws IOException {
+
+
+    // filter out all gardeners
+    // add date of birth attribute (a String) and calculate each users' age
+    List<User> users = List.of(
+            new User("John", "Doe", "gardener", "2001-12-04"),
+            new User("Roger", "Roe", "driver", "1995-08-22"),
+            new User("Alice", "Smith", "teacher", "1987-06-13"),
+            new User("Bob", "Johnson", "engineer", "1992-11-30"),
+            new User("Charlie", "Brown", "doctor", "1985-09-14"),
+            new User("Dave", "Wilson", "chef", "1998-04-27"),
+            new User("Emma", "Davis", "artist", "1991-03-08"),
+            new User("Frank", "Miller", "musician", "1989-07-19"),
+            new User("Grace", "Taylor", "nurse", "1996-10-05"),
+            new User("Henry", "Anderson", "scientist", "1984-12-01"),
+            new User("Isabella", "White", "gardener", "2000-02-17"),
+            new User("Jack", "Harris", "firefighter", "1993-05-21"),
+            new User("Katherine", "Martin", "pilot", "1988-08-09"),
+            new User("Leo", "Thompson", "gardener", "1999-07-04"),
+            new User("Mia", "Moore", "lawyer", "1994-11-11"),
+            new User("Nathan", "Clark", "policeman", "1997-01-23"),
+            new User("Olivia", "Lewis", "gardener", "1986-06-29"),
+            new User("Peter", "Walker", "photographer", "1990-09-16"),
+            new User("Quinn", "Hall", "programmer", "1983-04-12"),
+            new User("Rachel", "Allen", "gardener", "1995-02-28")
+    );
+
+    users.forEach(user -> System.out.println(user.age()));
+
+    List<User> filtered = new ArrayList<>();
+    for (var user : users) {
+
+        if ("gardener".equals(user.occupation())) {
+            filtered.add(user);
+        }
+    }
+
+    System.out.println(filtered);
+
+    var gardeners = users.stream().filter(user -> "gardener".equals(user.occupation)).toList();
+    System.out.println(gardeners);
+
+}
+
 ```
 
 
