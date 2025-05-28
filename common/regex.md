@@ -886,3 +886,23 @@ void main()  {
 }
 ```
 
+Alternative with `Collectors.groupingBy`:
+
+```java
+void main() {
+
+    String data = """
+            The Battle of Thermopylae was fought between an alliance of Greek city-states,
+            led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
+            course of three days, during the second Persian invasion of Greece.
+            """;
+
+        var pattern = Pattern.compile("[\\s+,.]+");
+
+        // Use streams to split words and compute frequencies
+        Map<String, Long> freq = pattern.splitAsStream(data)
+            .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+
+        System.out.println(freq);
+}
+```
