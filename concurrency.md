@@ -934,3 +934,95 @@ public class StatusAsync {
     }
 }
 ```
+
+## Get meteo
+
+```
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+import java.io.IOException;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+void main() throws IOException, InterruptedException {
+    HttpClient client = HttpClient.newHttpClient();
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.open-meteo.com/v1/forecast?latitude=48.1486&longitude=17.1077&current_weather=true"))
+            .build();
+    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    
+    // Parse JSON using Gson
+    Gson gson = new Gson();
+    JsonObject json = gson.fromJson(response.body(), JsonObject.class);
+
+    System.out.println("Full JSON response:" + response.body());
+    
+    // Extract current weather data
+    JsonObject currentWeather = json.getAsJsonObject("current_weather");
+    double temperature = currentWeather.get("temperature").getAsDouble();
+    double windspeed = currentWeather.get("windspeed").getAsDouble();
+    int weathercode = currentWeather.get("weathercode").getAsInt();
+    
+    System.out.println("Weather data for Bratislava:");
+    System.out.println("Temperature: " + temperature + "°C");
+    System.out.println("Windspeed: " + windspeed + " km/h");
+    System.out.println("Weather code: " + weathercode);
+}
+```
+
+Deserialize into records. 
+
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+import java.io.IOException;
+import com.google.gson.Gson;
+
+record CurrentWeather(double temperature, double windspeed,
+    int winddirection, int weathercode, int is_day,
+    String time) {
+}
+
+record WeatherResponse(double latitude, double longitude,
+    double generationtime_ms, int utc_offset_seconds,
+    String timezone, String timezone_abbreviation,
+    double elevation, CurrentWeather current_weather) {
+}
+
+void main() throws IOException, InterruptedException {
+  HttpClient client = HttpClient.newHttpClient();
+  HttpRequest request = HttpRequest.newBuilder()
+      .uri(URI.create(
+          "https://api.open-meteo.com/v1/forecast?latitude=48.1486&longitude=17.1077&current_weather=true"))
+      .build();
+  HttpResponse<String> response = client.send(request,
+      HttpResponse.BodyHandlers.ofString());
+
+  // Parse JSON using Gson into record
+  Gson gson = new Gson();
+  WeatherResponse weather = gson.fromJson(response.body(),
+      WeatherResponse.class);
+
+  System.out.println("Weather data for Bratislava:");
+  System.out.println("Temperature: "
+      + weather.current_weather().temperature() + "°C");
+  System.out.println("Windspeed: "
+      + weather.current_weather().windspeed() + " km/h");
+  System.out.println("Weather code: "
+      + weather.current_weather().weathercode());
+
+  // Serialize back to JSON
+  String serializedJson = gson.toJson(weather);
+  System.out.println("Serialized JSON:");
+  System.out.println(serializedJson);
+}
+```
+
+
+
+
+
