@@ -131,7 +131,7 @@ example focused on the program itself:
 
 ```java
 void main() {
-		System.out.println("Hello, Java!");
+    System.out.println("Hello, Java!");
 }
 ```
 
@@ -157,17 +157,17 @@ projects.
 
 Java has several important characteristics:  
 
-- **Statically typed:** every variable has a type, such as `int`, `double`, or
+- **Statically typed:** every variable has a type, such as `int`, `double`, or  
 	`String`. Many errors can therefore be found before the program runs.  
-- **Object-oriented:** programs can be organized around objects that contain
+- **Object-oriented:** programs can be organized around objects that contain  
 	data and behavior.  
-- **Garbage-collected:** the runtime automatically reclaims memory that is no
+- **Garbage-collected:** the runtime automatically reclaims memory that is no  
 	longer needed.  
-- **Multithreaded:** the standard library provides tools for running tasks
+- **Multithreaded:** the standard library provides tools for running tasks  
 	concurrently.  
-- **Strong standard library:** Java includes APIs for collections, files,
+- **Strong standard library:** Java includes APIs for collections, files,  
 	networking, dates, regular expressions, databases, and more.  
-- **Backward compatible:** Java evolves regularly while maintaining a strong
+- **Backward compatible:** Java evolves regularly while maintaining a strong  
 	focus on compatibility with existing applications.  
 
 ## The basic building blocks
